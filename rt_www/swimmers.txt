@@ -1,0 +1,50 @@
+BEGIN;
+DROP TABLE "swimmers_coach";
+DROP TABLE "swimmers_boardmember";
+DROP TABLE "swimmers_boardposition";
+DROP TABLE "swimmers_swimmer";
+DROP TABLE "swimmers_state";
+CREATE TABLE "swimmers_state" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(32) NOT NULL,
+    "code" varchar(2) NOT NULL
+)
+;
+CREATE TABLE "swimmers_swimmer" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id"),
+    "street" varchar(32) NOT NULL,
+    "street2" varchar(32) NOT NULL,
+    "city" varchar(32) NOT NULL,
+    "state_id" integer NOT NULL REFERENCES "swimmers_state" ("id"),
+    "zipcode" varchar(16) NOT NULL,
+    "usms_code" varchar(10) NOT NULL,
+    "date_of_birth" date NOT NULL,
+    "day_phone" varchar(15) NULL,
+    "evening_phone" varchar(15) NULL,
+    "gender" varchar(1) NOT NULL
+)
+;
+CREATE TABLE "swimmers_boardposition" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "title" varchar(20) NOT NULL,
+    "description" text NOT NULL
+)
+;
+CREATE TABLE "swimmers_boardmember" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "swimmer_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id"),
+    "position_id" integer NOT NULL REFERENCES "swimmers_boardposition" ("id")
+)
+;
+CREATE TABLE "swimmers_coach" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "swimmer_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id"),
+    "title" varchar(1) NOT NULL,
+    "bio" text NOT NULL,
+    "is_active" bool NOT NULL
+)
+;
+CREATE INDEX "swimmers_swimmer_state_id" ON "swimmers_swimmer" ("state_id");
+CREATE INDEX "swimmers_boardmember_position_id" ON "swimmers_boardmember" ("position_id");
+COMMIT;

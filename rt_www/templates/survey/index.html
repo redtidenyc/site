@@ -1,0 +1,105 @@
+{% extends "index/base.html" %}
+{% block title %}Welcome to the Redtide Surveymanator{% endblock %}
+{% block add_stylesheets %}
+        <script type="text/javascript" src="/media/js/trimpath/template.js"></script>
+        <script type="text/javascript" src="/media/js/rsh/dhtmlHistory.js"></script>
+	<script type="text/javascript" src="/media/js/SurveyManager.js"></script>
+{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+        <div class="subright">
+        </div>
+        <div id="anchor_div" class="subleft">
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+<textarea id="login_page" style="display:none;">
+    <h1>{{ object.title }}</h1>
+    <div class="redline"><h2>Start Taking the Survey:</h2></div>
+
+    <div id="main_box" class="highlightbox">
+        {% if object.swimmers_only %}
+            <p>Begin by registering to take the survey.  Your answers are <strong>not</strong> individually identifiable.  This registration is only to ensure that the survey takers are current redtide members.<p>
+            <p><strong>USMS Number: </strong>&nbsp;<input id="usms" value="" type="text" size="15"/></p>
+            <p><input type="button" id="register" value="Lookup My USMS"/></p>
+        {% else %}
+            {% if object.introduction %}
+                <p id="intro">{{ object.introduction }}</p>
+            {% endif %}
+                <p><input type="button" id="start_survey" value="Start taking the Survey"/></p>
+        {% endif %}
+    </div>
+</textarea>
+<textarea id="pagination" style="display:none;">
+<p>{if prev}<a href="javascript:void(0);" id="prev_question">&#60;&#60; Previous Question </a>{/if} Question ${qno} of ${qtotal} {if next}<a href="javascript:void(0);" id="next_question"> Next Question &#62;&#62;</a>{else}<a href="javascript:void(0);" id="finish"> Finish Survey</a>{/if}</p>
+</textarea>
+<textarea id="finished" style="display:none;">
+    <h1>Survey Completed</h1>
+    <div class="redline"><h2></h2></div>
+    <div id="main_box" class="highlightbox">
+        <p>Thanks for taking our survey. Click <a href="/">here</a> to return to the main site.</p>
+    </div>
+</textarea>
+<textarea id="comment_template" style="display: none;">
+    {var tag = "textarea"}
+    <h1>Question #${qno}</h1>
+    <div class="redline"><h2>${question}</h2></div>
+    <div id="main_box" class="highlightbox">
+       <${tag} columns="30" rows="10" name="comment" id="comment" value=""></${tag}> 
+    </div>
+</textarea>
+<textarea id="matrix_template" style="display: none;">
+    <h1>Question #${qno}</h1>
+    <div class="redline"><h2>${question}</h2></div>
+    <div id="main_box" class="highlightbox">
+        <table>
+	    <tr>
+	        <th></th>
+		{for col in clabels}
+                    {if col_index < clabels.length}
+		    <th>${col}</th>
+                    {/if}
+		{/for}
+		</tr>
+		{for row in rlabels}
+                {if row_index < rlabels.length}
+		<tr>
+                        <td>${row} </td>
+			{for col in clabels}
+                        {if col_index < clabels.length}
+			<td><input type="radio" name="choice_${row_index}" value="${row}:${col}"/></td>
+			{/if}
+                        {/for}
+		</tr>
+                {/if}
+		{/for}
+	</table> 
+    </div> 
+</textarea>
+<textarea id="vert_choice_template" style="display: none;">
+    {var tag = "textarea"}
+    <h1>Question #${qno}</h1>
+    <div class="redline"><h2>${question}</h2></div>
+    <div id="main_box" class="highlightbox">
+        <ol>
+            {for choice in choices}
+            {if choice.choice}
+            <li>
+                {if multiple}
+               <input type="checkbox" name="choice${choice_index}" value="${choice.choice}"/><span style="padding-left: .5em">${choice.choice}</span> 
+                {else}
+                <input type="radio" name="choice" id="choice${choice_index}" value="${choice.choice}"/><span style="padding-left: .5em">${choice.choice}</span>
+	        {/if}
+                {if choice.has_comment}
+	        <${tag} columns="30" rows="3" name="choice_comment" id="choice_comment${choice_index}" value=""></${tag}>
+		{/if} 
+            </li>
+            {/if}
+            {/for}
+        </ol>
+    </div>
+</textarea>
+{% endblock %}	

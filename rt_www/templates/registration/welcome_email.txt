@@ -1,0 +1,18 @@
+Welcome to Redtide!
+
+	You have just completed the signup process and are registered for the
+following plans:
+	{% for p in plans %}
+	{{ p }}
+	{% endfor %}
+You should shortly receive a notice from paypal indicating that the payment was
+processed.  You can bring that email on deck to your first practice or the
+confirmation page displayed at the conclusion of the signup process to verify your
+registration status.  
+	As an addenda you have been added to the announcements@redtidenyc.org
+mailing list.  This list provides you with crucial information about the team.  Meet
+announcements, official status reports from the Board of directors and so on.  If you 
+like we also have a small, voluntary list, social@redtidenyc.org where we announce
+team social engagements, a semi-weekly happy hour, bowling trips and the like.  If you
+would like to be signed up to this list email board@redtidenyc.org with you request
+and they will happily oblige.  We look forward to seeing you in the pool.

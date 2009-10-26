@@ -1,0 +1,268 @@
+{% extends "index/base.html" %}
+{% block title%}Welcome to Redtide of NYC{% endblock %}
+{% block add_stylesheets %}
+        <link rel="stylesheet" href="/media/css/lightbox.css"/>
+        <script type="text/javascript" src="/media/js/trimpath/template.js"></script>
+        <script type="text/javascript" src="/media/js/rsh/dhtmlHistory.js"></script>
+	<script type="text/javascript" src="/media/js/register.js"></script> 
+{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+       <script type="text/javascript">
+        _uacct = "UA-1705610-1"; 
+        urchinTracker(); 
+        </script>  
+        <div class="subright">
+            <ul>
+                <li><strong>Registration</strong></li>
+                <li><a onClick="javascript:urchinTracker('/downloads/usmspdf');" href="/static/pdfs/redtide08usms.pdf">USMS Membership Form</a></li>
+	        <li><a href="javascript:void(0);" id="faq_link">Frequently Asked Questions</a></li>
+	        <li><a href="mailto:help@redtidenyc.org?Subject=Qn: Red Tide Online Registration" >Help With Registration</a></li>
+	        <li><a href="mailto:info@redtidenyc.org?Subject=Qn: Joining Red Tide" >Questions About Joining</a></li>
+	        <li><a href="/howtojoin/">Payment Options</a></li>
+            </ul>
+        </div>
+        <div class="subleft" id="reg_form">
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+<textarea id="start" style="display:none;">
+    <h1>Join Red Tide</h1>
+    <div class="redline" id="team"><h2>Registration <!--{{ reg_period }}--></h2></div>
+    {if error}
+    <div class="error">
+        <p>${error}</p>
+    </div>
+    {/if}
+    <div class="highlightbox">
+	<p><strong>New Registrants:</strong> <a id="empty_form" href="javascript:void(0);">Click here</a> to register.</p>
+	<p><strong>Previous Registrants:</strong> Enter your information below.</p>
+    </div>
+            
+    <table class="regTable">
+        <tr>
+            <td align="right"><strong>Email Address*</strong></td>
+            <td>
+                <input id="email" type="text" value="${email}" size="30"/>
+            </td>
+	</tr>
+        <tr>
+            <td align="right"><strong>Date of Birth: (mm dd yyyy) *</strong></td>
+	    <td><input id="dob_month" size="2" type="text" value="${month}"/>
+		<input id="dob_day" size="2" type="text" value="${day}" class="daymonth"/>
+		<input id="dob_year" size="4" type="text" value="${year}" class="year"/>
+            </td>
+        </tr>
+	<tr>	
+            <td align="right">
+	        <input type="submit" id="lookup_submit" value="look me up" class="clsButton" name="butSubmit"/>
+	    </td>
+	</tr>
+    </table>
+</textarea>
+<textarea id="form" style="display:none;">
+    <h1>Join Red Tide</h1>    
+    <div class="redline" id="team">
+        <h2>Registration <!--{{ reg_period }}--></h2>
+    </div>
+    {if formvars.errors && formvars.errors.length > 0}
+    <div class="error">
+        {for e in formvars.errors}
+        <p>${e}</p>
+        {/for}
+    </div>
+    {/if}
+    <table class="regTable">
+        <tr>
+            <td align="right"><strong>Email Address*</strong></td>
+            <td><input name="email" id="email" size="30" value="${formvars.email}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>USMS Number*</strong></td>
+            <td><input name="usms" id="usms" size="20" value="${formvars.usms}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>First Name*</strong></td>
+            <td><input name="firstname" id="firstname" size="20" value="${formvars.firstname}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Middle Initial</strong></td>
+            <td><input name="middle" id="middle" size="2" value="${formvars.middle}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Last Name*</strong></td>
+            <td><input name="lastname" id="lastname" size="20" value="${formvars.lastname}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Date of Birth (mm/dd/yyyy)*</strong></td>
+            <td><input name="dob_month" id="dob_month" size="2" value="${formvars.dob_month}" type="text" /> 
+                <input name="dob_day" id="dob_day" size="2" value="${formvars.dob_day}" type="text" />
+                <input name="dob_year" id="dob_year" size="4" value="${formvars.dob_year}" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Address*</strong></td>
+            <td><input name="address" id="address" size="30" value="${formvars.address}" type="text"/></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>More Address</strong></td>
+            <td><input name="address2" id="address2" size="30" value="${formvars.address2}" type="text"/></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>City*</strong></td>
+            <td><input name="city" id="city" size="20" value="${formvars.city}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>State*</strong></td>
+            <td>
+                <select name="state" id="state">
+                {for state in states}
+                    <option value="${state.id}">${state.code}</option>
+                {forelse}
+                {/for}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Zip*</strong></td>
+            <td><input name="zip" id="zip" size="16" value="${formvars.zip}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Gender*</strong></td>
+            <td>{if formvars.gender == "M"}
+                <input value="F" name="gender" id="f" type="radio">Female<br />
+                <input checked="1" value="M" name="gender" id="m" type="radio">Male
+                {else}
+                <input checked="1" value="F" name="gender" id="f" type="radio">Female<br />
+                <input value="M" name="gender" id="m" type="radio">Male
+                {/if}
+            </td> 
+        </tr>
+        <tr>
+            <td align="right"><strong>Telephone (Day)</strong></td>
+            <td><input name="dayphone" id="dayphone" size="12" value="${formvars.dayphone}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Telephone (Evening)</strong></td>
+            <td><input name="evephone" id="evephone" size="12" value="${formvars.evephone}" type="text" /></td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Payment Plan*</strong></td>
+            <td><select name="plan" id="plan">
+                    <option value="">---------</option>
+                    {for plan in plans}
+                    <option value="${plan.id}">${plan.name}</option>
+                    {forelse}
+                    {/for}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input value="1" name="terms" id="terms" type="checkbox"> By checking this box you agree to<br /> Red Tide's <a id="terms_link" href="javascript:void(0);">terms and agreements</a>.</td>
+        </tr>
+        <tr>
+            <td align="right"><input value="Register" id="register" class="clsButton" name="butSubmit" type="submit"></td>
+            <td></td>
+        </tr>
+    </table>     
+</textarea>
+<textarea id="confirm" style="display:none;">
+    <h1>Join Red Tide</h1>    
+    <div class="redline" id="team">
+        <h2>Registration <!--{{ reg_period }}--></h2>
+    </div>
+                
+    <table class="regTable">
+        <tr>
+            <td align="right"><strong>Email Address: </strong></td>
+            <td>${formvars.email}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>USMS Number: </strong></td>
+            <td>${formvars.usms}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>First Name: </strong></td>
+            <td>${formvars.firstname}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Middle Initial: </strong></td>
+            <td>${formvars.middle}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Last Name: </strong></td>
+            <td>${formvars.lastname}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Date of Birth (mm/dd/yyyy): </strong></td>
+            <td>${formvars.dob_month}-${formvars.dob_day}-${formvars.dob_year}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Address: </strong></td>
+            <td>${formvars.address}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>More Address: </strong></td>
+            <td>${formvars.address2}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>City: </strong></td>
+            <td>${formvars.city}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>State: </strong></td>
+            <td>${formvars.state.code}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Zip: </strong></td>
+            <td>${formvars.zip}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Gender: </strong></td>
+            <td>{if formvars.gender == "F"}Female{else}Male{/if}</td> 
+        </tr>
+        <tr>
+            <td align="right"><strong>Telephone (Day): </strong></td>
+            <td>${formvars.dayphone}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Telephone (Evening): </strong></td>
+            <td>${formvars.evephone}</td>
+        </tr>
+        <tr>
+            <td align="right"><strong>Payment Plan: </strong></td>
+            <td>${formvars.plan.name}</td>
+        </tr>
+        {if formvars.owed <= 0.0 && formvars.iscoach != "1"}
+        <tr>
+            <td colspan="2">'You do not owe anything at this time. If seems to be an error please <a href="mailto:help@redtidenyc.org?subject=[Red Tide] Registration Problem">contact us</a></td>
+        </tr>
+        {elseif formvars.owed > 0}
+        <tr>
+            <td align="right"><strong>Amount Owed: </strong></td>
+            <td>${formvars.owed}</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: 10px;">Please remember that this amount may include the $40.00 annual fee (if you have not paid it this year) in addition the fee for the subscription you selected.  If there are any errors, please correct them before you continue by clicking on the back button of your browser.  Continue to payment page by clicking on the PayPal button below. Your registration will not be saved until you click the button.</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="image" id="submit" src="/media/img/x-click-but6.gif" border="0" alt="pay with PayPal"/></td>
+        </tr>
+        {elseif formvars.iscoach == "1"}
+        <tr>
+            <td colspan="2">Save your registration by clicking on the button below</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" id="submit" value="Save Registration"/></td>
+        </tr>
+        {/if}
+    </table>     
+</textarea>
+{% endblock %}
+{% block bodyappend %}
+<div id="overlay" style="display:none;"><div id="content" class="displaycontent"></div></div>
+{% endblock %}

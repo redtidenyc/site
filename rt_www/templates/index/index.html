@@ -1,0 +1,83 @@
+{% extends "index/base.html" %}
+{% block add_stylesheets %}
+	<link rel="stylesheet" type="text/css" href="/media/css/rtindex.css" />
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/media/css/ie7hacks.css"/>
+	<![endif]-->
+        <script type="text/javascript" src="/media/js/swfobject.js"></script>
+{% endblock %}
+{% block content %}
+<div id="home_tease">
+    <div class="left">
+        <div id="homeslides"><img class="homesnap" src="/media/img/home_snap.gif" width="362" height="268" /></div>
+       <script type="text/javascript">
+        // <![CDATA[
+    
+        var so = new SWFObject("/media/flash/Sliders.swf", "homeslides", "430", "323", "8", "#ffffff");
+        so.addParam("wmode", "transparent");
+        so.write("homeslides");
+ 
+        // ]]>
+        </script>
+    </div>
+    <div class="right">
+        <div class="content">
+            <h2>ABOUT RED TIDE</h2>
+            <p>Red Tide is a competitive masters swim team in New York City and has been in existence for over 20 years. It is a cooperatively run organization of over 100 swimmers from novices to national champions. Red Tide welcomes swimmers over 18 of all abilities, goals, and experience. We swim for fun, fitness, and competition.</p>
+            <p class="link"><a href="/about/">READ MORE</a> | <a href="/howtojoin/">JOIN NOW</a></p>
+        </div>
+    </div>
+</div>
+<div id="main">
+    <div class="left">
+        {% if current_closings %}
+        <h2>Cancellations</h2>
+        <div id="cancellations">
+            
+               <p>Practice will be cancelled on 
+                {% for closing in current_closings %}
+                     {{ closing }}&nbsp;
+                {% endfor %}
+                <p>
+        </div>
+        {% endif %}
+        <div class="redline">
+            <h2>Workout Schedule</h2>
+        </div>
+        <table class="schedTable">
+            <thead>
+                <tr>
+                    <th class="title" colspan="3">{{ season }}</th>
+                </tr>
+                <tr>
+                    <th>Workout</th>
+                    <th>Time</th>
+                    <th>Pool</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in practices %}
+                <tr>
+                    <td>{{ p.day }} {{ p.period }}</td>
+                    <td>{{ p.start }}-{{ p.end }}</td>
+                    <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="right">
+        <div class="redline">
+            <h2>Announcements</h2>
+        </div>
+	{% autoescape off %}
+        {% for a in current_announcements %}
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.fptext }}</p>
+        {% endfor %}
+	{% endautoescape %}
+    </div>
+    <br class="clearme"/>
+</div>
+{% include "index/footer.html" %}
+{% endblock %}

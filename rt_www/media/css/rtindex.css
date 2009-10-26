@@ -1,0 +1,34 @@
+/* HOME PAGE TEASER */
+#home_tease { height: 323px; background: #eeecdb url('/media/img/tiles_bg.gif') repeat-x bottom left; }
+#home_tease .left { width: 430px; height: 323px; background: url('/media/img/pic_bg.gif') no-repeat 38px 14px; float: left; }
+.homesnap { padding-left: 49px; padding-top: 24px; }
+#home_tease .right { width: 480px; height: 287px; float: right; }
+#home_tease .right .content { padding: 25px 30px 0px 30px; }
+#home_tease .right h2 { font-size: 24px; letter-spacing: -1px; margin-bottom: 10px; }
+#home_tease .right p { font-size: 14px; margin-top: -10px; padding-top: 0px; }
+#home_tease .right .link { font-size: 16px; font-weight: bold; text-align: right; }
+#home_tease .right a { color: #de272a; text-decoration: none; }
+
+/* main box */
+#main .left { padding:  10px 20px 10px 30px; background: #ffffff; width: 405px; float: left; }
+#main .right { padding:  10px 30px 10px 20px; background: #fffffff; width: 405px; float: right; }
+
+/* cancellations */
+#cancellations { padding: 10px 10px 1px 10px; margin-bottom: 12px; color: #fff; background: #de272a url('/media/img/cancel_bg.gif') repeat-x top left; }
+#cancellations a { color: #ffffff; text-decoration: underline; }
+#cancellations a:hover { text-decoration: none; }
+#cancellations a:visited { color: #ffffff; }
+
+/* Schedule Table */
+.schedTable { border-spacing: 0px; width: 100%; padding-left: 0px; padding-right: 0px; margin: 0; margin-top: 15px; }
+.schedTable th {
+    font: bold 13px "Lucida Grande", verdana, arial, helvetica, sans-serif;
+    color: #de272a;
+    text-align: left;
+    padding: 2px 2px 2px 2px;
+}
+.schedTable th.title { font-size: 14px; background: #ffffff; color: #111; padding-bottom: 8px; }
+.schedTable td { font-size: 13px; background: #fff; padding: 0px 2px 0px 2px; }
+.schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
+.schedTable a:hover { text-decoration: underline; }
+.schedTable a:visited { font-weight: bold; color: #00667c; }

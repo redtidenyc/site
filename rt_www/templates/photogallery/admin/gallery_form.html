@@ -1,0 +1,105 @@
+{% extends "admin/base_site.html" %}
+{% load adminmedia %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="/media/css/autocomplete.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/photo_dd.css"/>
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/media/js/core.js"></script>
+<script type="text/javascript" src="/media/js/calendar.js"></script>
+<script type="text/javascript" src="/media/js/admin/DateTimeShortcuts.js"></script>
+<script type="text/javascript" src="/media/js/MochiKit/MochiKit.js"></script>
+<script type="text/javascript" src="/media/js/autocomplete.js"></script>
+<script type="text/javascript" src="/media/js/admin/SwimmerAutoCompleter.js"></script>
+<script type="text/javascript" src="/media/js/admin/GalleryManager.js"></script>
+{% endblock %}
+{% block stylesheet %}{% admin_media_prefix %}css/forms.css{% endblock %}
+{% block coltype %}colM{% endblock %}
+{% block bodyclass %}change-form{% endblock %}
+{% block userlinks %}<a href="/admin/doc/">Documentation</a> / <a href="/admin/password_change/">Change password</a> / <a href="/admin/logout/">Log out</a>{% endblock %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+	<a href="/admin/">Home</a> &rsaquo; <a href="../">Photogallery</a> &rsaquo;
+</div>
+{% endblock %}
+{% block content %}
+<div id="content-main">
+<h1>{% if add %}Add Photogallery{% else %}Change Photogallery{% endif %}</h1>
+{% if change %}
+	<ul class="object-tools">
+		<li><a href="history/" class="historylink">History</a></li>
+		<li><a href="/photos/" class="viewsitelink">View on site</a></li>
+	</ul>
+{% endif %}
+	<form method="post" action="" id="galleryform">
+		<div>
+			<fieldset class="module aligned ()">
+				<div class="form-row">
+					<label class="required" for="id_title">Title:</label>
+					<input  type="text" maxlength="80" value="{{ gallery.title }}" size="30" name="title" class="vTextField required" id="id_title"/>
+				</div>
+				<div class="form-row">
+					<label for="id_swimmer">Gallery Author:</label>
+					<input type="text" id="id_swimmer" name="id_swimmer" class="vTextField" value="{{ gallery.creator }}"/>
+				</div>
+				<div class="form-row" id="photos">
+					<label for="id_photos">Photos:</label>
+					<div class="selector">
+						<div class="columnwrapper available">
+							<h2>Available Photos</h2>
+							<div>
+								<ul id="available">
+								{% for available in aphotos %}
+									<li id="{{ available.id }}">
+										<span>
+											<img src="{{ available.get_thumb }}"/>
+										</span>
+									</li>
+								{% endfor %}
+								</ul>
+							</div>
+						</div>
+						<p>
+							<a href="javascript:void(0);" id="chooseall" class="selector-chooseall">Choose all</a>
+						</p>
+						<ul class="chooser_bar">
+							<li><a href="javascript:void(0);" id="add_selected">
+								<img src="/media/img/admin/selector-add.gif"/>
+							</a></li>
+							<li><a href="javascript:void(0);" id="remove_selected">
+								<img src="/media/img/admin/selector-remove.gif"/>
+							</a></li>
+						</ul>
+						<div id="chosen_container">
+						<div class="columnwrapper chosen">
+							<h2>Chosen Photos</h2>
+							<div>
+								<ul id="chosen">
+								{% for chosen in cphotos %}
+									<li id="{{ chosen.id }}">
+										<span>
+											<img src="{{ chosen.get_thumb }}"/>
+										</span>
+									</li>
+								{% endfor %}
+								</ul>
+							</div>
+						</div>
+						<p>
+							<a href="javascript:void(0);" id="clearall" class="selector-clearall">Clear All</a>		
+						</p>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<div class="submit-row">
+				{% if change %}
+				<p class="float-left"><a href="../delete/{{ gallery.id }}/" class="deletelink">Delete</a></p>
+				{% endif %}
+				<input type="submit" value="Save and add another" name="_addanother"  />
+				<input type="submit" value="Save and continue editing" name="_continue" />
+				<input type="submit" value="Save" class="default" />
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+#wo_sch_head {
+	padding-left: 1em;
+	width: 300px;
+}
+
+#tab_img {
+	height: 300px;
+	width: 100%;	
+}
+
+#schedule_box {
+	height: 800px;
+	width: 456px;
+}
+/*
+* html #schedule_box {
+	top: 2px;
+	height: 321px;
+}
+*/
+#big_schedule {
+	float: left;
+	height: 292px;
+	width: 300px;
+	padding-top: .4em;
+	border: 2px solid red;
+	border-top: 0px;
+}
+
+#big_schedule table {
+	height: 100%;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+tr.sch_table_title {
+	color: red;
+	font-size: 108%;
+	font-weight: bold;
+}
+
+#big_schedule td {
+	padding: .5em;
+	font-size: 70%;
+}
+
+#directions {
+	float: left;
+	width: 275px;
+	padding-left: 2em;
+	padding-top: 1em;
+}
+
+.grey_back {
+	background: #D0D0D0;	
+}
+
+p.dir_text {
+	font-size: 75%;	
+}

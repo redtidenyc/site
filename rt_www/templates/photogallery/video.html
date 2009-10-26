@@ -1,0 +1,51 @@
+{% extends "index/base.html" %}
+{% block title %}Red Tide Video Gallery{% endblock %}
+{% block add_stylesheets %}
+<script type="text/javascript" src="/media/js/swfobject.js"></script>
+{% endblock %}
+{% block content %}
+<div id="main">
+<script type="text/javascript">
+    function thisMovie(movieName) {
+	    if(navigator.appName.indexOf("Microsoft") != -1) {
+			return window[movieName];
+		} else {
+			return document[movieName];
+		}
+	};
+    
+    function loadFile(obj) { 
+        swapDOM('title', DIV({'id':'title', 'class':'redline'}, H2({}, obj.title))); 
+        thisMovie("mpl").loadFile(obj); 
+    };
+</script>
+    <div class="sub">
+	<div id="subright" class="subright">
+	    <ul id="rightnav">
+                {% for video in object_list %}
+                <li id="video_{{ video.id }}"><a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">{{ video.title }}</a></li>
+                {% endfor %}                
+            </ul>	
+	</div>
+	<div id="subleft" class="subleft">
+            <h1>Redtide Video Gallery</h1>
+            
+            <div id="title" class="redline"><h2>{{ object.title }}</h2></div>
+            <div id="main" class="highlightbox">
+                <p id="video" style="text-align: center;"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</p>
+            </div>    
+        </div> 
+        <script type="text/javascript">
+            var s1 = new SWFObject("/media/flash/flvplayer.swf","mpl","320","240","7");
+            s1.addParam("allowfullscreen","true");
+            s1.addVariable("file","{{ object.get_video }}");
+            s1.addVariable("image", "{{ object.get_thumb }}");
+            s1.addVariable("enablejs", "true");
+            s1.addVariable("javascriptid", "mpl");
+            s1.write("video");
+        </script>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+{% endblock %}

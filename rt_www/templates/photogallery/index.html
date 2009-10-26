@@ -1,0 +1,45 @@
+{% extends "index/base.html" %}
+{% load markup %}
+{% block title %}Redtide Photo Galleries{% endblock %}
+{% block add_stylesheets %}
+        <link rel="stylesheet" href="/media/css/lightbox.css" media="screen" />
+        <script type="text/javascript" src="/media/js/trimpath/template.js"></script>
+	<script type="text/javascript" src="/media/js/photos.js"></script>
+        <!--[if IE]>
+        <style type="text/css">
+        #lightbox { line-height: 10px; }
+        #topCaption #tcaption { padding-top: 5px; }
+        </style>
+        <![endif]-->
+{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="subphotos">
+        <div class="redline"><h1>Redtide Photo Galleries</h1></div><br/>
+	<p>To view each album, click on the first image. Use either the arrow keys or the links in the upper left or right of the image to scroll through the photos. To quit out of the album, hit the "q" key.</p>
+        <center id="gallery">   
+        </center>
+    </div>
+    <br class="clearme"/>
+    {% include "index/footer.html" %} 
+</div>
+<div id="overlay" style="display:none;"></div>
+<textarea id="photo_table" style="display:none;">
+<table class="photoTable">
+    {for row in rows}
+    <tr>
+        {for im in row}
+        <td><div class="photocell"><h3>${im.title}</h3></div>
+        {if im.gid != ""}
+        <a id="gallery${im.gid}" href="javascript:void(0);"><img src="${im.loc}" width="80" height="60" border="0"/></a></td>
+        {/if}
+        {/for}
+    </tr>
+    {/for}
+    <tr>
+        <td class="alt" colspan="4"><p>{if prev}<a href="javascript:void(0);" id="prev_galleries">&lt;&lt;prev</a>{/if} Page ${pageno} of ${total} {if next}<a href="javascript:void(0);" id="next_galleries">next&gt;&gt;</a>{/if}</p></td>
+    </tr>
+</table>
+</textarea>
+{% include "index/lightbox_overlay.html" %}
+{% endblock %}

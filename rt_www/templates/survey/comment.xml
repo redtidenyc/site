@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<div id="preview_question">
+	<p class="question">{{ question }}</p>
+	<textarea column="30" rows="10" name="comment" value=""></textarea>
+</div>
+</html>

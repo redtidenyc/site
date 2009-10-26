@@ -1,0 +1,17 @@
+K 8
+passtype
+V 6
+simple
+K 8
+password
+V 12
+18moby@local
+K 15
+svn:realmstring
+V 60
+<http://svn.redtidenyc.org:80> Redtide Subversion Repository
+K 8
+username
+V 7
+hal9000
+END

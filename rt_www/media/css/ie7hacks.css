@@ -1,0 +1,4 @@
+*:first-child+html #main .left { padding-top: 20px; }
+*:first-child+html #main .right { padding-top: 20px; }
+*:first-child+html #main .subleft { padding-top: 20px; }
+

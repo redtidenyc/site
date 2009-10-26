@@ -1,0 +1,21 @@
+{% extends "index/base.html" %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">        
+        <div class="subright">    
+            <ul>
+                <li><a href="#eti">Swimming Etiquette</a></li>
+                <li><a href="#lingo">Swimming Lingo</a></li>
+            </ul>
+        </div>
+        <div class="subleft">
+	    {% autoescape off %}
+            {{ flatpage.content }}      
+	    {% endautoescape %}
+        </div>
+        <br class="clearme">
+    </div>
+{% include "index/footer.html" %}
+</div>
+{% endblock %}

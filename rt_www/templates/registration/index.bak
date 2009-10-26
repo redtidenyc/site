@@ -1,0 +1,54 @@
+{% extends "index/base.html" %}
+{% block title%}Welcome to Redtide of NYC{% endblock %}
+{% block add_stylesheets %}
+	<script type="text/javascript" src="/media/js/register.js"></script>
+	<link rel="stylesheet" type="text/css" href="/media/css/rtcontent_text.css" />	
+	<link rel="stylesheet" type="text/css" href="/media/css/rtcontent_boxes.css" />
+	<link rel="stylesheet" type="text/css" href="/media/css/register.css"/>
+	<!--[if gt IE 5]>
+	<link rel="stylesheet" type="text/css" href="/media/css/ie7hacks.css"/>
+	<![endif]-->
+{% endblock %}
+{% block top_menu %}{% endblock %}
+{% block content %}
+<div class="body_box">
+	<div class="grey_tab">
+		<img src="/media/img/reg_tab.jpg"/>
+	</div>
+	<div class="vert_tab_box" id="mid_content">
+		<div id="error_div" style="display: none;"></div>
+		<div id="reg_period" style="display: none;">{{ reg_period }}</div>
+		<ul class="off_fp_subtitle">
+			
+			<li><span class="red_title">Registration - {{ reg_period }}</span></li>
+			<li><span class="red">Previous Registrants:</span> Enter your information below.</li>
+			<li><span class="red">New Registrants:</span> <a id="empty_form" href="javascript:void(0);" class="red_link">Click here</a> to register.</li>
+			<li>Email Address*&nbsp;<input id="email" type="text" value="" size="30"/></li>
+			<li>Date of Birth: (mm dd yyyy) *
+			<input id="dob_month" type="text" value="" class="daymonth"/>
+			<input id="dob_day" type="text" value="" class="daymonth"/>
+			<input id="dob_year" type="text" value="" class="year"/></li>
+			<li id="lookup_submit">
+				<input type="submit" value="look me up" class="clsButton" name="butSubmit"/>
+			</li>
+	
+		</ul>
+	</div>
+	<div id="right_nav">
+		<ul>
+			<li><a href="/static/pdfs/rt_usms06-07_nov.pdf" target="_new" class="rnav_link">USMS Membership Form</a></li>
+			<li><a href="javascript:void(0);" id="faq_link" class="rnav_link">Frequently Asked Questions</a></li>
+			<li>
+				<a href="mailto:help@redtidenyc.org?Subject=Qn: Red Tide Online Registration" 
+					class="rnav_link">Help With Registration</a>
+			</li>
+			<li>
+				<a href="mailto:info@redtidenyc.org?Subject=Qn: Joining Red Tide" 
+					class="rnav_link">Questions About Joining</a>
+			</li>
+			<li><a href="/howtojoin/" class="rnav_link">Payment Options</a></li>
+		</ul>
+	</div>
+</div>
+<div id="termscontent" class="termsRules"></div>
+{% endblock %}

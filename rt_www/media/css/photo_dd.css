@@ -1,0 +1,71 @@
+li.selected {
+	background: #ccc;
+}
+div.selector {
+	height: 600px;
+	width: 750px;
+}
+.selector li {
+	list-style: none;
+}
+
+.selector p {
+	width: 100px;
+}
+
+div.columnwrapper {
+	height: 500px; 
+	width: 300px;	
+}
+
+.columnwrapper div {
+	height: 95%;
+	position: relative;
+	overflow: auto;
+}
+
+.columnwrapper li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	width: 85px;
+}
+
+
+.available h2 {
+	border:1px solid #ccc;
+
+}
+
+.selected {
+	background: #ccc;
+}
+
+#chosen_container {
+	float: right;
+	position: relative;
+	top: -590px;
+	width: 300px;
+}
+
+.chosen h2 {
+	background: white url(/media/img/admin/nav-bg.gif) bottom left repeat-x;
+	color:#666;
+}
+
+ul.chooser_bar {
+	position: relative;
+	left: 250px;
+	top: -400px;
+	background:url(/media/img/admin/chooser-bg.gif) no-repeat scroll center top; 
+	height: 50px;
+	width: 50px;
+}
+
+.chooser_bar li {
+	height:20px;
+	margin: 0;
+	padding-top: 4px;
+	padding-left: 7px;
+	border: 0px;
+}

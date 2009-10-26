@@ -1,0 +1,15 @@
+{% extends "index/base.html" %}
+{% block title %}Internal Server Error{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+        <div class="subright"></div>
+        <div class="subleft">
+	    <div class="redline"><h2>500: Internal Server Error</h2></div>
+	    <p>You killed Phil.  You monster.</p>
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+{% endblock %}

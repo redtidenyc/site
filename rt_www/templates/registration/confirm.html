@@ -1,0 +1,80 @@
+{% extends "index/base.html" %}
+{% block title%}Welcome to Redtide of NYC{% endblock %}
+{% block add_stylesheets %}
+{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+	<div class="subright">
+            <ul>
+                <li><strong>Registration</strong></li>
+                <li><a href="/static/pdfs/redtide08usms.pdf">USMS Membership Form</a></li>
+	        <li><a href="javascript:void(0);" id="faq_link">Frequently Asked Questions</a></li>
+	        <li><a href="mailto:help@redtidenyc.org?Subject=Qn: Red Tide Online Registration" >Help With Registration</a></li>
+	        <li><a href="mailto:info@redtidenyc.org?Subject=Qn: Joining Red Tide" >Questions About Joining</a></li>
+	        <li><a href="/howtojoin/">Payment Options</a></li>
+            </ul>
+        </div>
+        <div class="subleft">
+                <div class="redline"><h2>Confirmed</h2></div>
+		<p>{{message}}</p>
+                
+		<table class="regTable">
+			<!-- only show payment info if a payment actually went through -->
+			{% if payment_gross %}
+		    <tr>
+                        <td align="right"><strong>payment date: </strong></td>
+                        <td>{{payment_date}}</td>
+		    </tr>
+                    <tr>
+                        <td align="right"><strong>payer's email address: </strong></td>
+                        <td>{{payer_email}}</td>
+                    </tr>
+                    <tr>
+			<td align="right"><strong>payer's name: </strong>
+                        <td>{{first_name}} {{last_name}}</td>
+		    </tr>
+                    <tr>
+                        <td align="right"><strong>total due: </strong>
+                        <td>{{mc_gross}}</td>
+		    </tr>
+                    <tr>
+                        <td align="right"><strong>payment type: </strong></td>
+                        <td>{{payment_type}}</td>
+                    </tr>
+                    <tr>
+			<td align="right"><strong>payment total: </strong>
+                        <td>{{payment_gross}}</td>
+                    </tr>
+			{% endif %}
+		</table>
+			{% if monthly %} 	
+			<p>You have successfully completed monthly unlimited registration and annual membership to Red Tide. </p>
+			
+                        <h3>IMPORTANT NEXT STEP:</h3>
+		        
+                        <p>You MUST bring your PayPal receipt AND a copy of your current USMS card to your first practice.  You will receive a Red Tide Member Card specifying that you are monthly unlimited. This Red Tide Member card must be brought to every practice.</p>
+			{% endif %}
+			{% if annual %}  
+			<p>You have successfully completed registration for your annual membership to Red Tide. </p>
+			
+                        <h3>IMPORTANT NEXT STEP:</h3>
+		        
+                        <p>You MUST bring your PayPal receipt AND a copy of your current USMS card to your first practice.  You will receive your Red Tide Member Card, which must be brought to every practice.</p>
+			{% endif %}
+			{% if pass %}
+			<p>You have successfully completed registration for your SwimPass and membership to Red Tide.</p>
+
+			<h3>IMPORTANT NEXT STEP:</h3> 
+                        <p>You MUST bring your PayPal receipt AND a copy of your current USMS card to your first practice.  You will receive your Swim Pass and Red Tide Member Card.  The SwimPass must be brought to every practice.</p>
+			{% endif %}
+			<p>If you are having trouble with registration, please contact <a href="mailto:help@redtidenyc.org?subject=[Redtide]%20Problem%20with%20Registration">Anna</a>for help.</p>
+			
+                        <p>Your transaction is complete. A receipt for your purchase has been emailed to you. You may log into your account at <a href="https://www.paypal.com/">www.paypal.com</a> to view the details of this transaction.</p>
+	</div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+{% endblock %}
+

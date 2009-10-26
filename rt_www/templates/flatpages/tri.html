@@ -1,0 +1,23 @@
+{% extends "index/base.html" %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+	<div class="subright">
+	     <p><img src="/media/img/lidia_02.jpg" width="250" height="413" border="0"></p>
+	    <p><img src="/media/img/Miami_Aquathlon_Start.jpg" width="250" height="167" border="0"></p>
+            <p><img src="/media/img/ed_tri.jpg" width="250" height="358" border="0"></p>
+	    <p><img src="/media/img/A_Lieblein_swim.jpg" width="250" height="308" border="0"></p>
+            <p><img src="/media/img/Jeanine_bike.jpg" width="250" height="299" border="0"></p>
+	    <p><img src="/media/img/Bo_Hawaii_swim_2002.jpg" width="250" height="379" border="0"></p>
+	</div>
+	<div class="subleft">
+	    {% autoescape off %}
+            {{ flatpage.content }}
+	    {% endautoescape %}
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>{% block title %}Red Tide Masters Swimming New York{% endblock %}</title>
+		<meta name="Authors" content="Anna Armentrout Kevin Lahoda Frederick Grim" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
+		<meta http-equiv="keywords" content="sports, swim, swimming, swimmer, swimmers,team, teams, athletics, athletes, organization, organizations, New York, Masters, US Masters, triathlete, triathalon"/>
+                <meta name="description" content="Red Tide of NYC, Inc. is a cooperatively-run non-profit Masters swim club in Manhattan with over 100 members competing on all levels. Site includes practice info, results, links and more."/>
+		<link rel="stylesheet" type="text/css" href="/media/css/rt_base.css" />
+                <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+                <script type="text/javascript" src="/media/js/MochiKit/MochiKit.js"></script>
+                <script type="text/javascript" src="/media/js/RTBaseSiteFormat.js"></script> 
+                {% block add_stylesheets %}{% endblock %}
+	</head>
+
+        <body>
+            <div id="container">
+                <div id="head">
+                    <div class="left">
+                        <a href="/"><img width="200" height="77" border="0" src="/media/img/rt_logo.gif"/></a>
+                    </div>
+                    <div class="right">Welcome to Red Tide Masters Swimming, NYC</div>
+                </div>
+                <div id="topnav">
+                    <ul id="tabnav">
+                        <li>
+                            <a href="/">HOME</a>
+                        </li>
+                       <li>
+                            <a href="/about/">ABOUT</a>
+                        </li>
+                        <li>
+                            <a href="/howtojoin/">JOIN</a>
+                        </li>
+                        <li>
+                            <a href="/workouts/">WORKOUTS</a>
+                        </li>
+                        <li>
+                            <a href="/swimminginfo/">SWIMMING INFO</a>
+                        </li>
+                        <li>
+                            <a href="/meets/">SWIM MEETS</a>
+                        </li>
+                        <li>
+                            <a href="/photos/">PHOTOS</a>
+                        </li>
+                        <!--<li>
+                            <a href="/blog/">BLOG</a>
+                            </li>-->
+                        <li>
+                            <a href="/tri/">TRIATHLETES</a>
+                        </li>
+                        <li>
+                            <a href="/links/">LINKS</a>
+                        </li>
+                        <li>
+                            <a href="/contact/">CONTACT US</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="/admin/">ADMINISTRATION</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <script type="text/javascript">
+                        var i = 0;
+	                var ml = $('tabnav');
+                        if( ml != null) {
+	                    var ids = ml.getElementsByTagName('a');
+	                    for(i=0; i < ids.length; i++) {
+	    	                var link = ids[i];
+		                if(link.href == location.href) {
+			            setElementClass(link, 'active');
+		                }
+	                    }
+                        }  
+                    </script>
+                </div>
+                {% block content %}
+                {% endblock %}
+            </div>
+            {% block bodyappend %}{% endblock %}
+            <script type="text/javascript">if(_uacct == '') { _uacct = "UA-1705610-1"; urchinTracker();}</script>
+        </body>
+</html>

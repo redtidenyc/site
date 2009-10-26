@@ -1,0 +1,166 @@
+#mid_content {
+/*	float: left;
+	padding-top: .3em;*/
+	width: 310px;
+	border-right: 2px solid red;
+	height: 264px;
+}
+
+#placeholder {
+	padding-left: 75px; 
+	padding-top: 50px; 
+	color: red;
+}
+
+input.daymonth {
+	width: 20px;
+}
+
+input.year {
+	width: 36px;
+}
+
+span.red { color: red; } 
+
+#email {
+	width: 185px;
+}
+
+#mid_content ul {
+	left: 20px;
+}
+
+#mid_content li {
+	padding: .5em;
+}
+
+#long_content {
+	float: left ;
+	padding-top: .3em;
+	width: 370px;
+	border-right: 2px solid red;
+	padding-left: .5em;
+}
+
+#right_nav {
+	position: absolute;
+	left: 410px;
+	top: 0px;
+	width: 220px;
+	padding-top: .5em;
+	padding-left: .5em;
+}
+
+
+#right_nav li {
+	padding: .5em;
+}
+
+a.rnav_link {
+	background: inherit;
+	color: red ;
+	font-size: 80% ;
+	font-weight: bold;
+}
+
+a.rnav_link:hover {
+	color: black;
+}
+
+.faq {
+ 	width: 550px;
+	height: 550px;
+	margin: 5px ;
+}
+
+body#faq  {
+	background-color: #e1e1e1 ;
+}
+
+li.question {
+	padding-bottom: 2px ;
+}
+
+.question_bold {
+	padding-left: 1em;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div.row {
+	clear: both;
+	padding-top: 5px;
+	padding-right: 5px;
+}
+
+div.row span.label {
+	float: left;
+	text-align: right;
+	width: 40% ;
+	padding-left: .3em;
+	font-size: 75%;
+}
+
+div.row span.formw {
+	float: right;
+	width: 55%;
+	text-align: left;
+	padding-right: .3em;
+	font-size: 75%;
+}
+ 
+select {
+	font-size: 10px;
+}
+
+div.row span.confirm {
+	float: left;
+	text-align: left;
+	width: 35% ;
+	padding-left: 2em;
+	font-size: 75%;
+}
+
+div.row span.formc {
+	float: left;
+       	width: 55%;
+	text-align: left;
+	padding-right: .3em;
+	font-size: 75%;
+}
+
+#termscontent{
+	display: none;
+}
+	
+.termsRules {
+	padding: 10px;
+	width: 640px;
+	background-color: #FAFAFA;
+	display:block;
+	z-index: 400;
+	position: absolute;
+	left:0px;
+	top:0px;
+}
+
+.termsRules h1 {
+	font-size: 16px;
+}
+
+.termsRules p {
+	line-height: 14px;
+	font-size: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.termsRules .close {
+	float: right;
+}
+
+.termsRules .closebottom {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+}

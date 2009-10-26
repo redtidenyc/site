@@ -1,0 +1,16 @@
+{% extends "index/base.html" %}
+{% block title %}Page Not Found{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+        <div class="subright"></div>
+        <div class="subleft">
+            <div class="redline"><h2>404: Page Not Found</h2></div>
+	        <p>I just can't find the page you are looking for.  I am sorry.</p>
+	    </div>
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %} 
+</div>
+{% endblock %}

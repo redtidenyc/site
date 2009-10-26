@@ -1,0 +1,14 @@
+#type_selector li { list-style-type: none; }
+#type_selector li:hover { text-decoration: underline; }
+#display_question {
+    position: absolute; 
+    z-index: 1000;
+    top: 150px; 
+    left: 250px; 
+    width: 400px; 
+    height: 400px; 
+    background-color: #e1e1e1; 
+    display: none;
+}
+#preview_question { padding: 10px; }
+#display_question a { width: 15px; height: 15px; float: right; }
