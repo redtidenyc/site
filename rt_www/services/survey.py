@@ -14,7 +14,7 @@ class Service:
         q = Question.objects.get(pk=qid)
         qobj = q.get_question_object()
         return {'id':q.id, 'type':qobj.create_choice_widget()['type'], 'data':qobj.render(), 'question':q.question }
-    
+
     def get_questions(self, sid):
         """
         This get the entire set of questions and feeds it back to the client in a hash
@@ -24,8 +24,8 @@ class Service:
         except Survey.DoesNotExist, e:
             raise e
         questions = survey.get_ordered_questions()
-        return { 'introduction':survey.introduction, 
-                 'data':[ { 'id':q.id, 'type':q.get_question_object().create_choice_widget()['type'], 
+        return { 'introduction':survey.introduction,
+                 'data':[ { 'id':q.id, 'type':q.get_question_object().create_choice_widget()['type'],
                      'question':q.question, 'data':q.get_question_object().render() } for q in questions ] }
 
     def save_answers(self, answers, survey_id, uid = -1):
@@ -34,10 +34,10 @@ class Service:
             survey = Survey.objects.get(pk=survey_id)
         except Survey.DoesNotExist, e:
             raise e
-        
+
         qids = [ q.id for q in survey.questions.all() ]
         not_answered = []
-        
+
         for qid in qids:
             if answers.has_key(str(qid)):
                 """ The answers coming in are an array """
@@ -46,7 +46,7 @@ class Service:
                     ans.save()
             else:
                 not_answered.append(qid)
-        
+
         if len(not_answered) == 0 and uid > 0:
             try:
                 ss = SwimmerToSurvey(swimmer=Swimmer.objects.get(pk=uid), survey=survey)

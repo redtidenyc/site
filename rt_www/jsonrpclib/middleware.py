@@ -5,7 +5,7 @@ import os, re, sys
 class JSONRPCMiddleware:
     """
         This piece of middleware implements the Non-Standard JSON RPC standard for the django framework
-        However it does *not* implement GET calls due to security issues raised by 
+        However it does *not* implement GET calls due to security issues raised by
         http://www.fortifysoftware.com/servlet/downloads/public/JavaScript_Hijacking.pdf
 
         For the JSON-RPC semi standard see: http://json-rpc.org/wiki/specification
@@ -14,8 +14,8 @@ class JSONRPCMiddleware:
         ROOT            : this is the path on the filesystem to where the services and adminservices are installed
                           if this is set then SERVICES and ADMINSERVICES are ignored
         SERVICES        : the path for the services directory
-        ADMINSERVICES   : the path for the adminservices directory.  Adminservices are the same as services 
-                          except they are hooked into the django authentication mechanism.  The expectation 
+        ADMINSERVICES   : the path for the adminservices directory.  Adminservices are the same as services
+                          except they are hooked into the django authentication mechanism.  The expectation
                           here is that staff is true and these are json calls for use in the admin
 
         Laying out services --
@@ -32,7 +32,7 @@ class JSONRPCMiddleware:
         to itself like: self._service__module__method(self, arg)
         so the request /services/module/ with the method to execute in the POST is transformed into this call
 
-        Finally we need a couple access requirements.  If the method has a .login_required = True attribute then 
+        Finally we need a couple access requirements.  If the method has a .login_required = True attribute then
         the user must be logged to use the remote method
         .staff_required => .login_required and also means the user must have is_staff == True
     """
@@ -51,10 +51,16 @@ class JSONRPCMiddleware:
         self.__modules = []
         self.__load_modules(self.services, 'services')
         self.__load_modules(self.adminservices, 'adminservices')
+        print self.__modules
 
     def __load_modules(self, path, type):
         """ load all the submodules from each """
+        print path
+        print type
+        for f in os.listdir(path):
+            print f
         mod_names = [ re.sub('.py', '', f ) for f in os.listdir(path) if re.search('^[^_].*?\.py$', f) ]
+        print mod_names
         for name in mod_names:
             try:
                 m = __import__('%s.%s' %(type, name), globals(), locals(), ['service'])
@@ -92,9 +98,9 @@ class JSONRPCMiddleware:
 
             args, id, funcpath = unmarshaller.close(), unmarshaller.get_id(), unmarshaller.getmethodname(request.path)
             func = self.__getmethod(funcpath)
-                        
+
             ret_val = { 'version':'1.1', 'id':id }
-            
+
             try:
                 if [ p for p in request.path.split('/') if p != ''][0] == 'adminservices':
                     if not ( request.user.is_authenticated() and request.user.is_staff ):
@@ -106,7 +112,7 @@ class JSONRPCMiddleware:
                     args = tuple([ a for a in args ] + [ request ])
                 except AttributeError:
                     pass
-                
+
                 try:
                     isstaff = getattr(func, 'staff_required')
                     if isstaff and not ( request.user.is_authenticated() and request.user.is_staff ):
@@ -114,7 +120,7 @@ class JSONRPCMiddleware:
                     args = tuple([ a for a in args ] + [ request ])
                 except AttributeError:
                     pass
-                
+
                 ret_val['result'] = func(*args)
             except Exception, e:
                 ret_val['error'] = {'name':'JSONRPCError', 'code':jsonrpclib.FAILURE, 'message':'%s' % e}

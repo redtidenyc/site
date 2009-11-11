@@ -4,8 +4,8 @@ from twisted.internet import defer
 from twisted.python import failure
 from twisted.cred import portal, checkers, credentials, error as credError
 from twisted.protocols import ftp
-from rt_www.auth import authenticate, login
-from rt_www.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from rt_www.photogallery.models import Photo, Video
 from django.conf import settings
 from django.contrib.sessions.models import Session
@@ -67,7 +67,7 @@ class PhotoConsumer(ftp.FileConsumer):
         os.write(tfd, self.buffer.getvalue())
         self.buffer.close()
         os.close(tfd)
-	p = Photo(image=fname)
+    p = Photo(image=fname)
         p.save()
         try:
             os.unlink(fname)
@@ -99,7 +99,7 @@ class RTFTPShell(ftp.FTPShell):
                 if not fName or re.search('^\.', str(fName)):
                     continue
                 ent = []
-                full_path = os.path.join(path.path, fName) 
+                full_path = os.path.join(path.path, fName)
                 if not os.path.isdir(full_path) or fName in self.allowed_dirs:
                     results.append((fName, ent))
                 if keys:
@@ -116,7 +116,7 @@ class RTFTPShell(ftp.FTPShell):
 
                 for k in keys:
                     ent.append(getattr(self, '_list_' + k)(statResult))
-            
+
         return defer.succeed(results)
     def removeFile(self, path):
         in_photo_dir, in_video_dir = False, False
@@ -162,7 +162,7 @@ class RTFTPShell(ftp.FTPShell):
 
         filename = path[-1]
         p = self._path(path)
-        ext = os.path.splitext(filename)[1].lower() 
+        ext = os.path.splitext(filename)[1].lower()
         if in_photo_dir and ext in [ '.jpeg', '.jpg' ]:
             return defer.succeed(_PhotoWriter())
         if in_video_dir and ext in [ '.flv', '.avi' ]:
@@ -172,8 +172,8 @@ class RTFTPShell(ftp.FTPShell):
 
 
 class ISession(credentials.ICredentials):
-    """The django session checker is inside here 
-        
+    """The django session checker is inside here
+
     """
 
 class RTSession:
@@ -196,7 +196,7 @@ class RedtideFTPRealm(ftp.FTPRealm):
 class RedtideUPAuthenticator:
     implements(checkers.ICredentialsChecker)
     credentialInterfaces = (credentials.IUsernamePassword, credentials.IAnonymous, )
-    
+
     def requestAvatarId(self, credentials):
         if not hasattr(credentials, 'username'):
             return checkers.ANONYMOUS
@@ -214,7 +214,7 @@ class RedtideSessionAuthenticator:
     credentialInterfaces = ( ISession, )
 
     def requestAvatarId(self, credentials):
-        return defer.maybeDeferred(self.login, credentials.session_id) 
+        return defer.maybeDeferred(self.login, credentials.session_id)
     def login(self, sid):
         try:
             s = Session.objects.get(pk=sid, expire_date__gte=datetime.datetime.now())
@@ -226,7 +226,7 @@ class RedtideSessionAuthenticator:
             raise credError.UnauthorizedLogin()
 
 class RTFTP(ftp.FTP):
-    
+
 
     def processCommand(self, cmd, *params):
         cmd = cmd.upper()
@@ -260,7 +260,7 @@ class RTFTP(ftp.FTP):
                 return self.ftp_RNTO(*params)
             else:
                 return ftp.BAD_CMD_SEQ, "RNTO required after RNFR"
-    
+
     def ftp_PASS(self, password):
         """
         Second part of login.  Get the password the peer wants to
@@ -291,7 +291,7 @@ class RTFTP(ftp.FTP):
         d = self.portal.login(creds, None, ftp.IFTPShell)
         d.addCallbacks(_cbLogin, _ebLogin)
         return d
-    
+
     def path_auth(self, path):
         reply = ftp.USR_LOGGED_IN_PROCEED
         creds = RTSession(path)
@@ -319,7 +319,7 @@ class RedtideFTPFactory(ftp.FTPFactory):
 
 def main():
     app = service.Application('Redtide FTP Server')
-    
+
     p = portal.Portal(RedtideFTPRealm(settings.MEDIA_ROOT))
     p.registerChecker(RedtideUPAuthenticator())
     p.registerChecker(RedtideSessionAuthenticator())
