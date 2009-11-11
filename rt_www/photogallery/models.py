@@ -1,8 +1,9 @@
+import os.path, md5, Image, os, subprocess
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from rt_www.auth.models import User
+from django.contrib.auth.models import User
 from django.conf import settings
-import os.path, md5, Image, os, subprocess
 
 # Create your models here.
 class Video(models.Model):
@@ -14,11 +15,8 @@ class Video(models.Model):
     date_uploaded = models.DateField(_('Date Uploaded'), auto_now_add=True)
     class Meta:
         verbose_name_plural = _('Videos')
-    class Admin:
-        list_display = ('thumb_link', 'title', 'date_uploaded',)
-        list_filter = ('date_uploaded',)
 
-    def __str__(self):
+    def __unicode__(self):
         if not self.title:
             return ''
         return self.title
@@ -27,10 +25,12 @@ class Video(models.Model):
 
     thumb_link.allow_tags = True
     thumb_link.short_description = 'Video'
+
     def get_video(self):
-        return '/media/videos/%s' % os.path.split(self.video)[1]  
+        return '/media/videos/%s' % os.path.split(self.video)[1]
+
     def get_thumb(self):
-        return '/media/videos/thumbs/%s' % os.path.split(self.thumbfile)[1] 
+        return '/media/videos/thumbs/%s' % os.path.split(self.thumbfile)[1]
 
     def save(self):
         """
@@ -38,7 +38,7 @@ class Video(models.Model):
             Second we pull the first frame for a screen capture.
             if thumbfile is set we assume this has already been done
         """
-        
+
         if self.thumbfile == '':
             """ make filename """
             f = open(self.video, 'rb')
@@ -50,7 +50,7 @@ class Video(models.Model):
             self.thumbfile = '%s/videos/thumbs/%s.png' %( settings.MEDIA_ROOT, m.hexdigest() )
             ret = subprocess.Popen('/usr/bin/ffmpeg -i %s -acodec mp3 -ar 22050 -ab 32 -f flv -s 320x240 %s; /usr/bin/ffmpeg -y -i %s -vframes 1 -ss 00:00:02 -an -vcodec png -f rawvideo -s 320x240 %s; /usr/bin/flvtool2 -U %s; rm %s' %( self.video, nvname, nvname, self.thumbfile, nvname, self.video), shell=True)
             self.video = nvname
-        
+
         super(Video, self).save()
 
     def delete(self):
@@ -66,14 +66,12 @@ class Gallery(models.Model):
     title = models.CharField(_("Title"), max_length=80)
     date = models.DateField(_("Publication Date"), auto_now_add=True)
     creator = models.ForeignKey(User, verbose_name=_("Gallery Created by"), blank=True, null=True )
+
     class Meta:
         get_latest_by = 'date'
-        verbose_name_plural = _('Galleries')	
-    class Admin:
-        ordering = ['date']
-        list_display = ( 'title', 'creator')
-	
-    def __str__(self):
+        verbose_name_plural = _('Galleries')
+
+    def __unicode__(self):
         return self.title
 
     def get_admin_url(self):
@@ -86,15 +84,16 @@ class Photo(models.Model):
     gallery = models.ForeignKey(Gallery, null=True, blank=True)
     photographer = models.ForeignKey(User, null=True, verbose_name=_("Photographer"), blank=True)
     date = models.DateField(_("Date Photographed"), blank=True, null=True)
-	
+
     class Meta:
         ordering = ( '-date', )
-    
+
     class Admin:
         list_display = ( 'thumb', 'title', 'photographer', 'gallery',)
         list_filter = ( 'gallery', )
         list_display_links = ( 'thumb', )
         js = ('js/MochiKit/MochiKit.js', 'js/autocomplete.js', 'js/admin/PhotoManager.js',)
+
     def __str__(self):
         return self.title
 
@@ -112,24 +111,24 @@ class Photo(models.Model):
             return self.__get_base(tail, head_new)
         else:
             return self.__get_base(tail, head_new + '/' + head)
-		
+
     def get_thumb(self):
         base_path = os.path.split(self.__get_base(self.image, ''))[0]
-        file = 'thumb_' + os.path.split(self.__get_base(self.image, ''))[1] 
+        file = 'thumb_' + os.path.split(self.__get_base(self.image, ''))[1]
         return '/media/' + base_path + '/' + file
-	
+
     def url(self):
         base_path = os.path.split(self.__get_base(self.image, ''))[0]
-        file = os.path.split(self.__get_base(self.image, ''))[1] 
+        file = os.path.split(self.__get_base(self.image, ''))[1]
         return '/media/' + base_path + '/' + file
-	
+
     def delete(self):
-        thumb = os.path.split(self.image)[0] + '/thumb_' + os.path.split(self.image)[1]  		
+        thumb = os.path.split(self.image)[0] + '/thumb_' + os.path.split(self.image)[1]
         try:
             os.unlink(thumb)
         except:
             pass
-		
+
         try:
             os.unlink(self.image)
         except:
@@ -148,64 +147,64 @@ class Photo(models.Model):
         f.write(data)
         f.close()
         im = Image.open(self.image)
-	format = im.format
-        # Make a copy of the image, scaled, if needed.
+        format = im.format
+            # Make a copy of the image, scaled, if needed.
         maxwidth = 640
-	maxheight = 480
-	width, height = im.size
-	newim = im
-	if (width > maxwidth) and width > height:
+        maxheight = 480
+        width, height = im.size
+        newim = im
+        if (width > maxwidth) and width > height:
             scale = float(maxwidth)/width
-	    width = int(width * scale)
-	    height = int(height * scale)
+            width = int(width * scale)
+            height = int(height * scale)
             try:
                 newim = im.resize( (width, height), Image.ANTIALIAS )
-	    except IOError:
-	        pass
-	elif (height > maxheight) and height >= width:
+            except IOError:
+                pass
+        elif (height > maxheight) and height >= width:
             scale = float(maxheight)/height
-	    width = int(width * scale)
-	    height = int(height * scale)
-	    try:
-	        newim = im.resize( (width, height), Image.ANTIALIAS )
-	    except IOError:
-		pass
-	newim.save(self.image, format)
-						
-	thumbsize = 80, 80
-	maxwidth = 80
-	maxheight = 80
-	outpath = '%s/photos/thumb_%s.jpg' %( settings.MEDIA_ROOT, m.hexdigest())
-	try:
-	    im = Image.open(self.image)
-	    format = im.format
-	    width, height = im.size
-	    if (width > maxwidth) and (width > height):
-	        scale = float(maxwidth)/width
-		width = int(width * scale)
-		height = int(height * scale)
-		newim = im.resize( (width, height), Image.ANTIALIAS )
+            width = int(width * scale)
+            height = int(height * scale)
+            try:
+                newim = im.resize( (width, height), Image.ANTIALIAS )
+            except IOError:
+                pass
+        newim.save(self.image, format)
+
+        thumbsize = 80, 80
+        maxwidth = 80
+        maxheight = 80
+        outpath = '%s/photos/thumb_%s.jpg' %( settings.MEDIA_ROOT, m.hexdigest())
+        try:
+            im = Image.open(self.image)
+            format = im.format
+            width, height = im.size
+            if (width > maxwidth) and (width > height):
+                scale = float(maxwidth)/width
+                width = int(width * scale)
+                height = int(height * scale)
+                newim = im.resize( (width, height), Image.ANTIALIAS )
             elif (height > maxheight):
-		scale = float(maxheight)/height
-		width = int(width * scale)
-		height = int(height * scale)
-		newim = im.resize( (width, height), Image.ANTIALIAS )
-	    else:
-		newim = im
-	    newim.save(outpath, format)	
-	except IOError:
-	    print "cannot create thumbnail for", self.image
-        
-        super(Photo, self).save()
- 
+                scale = float(maxheight)/height
+                width = int(width * scale)
+                height = int(height * scale)
+                newim = im.resize( (width, height), Image.ANTIALIAS )
+            else:
+                newim = im
+                newim.save(outpath, format)
+        except IOError:
+            print "cannot create thumbnail for", self.image
+
+            super(Photo, self).save()
+
     def thumbdim(self):
-        thumb = os.path.split(self.image)[0] + '/thumb_' + os.path.split(self.image)[1]  	
+        thumb = os.path.split(self.image)[0] + '/thumb_' + os.path.split(self.image)[1]
         im = Image.open(thumb)
         return im.size
 
 class PhotoPlace(models.Model):
-	gallery = models.ForeignKey(Gallery)
-	photo = models.ForeignKey(Photo)
-	place = models.IntegerField(_('Place'))
-	class Meta:
-		unique_together = (('gallery', 'photo', 'place'),)
+    gallery = models.ForeignKey(Gallery)
+    photo = models.ForeignKey(Photo)
+    place = models.IntegerField(_('Place'))
+    class Meta:
+        unique_together = (('gallery', 'photo', 'place'),)
