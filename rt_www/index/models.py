@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.localflavor.us.models import PhoneNumberField
+from django.contrib.localflavor.us import us_states
 from django.conf import settings
 #from django.core import validators
 from rt_www.sitemaps import Sitemap, ping_google
@@ -149,7 +150,8 @@ class Meet(models.Model):
     results_link = models.URLField(verify_exists=False, blank=True, null=True)
     meet_pool = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    state = models.ForeignKey(State, blank=True, null=True)
+    #state = models.ForeignKey(State, blank=True, null=True)
+    us_state = models.CharField('State', max_length=2, choices=us_states.STATE_CHOICES)
     country = models.CharField('Country', max_length=200, default="United States", blank=True, null=False)
 
     class Meta:

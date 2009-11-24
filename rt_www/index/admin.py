@@ -42,6 +42,6 @@ admin.site.register(Closing, ClosingAdmin)
 
 class MeetAdmin(admin.ModelAdmin):
         list_display = ('name', 'date_start', 'date_end')
-        list_filter = ('state', 'date_start',)
+        list_filter = ('us_state', 'date_start',)
 
 admin.site.register(Meet, MeetAdmin)
