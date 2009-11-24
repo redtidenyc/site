@@ -51,16 +51,11 @@ class JSONRPCMiddleware:
         self.__modules = []
         self.__load_modules(self.services, 'services')
         self.__load_modules(self.adminservices, 'adminservices')
-        print self.__modules
 
     def __load_modules(self, path, type):
         """ load all the submodules from each """
-        print path
-        print type
-        for f in os.listdir(path):
-            print f
+
         mod_names = [ re.sub('.py', '', f ) for f in os.listdir(path) if re.search('^[^_].*?\.py$', f) ]
-        print mod_names
         for name in mod_names:
             try:
                 m = __import__('%s.%s' %(type, name), globals(), locals(), ['service'])
