@@ -1,7 +1,9 @@
 # Django settings for rt_www project.
-
-DEBUG = True 
+from os.path import abspath, dirname, join
+DEBUG = True
 TEMPLATE_DEBUG = False
+DEVELOPMENT = True
+PROJECT_DIR = abspath(join(dirname(__file__), '..'))
 
 ADMINS = ( 'Anna Armentrout', 'atrout@pipeline.com' ),
 
@@ -13,17 +15,18 @@ SERVER_EMAIL='webmaster@redtidenyc.org'
 BUSINESS_EMAIL = ''
 GWORKOUTMAPKEY = ''
 ACCOUNT='redtide-paypal-test'
-isDevServer = None
+
+isDevServer = True
 
 if isDevServer:
-	thePath = '/home/redtide-mods-dev'
-	OUTGOING_MAIL_HOST = '127.0.0.1'
-	GWORKOUTMAPKEY = 'ABQIAAAAFEyhIP3Ldf4Gfq0G_7Ie-hTL44Hc6rwV71RloDQ8BZn6fRZa9RTmqmnyk6pykR9_GGsAsCVzSHgKYA'
+    thePath = PROJECT_DIR
+    OUTGOING_MAIL_HOST = '127.0.0.1'
+    GWORKOUTMAPKEY = 'ABQIAAAAFEyhIP3Ldf4Gfq0G_7Ie-hTL44Hc6rwV71RloDQ8BZn6fRZa9RTmqmnyk6pykR9_GGsAsCVzSHgKYA'
 else:
-	thePath = '/home/redtide-mods' 
-	OUTGOING_MAIL_HOST = '127.0.0.1'
-	GWORKOUTMAPKEY = 'ABQIAAAAFEyhIP3Ldf4Gfq0G_7Ie-hR_Cr4o_P4_g_WidYCB5J_d7fgFehR0VW9WvA-EMo9fnJePqoh3hVD4tQ'
-	ACCOUNT='redtide-paypal'
+    thePath = '/home/redtide-mods'
+    OUTGOING_MAIL_HOST = '127.0.0.1'
+    GWORKOUTMAPKEY = 'ABQIAAAAFEyhIP3Ldf4Gfq0G_7Ie-hR_Cr4o_P4_g_WidYCB5J_d7fgFehR0VW9WvA-EMo9fnJePqoh3hVD4tQ'
+    ACCOUNT='redtide-paypal'
 
 DATABASE_ENGINE = 'sqlite3' # 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
 DATABASE_NAME = '%s/rt.db' % thePath            # Or path to database file if using sqlite3.
@@ -67,19 +70,19 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-	'django.middleware.common.CommonMiddleware',
-	'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.doc.XViewMiddleware',
-	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'rt_www.flatpages.middleware.FlatpageFallbackMiddleware',
-	'rt_www.payments.middleware.PaymentsMiddleware',
-	'rt_www.jsonrpclib.middleware.JSONRPCMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.doc.XViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'rt_www.flatpages.middleware.FlatpageFallbackMiddleware',
+    #'rt_www.payments.middleware.PaymentsMiddleware',
+    'rt_www.jsonrpclib.middleware.JSONRPCMiddleware',
 )
 
 ROOT_URLCONF = 'rt_www.urls'
 
-TEMPLATE_DIRS = ( 
-	'%s/rt_www/templates' % thePath,
+TEMPLATE_DIRS = (
+    '%s/rt_www/templates' % thePath,
 )
 
 AUTHENTICATION_BACKENDS = ('rt_www.swimmers.models.RTAuthBackend',)
@@ -87,19 +90,23 @@ AUTHENTICATION_BACKENDS = ('rt_www.swimmers.models.RTAuthBackend',)
 #AUTH_PROFILE_MODULE = ( 'rt_www.swimmers.models.Swimmer', )
 
 INSTALLED_APPS = (
-	'rt_www.auth',
-	'rt_www.index',
-	'rt_www.swimmers',
-	'rt_www.registration',
-	'django.contrib.markup',
-	'rt_www.admin',
-	'rt_www.mailinglist',
-	'rt_www.photogallery',
-	'rt_www.backups',
-	'rt_www.payments',
-	'django.contrib.sites',
-	'rt_www.sitemaps',
-        'rt_www.flatpages',
-        'rt_www.survey',
-	'django.contrib.contenttypes',
+    'django.contrib.auth',
+    'django.contrib.admin',
+    'django.contrib.sites',
+    'django.contrib.contenttypes',
+    'django.contrib.markup',
+    #'rt_www.auth',
+    # 'survey',
+    # 'photologue',
+    'rt_www.index',
+    'rt_www.swimmers',
+    #'rt_www.registration',
+    #'rt_www.admin',
+    'rt_www.mailinglist',
+    'rt_www.photogallery',
+    'rt_www.backups',
+    #'rt_www.payments',
+    'rt_www.sitemaps',
+    'rt_www.flatpages',
+    'rt_www.old_survey',
 )
