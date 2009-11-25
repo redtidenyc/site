@@ -80,8 +80,7 @@ def index(request):
                 'start':p.start_time.strftime('%I:%M'),
                 'end':p.end_time.strftime('%I:%M'),
                 'pool':p.pool.name } for p in current_schedule.practices.all().order_by('day', 'start_time') ]
-        season = '%s %s %s - %s' %( current_schedule.season, current_schedule.date_start.strftime('%Y'),
-                        current_schedule.date_start.strftime('%m/%d/%y'),
+        season = '%s - %s' %( current_schedule.date_start.strftime('%m/%d/%y'),
                         current_schedule.date_end.strftime('%m/%d/%y') )
 
     return render_to_response('index/index.html',
@@ -104,8 +103,7 @@ def schedule(request):
                 'end':p.end_time.strftime('%I:%M'), 'pool':p.pool.name }
                                 for p in current_schedule.practices.all().order_by('day', 'start_time') ]
 
-        season = '%s %s %s - %s' %( current_schedule.season, current_schedule.date_start.strftime('%Y'),
-                        current_schedule.date_start.strftime('%B %d, %Y'),
+        season = '%s - %s' %( current_schedule.date_start.strftime('%B %d, %Y'),
                         current_schedule.date_end.strftime('%B %d, %Y') )
     return render_to_response('index/workout.html', { 'google_key':settings.GWORKOUTMAPKEY, 'season':season,
         'practices':practices }, context_instance=RequestContext(request))

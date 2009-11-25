@@ -138,7 +138,7 @@ class Closing(models.Model):
         ret_val = self.close_date_start.strftime('%m/%d')
         if self.close_date_end != None:
             ret_val += '-' + self.close_date_end.strftime('%m/%d')
-        ret_val += ' ' + self.pool.short_name
+        ret_val += ' ' + self.pool.name
         return ret_val
 
 class Meet(models.Model):

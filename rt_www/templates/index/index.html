@@ -34,9 +34,13 @@
         <h2>Cancellations</h2>
         <div id="cancellations">
             
-               <p>Practice will be cancelled on 
+               <p>Practice will be cancelled on: 
                 {% for closing in current_closings %}
-                     {{ closing }}&nbsp;
+		     {% if not forloop.last %}
+                     {{ closing }},&nbsp;
+		     {% else %}
+		     {{ closing }}
+		     {% endif %}
                 {% endfor %}
                 <p>
         </div>
