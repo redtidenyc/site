@@ -13,7 +13,7 @@ EMAIL_HOST="127.0.0.1"
 DEFAULT_FROM_EMAIL="no-reply@redtidenyc.org"
 SERVER_EMAIL='webmaster@redtidenyc.org'
 BUSINESS_EMAIL = ''
-GWORKOUTMAPKEY = ''
+GWORKOUTMAPKEY = 'ABQIAAAAYqa6s-bNkRjmADkuRu7JbBQxLqNj2hAR5Oqh9rxhcVklPUuKdhQx0Ct8xcE_mRKFNVS-dtxppBxHqA'
 ACCOUNT='redtide-paypal-test'
 
 isDevServer = True
@@ -21,11 +21,9 @@ isDevServer = True
 if isDevServer:
     thePath = PROJECT_DIR
     OUTGOING_MAIL_HOST = '127.0.0.1'
-    GWORKOUTMAPKEY = 'ABQIAAAAFEyhIP3Ldf4Gfq0G_7Ie-hTL44Hc6rwV71RloDQ8BZn6fRZa9RTmqmnyk6pykR9_GGsAsCVzSHgKYA'
 else:
     thePath = '/home/redtide-mods'
     OUTGOING_MAIL_HOST = '127.0.0.1'
-    GWORKOUTMAPKEY = 'ABQIAAAAFEyhIP3Ldf4Gfq0G_7Ie-hR_Cr4o_P4_g_WidYCB5J_d7fgFehR0VW9WvA-EMo9fnJePqoh3hVD4tQ'
     ACCOUNT='redtide-paypal'
 
 DATABASE_ENGINE = 'sqlite3' # 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.

@@ -21,6 +21,10 @@ MapManager.prototype.initialize = function() {
 		this.ymcamap = new GMap2($('ymcamap'), { 'size': msize}) ;
 		this.ymcamap.setCenter(ymcapoint, 15) ;
 		this.ymcamap.addOverlay(new GMarker(this.ymcamap.getCenter()));
+		var rooseveltpoint = new GLatLng(40.75699374459088, -73.95562648773193);
+		this.rooseveltmap = new GMap2($('rooseveltmap'), { 'size': msize}) ;
+		this.rooseveltmap.setCenter(rooseveltpoint, 15) ;
+		this.rooseveltmap.addOverlay(new GMarker(this.rooseveltmap.getCenter()));
 	}
 }
 
