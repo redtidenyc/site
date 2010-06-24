@@ -79,7 +79,7 @@ FCKConfig.AutoDetectPasteFromWord = true ;	// IE only.
 FCKConfig.ForceSimpleAmpersand	= false ;
 FCKConfig.TabSpaces		= 0 ;
 FCKConfig.ShowBorders	= true ;
-FCKConfig.SourcePopup	= false ;
+FCKConfig.SourcePopup	= true ;
 FCKConfig.ToolbarStartExpanded	= true ;
 FCKConfig.ToolbarCanCollapse	= true ;
 FCKConfig.IgnoreEmptyParagraphValue = true ;
@@ -92,7 +92,7 @@ FCKConfig.TemplateReplaceCheckbox = true ;
 FCKConfig.ToolbarLocation = 'In' ;
 
 FCKConfig.ToolbarSets["Default"] = [
-	['-','Save','NewPage','Preview','-','Templates'],
+	['Source','Save','NewPage','Preview','-','Templates'],
 	['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'],
 	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
 	'/',
