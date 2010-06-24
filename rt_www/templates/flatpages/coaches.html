@@ -1,0 +1,18 @@
+{% extends "index/base.html" %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+        <div class="subright">
+		<a href="/media/pdfs/summer_coaching_schedule.pdf">Summer Coaching Schedule</a>
+        </div>
+        <div class="subleft">
+	    {% autoescape off %}
+            {{ flatpage.content }}
+	    {% endautoescape %}
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+{% endblock %}
