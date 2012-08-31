@@ -44,7 +44,7 @@ sitemaps = {
     'index':IndexSitemap,
     'about':GenericSitemap({'set_date':date(datetime.now().year, datetime.now().month, 1)  },
         priority=0.7, changefreq='monthly', location='/about/'),
-    'fltapages':FlatPageSitemap,
+    'flatpages':FlatPageSitemap,
     'meets':GenericSitemap({'set_date':date(datetime.now().year, datetime.now().month, 1)  },
         priority=0.7, changefreq='weekly', location='/meets/'),
     'blogs':BlogSitemap

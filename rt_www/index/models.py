@@ -163,5 +163,7 @@ class Meet(models.Model):
     def get_display_date(self):
         ret_val = '%s' % self.date_start.strftime('%B %d')
         if self.date_end:
-            ret_val += '-%s' % self.date_end.strftime('%d')
+            ret_val += '-%s' % self.date_end.strftime('%d %Y')
+	else:
+	    ret_val += '%s' % self.date_start.strftime(' %Y')
         return ret_val

@@ -67,7 +67,7 @@ def index(request):
     current_announcements = []
     for an in announcements:
         current_announcements.append({'fptext':an.fptext, 'title':an.title })
-    current_closings = Closing.objects.filter(close_date_start__gte=datetime.now())
+    current_closings = Closing.objects.filter(close_date_end__gte=datetime.now())
     current_schedule = None
     season = ''
     practices = []
