@@ -4,35 +4,79 @@
 	<!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="/media/css/ie7hacks.css"/>
 	<![endif]-->
-        <script type="text/javascript" src="/media/js/swfobject.js"></script>
+{% endblock %}
+{% block add_javascript %}
+	<script type="text/javascript" src="/media/js/slideshow.js"></script>
 {% endblock %}
 {% block content %}
 <div id="home_tease">
-    <div class="left">
-        <div id="homeslides"><img class="homesnap" src="/media/img/home_snap.gif" width="362" height="268" /></div>
-       <script type="text/javascript">
-        // <![CDATA[
-    
-        var so = new SWFObject("/media/flash/Sliders.swf", "homeslides", "430", "323", "8", "#ffffff");
-        so.addParam("wmode", "transparent");
-        so.write("homeslides");
- 
-        // ]]>
-        </script>
-    </div>
+	<div class="left">
+		<div id="homeslides">
+				<img src="/media/img/slideshow/homepage_slider1.png" class="active" />
+				<img src="/media/img/slideshow/homepage_slider2.png"/>
+				<img src="/media/img/slideshow/homepage_slider3.png"/>
+				<img src="/media/img/slideshow/homepage_slider4.png"/>
+				<img src="/media/img/slideshow/homepage_slider5.png"/>
+				<img src="/media/img/slideshow/homepage_slider6.png"/>
+				<img src="/media/img/slideshow/homepage_slider7.png"/>
+				<img src="/media/img/slideshow/homepage_slider8.png"/>
+		</div>
+		<div id="slide_controls">
+			<ul>
+				<li>
+					<a href="">&lt;</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="" class="circle">.</a>
+				</li>
+				<li>
+					<a href="">&gt;</a>
+				</li>
+				<li>
+					<a href="/photos/" class="normal">VIEW GALLERY</a>
+				</li>
+			</ul>
+			
+		</div>
+	</div>
+	<div class="right">
+		<div class="content">
+			<h2>Welcome To Red Tide</h2>
+
+			<p>Red Tide New York City masters swim team is a community of athletes with a passion for the pool. We swim for fun, fitness and competition.</p>
+
+			<p>Based in New York City for over twenty years, Red Tide prides itself on the many walks of life that comprise our membership -- from novice swimmers to USMS national and world titleholders as well as runners, cyclists and triathletes.  Our members are locally based to globetrotting professionals who enjoy the camaraderie and competition that are part of Red Tide.</p>
+		</div>
+	</div>
+	<br class="clearme"/>
 </div>
 <div id="main">
-    <div class="left">
+    <!--div class="left">
     	<iframe width="425" height="349" src="http://www.youtube.com/embed/KsHDfvNkU94" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="right">
-        <div class="content">
-            <h2>Welcome to Red Tide Masters Swimming, NYC</h2>
-            <p>Red Tide is a competitive masters swim team in New York City and has been in existence for over 20 years. It is a cooperatively run organization of over 100 swimmers from novices to national champions. Red Tide welcomes swimmers over 18 of all abilities, goals, and experience. We swim for fun, fitness, and competition.</p>
-            <p class="link"><a href="/about/">READ MORE</a> | <a href="/howtojoin/">JOIN NOW</a></p>
-        </div>
-    </div>
-    <br class="clearme"/>
+    </div-->
+	
+	
     <div class="left">
 
         {% if current_closings %}

@@ -1,15 +1,82 @@
 /* HOME PAGE TEASER */
-#home_tease { height: 323px; background: #eeecdb url('/media/img/tiles_bg.gif') repeat-x bottom left; }
-#home_tease .left { width: 430px; height: 323px; background: url('/media/img/pic_bg.gif') no-repeat 38px 14px; float: left; }
+#home_tease { 
+	margin-top: 35px;
+}
+
+#home_tease .left { 
+	width: 650px; 
+	height: 440px; 
+	float: left; 
+}
+
 .homesnap { padding-left: 49px; padding-top: 24px; }
-#home_tease .right { width: 480px; height: 287px; float: right; }
-#home_tease .right .content { padding: 25px 30px 0px 30px; }
-#home_tease .right h2 { font-size: 24px; letter-spacing: -1px; margin-bottom: 10px; }
-#home_tease .right p { font-size: 14px; margin-top: -10px; padding-top: 0px; }
+
+#homeslides {
+    position:relative;
+    height:395px;
+}
+
+#homeslides img {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:8;
+}
+
+#homeslides img.active {
+    z-index:10;
+}
+
+#homeslides img.last-active {
+    z-index:9;
+}
+
+#home_tease .right { width: 320px; float: right; }
+#home_tease .right .content { padding: 20px 0 0px 30px; }
+#home_tease .right p { margin-top: -10px; padding-top: 0px; }
 #home_tease .right .link { font-size: 16px; font-weight: bold; text-align: right; }
 #home_tease .right a { color: #de272a; text-decoration: none; }
+#home_tease .right a:hover { color: #0092ba; }
+
+#slide_controls {
+	height: 35px;
+	margin-top: 10px;
+	text-align: center;
+} 
+
+#slide_controls ul {
+	margin: 0;
+	padding: 0;
+}
+
+#slide_controls li a {
+	text-decoration: none;
+	color: #76777a;
+	font-size: 35px;
+	position: relative;
+	top: -10px;
+}
+
+#slide_controls li { margin: 0 15px; padding: 0; display: inline; list-style-type: none; }
+
+#slide_controls li a.circle {
+	color: #f5dddd;
+	position: relative;
+	top: -20px;
+	font-size: 70px;
+	line-height: 35px;
+}
+
+#slide_controls li a.normal {
+	font-size: 13px;
+	color: #d33535;
+	top: -18px;
+}
+
+/* HOME PAGE TEASER */
 
 /* main box */
+#main { margin-top: 40px; }
 #main .left { padding:  10px 20px 10px 30px; background: #ffffff; width: 405px; float: left; }
 #main .right { padding:  10px 30px 10px 20px; background: #fffffff; width: 405px; float: right; }
 
