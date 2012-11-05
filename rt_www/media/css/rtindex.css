@@ -76,9 +76,11 @@
 /* HOME PAGE TEASER */
 
 /* main box */
-#main { margin-top: 40px; }
-#main .left { padding:  10px 20px 10px 30px; background: #ffffff; width: 405px; float: left; }
-#main .right { padding:  10px 30px 10px 20px; background: #fffffff; width: 405px; float: right; }
+#main { margin-top: 50px; }
+#main .left { margin-right: 20px; width: 310px; float: left; }
+#main .right { margin-top: -18px; width: 310px; float: right; }
+#main .left p { margin-top: 10px; }
+#main .grayline { border-bottom: 3px solid #dcddde; }
 
 /* cancellations */
 #cancellations { padding: 10px 10px 1px 10px; margin-bottom: 12px; color: #fff; background: #de272a url('/media/img/cancel_bg.gif') repeat-x top left; }
@@ -100,3 +102,52 @@
 .schedTable a:hover { text-decoration: underline; }
 .schedTable a:visited { font-weight: bold; color: #00667c; }
 
+/* main */
+#main h3 {
+	color: #305276;
+	margin-bottom: 10px;
+}
+
+#main p {
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+/* Schedule Table */
+
+.schedTable {
+	border-spacing: 0px;
+	width: 100%;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: 0;
+	margin-top: 15px;
+}
+
+.schedTable th { font: bold 13px "Lucida Grande", verdana, arial, helvetica, sans-serif; color: #de272a; text-align: left; padding: 2px 2px 2px 2px; }
+.schedTable th.title { font-size: 14px; background: #ffffff; color: #111; padding-bottom: 8px; }
+.schedTable td { font-size: 13px; background: #fff; padding: 0px 2px 0px 2px; }
+.schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
+.schedTable a:hover { text-decoration: underline; }
+.schedTable a:visited { font-weight: bold; color: #00667c; }
+
+/* Reg table */
+.regTable {
+    font-size: 12px;
+    border-spacing: 0px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.regTable td { padding: 2px; }
+
+#cancellations { padding: 10px 10px 1px 10px; margin-bottom: 12px; color: #fff; background: #de272a url('/media/img/cancel_bg.gif') repeat-x top left; }
+#cancellations a { color: #ffffff; text-decoration: underline; }
+#cancellations a:hover { text-decoration: none; }
+#cancellations a:visited { color: #ffffff; }

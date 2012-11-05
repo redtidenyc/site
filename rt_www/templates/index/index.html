@@ -76,11 +76,20 @@
     	<iframe width="425" height="349" src="http://www.youtube.com/embed/KsHDfvNkU94" frameborder="0" allowfullscreen></iframe>
     </div-->
 	
-	
+		<div class="left">
+			<div class="grayline">
+				<h3>Visiting the City?</h3>
+			</div>
+			<p>We welcome out-of-town swimmers to join us during any of our practices.  The fee is $5 per session payable to the coach on deck.   		
+			Check out our <a href="/workouts/">Schedule</a> for more information on practice times and pool locations.</p>
+
+		</div>
     <div class="left">
 
         {% if current_closings %}
-        <h2>Cancellations</h2>
+				<div class="grayline">
+        	<h3>Cancellations</h3>
+				</div>
         <div id="cancellations">
             
                <p>Practice will be cancelled on: 
@@ -94,35 +103,24 @@
                 <p>
         </div>
         {% endif %}
-        <div class="redline">
-            <h2>Workout Schedule</h2>
+        <div class="grayline">
+            <h3>Workout Schedule</h3>
         </div>
         <table class="schedTable">
-            <thead>
-                <tr>
-                    <th class="title" colspan="3">{{ season }}</th>
-                </tr>
-                <tr>
-                    <th>Workout</th>
-                    <th>Time</th>
-                    <th>Pool</th>
-                </tr>
-            </thead>
             <tbody>
                 {% for p in practices %}
-                <tr>
+									{% ifchanged p.day %}<tr>{{ p.day }}</tr>{% endifchanged %}
+                	<tr>
                     <td>{{ p.day }} {{ p.period }}</td>
                     <td>{{ p.start }}-{{ p.end }}</td>
                     <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a></td>
-                </tr>
+                	</tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
     <div class="right">
-        <div class="redline">
-            <h2>Announcements</h2>
-        </div>
+        <img src="/media/img/announcements.png" alt="Announcements" title="Announcements"/>
 	{% autoescape off %}
         {% for a in current_announcements %}
         <h3>{{ a.title }}</h3>

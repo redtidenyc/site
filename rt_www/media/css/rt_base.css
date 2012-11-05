@@ -105,143 +105,13 @@ a.facebook {
 	color: #d33535 
 }
 
-/* main */
-#main { background: #ffffff; }
-/* top right bottom left */
-#main .sub { height: 100%; border-top: 1px solid #d6d6d6; margin-top: 0px; background: #ffffff url('/media/img/sub_bg.gif') repeat-y }
-#main .subleft { float: left; width: 600px; padding:  10px 20px 10px 20px; _padding-top: 20px; }
-*:first-child+html #main .subleft { padding-top: 20px; }
-#main .subright {
-	height:100%;
-	font-size: 11px;
-	float: right;
-	margin-top: 0px;
-	margin-bottom: 10px;
-	padding: 10px;
-	_padding-top: 20px;
-	width: 250px;
-}
-#main .subleft ul { line-height: 18px; font-size: 12px; margin-left: 14px; }
-#main .subleft li { margin-bottom: 11px; }
-#main .subright ul { list-style: none; margin-left: 0; padding-left: 1em; text-indent: -1em; }
-
-/* PHOTOS */
-
-#main .subphotos { width: 870px; padding:  10px 20px 10px 20px; _padding-top: 20px; }
-#main .photocell { padding: 8px; width: 180px; }
-#main .photoTable { text-align: center; }
-#main .photoTable td { font-size: 11px; background: #f6f6f6; padding: 0px 0px 0px 0px; }
-#main .photoTable td.alt { background-color: #ffffff; }
-#main .photoTable h3 { color: #333; font-size: 12px; margin-top: -5px; padding-top: 0px; }
-#main .map {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	background-color: #f6f6f6;
-	border: 1px solid #de272a;
-	width: 600px;
-	height: 600px;
-}
-#main .photoTable td { font-size: 11px; background: #f6f6f6; padding: 0px 0px 0px 0px; }
-#main .meetTable td { font-size: 11px; padding: 0px 8px 0px 0px; vertical-align: top; }
-#main .meetTable td.date { padding-top: 15px; color: #666; }
-#main .intro { margin-top: 20px; }
-#main .left {
-    min-height:100%;	
-    padding:  10px 20px 10px 30px;
-    _padding-top: 20px;
-    background: #ffffff;
-    width: 405px;
-    float: left;
-}
-*:first-child+html #main .left { padding-top: 20px; }
-#main .right {
-	padding:  10px 30px 10px 20px;
-        _padding-top: 20px;
-	background: #ffffff;
-	width: 405px;
-	float: right;
-}
-
-#main .right ol { line-height: 18px; font-size: 12px; margin-left: 14px; }
-#main .subleft ol { line-height: 18px; font-size: 12px; margin-left: 14px; }
-*:first-child+html #main .right { padding-top: 20px; }
-h1, h2 {
+h1, h2, h3 {
 	font-size: 27px;
 	font-family: 'Sansita One', sans-serif;
 	font-weight: normal;
 	color: #d33535;
 	margin: 0 0 28px 0;
 }
-
-#main .right ul { line-height: 18px; font-size: 12px; margin-left: 8px; }
-
-#main h3 {
-	font-size: 15px;
-	margin-bottom: -3px;
-	padding-bottom: 0px;
-}
-
-#main p {
-	font-size: 12px;
-	line-height: 18px;
-	margin: 0px;
-	padding: 0px;
-	margin-bottom: 10px;
-}
-
-#main .rightchunk {
-	color: #666;
-	font-size: 9px;
-	float: right;
-	margin-top: 20px;
-	margin-bottom: 10px;
-	margin-left: 10px;
-}
-#main .imgmain { border: 1px solid #de272a; }
-#main .redline { border-bottom: 1px solid #de272a; }
-#main .highlightbox {
-	margin-top: 20px;
-	padding: 10px 10px 0px 10px;
-	background-color: #f6f6f6;
-	border: 1px solid #d6d6d6;
-	margin-bottom: 20px;
-}
-
-/* Schedule Table */
-
-.schedTable {
-	border-spacing: 0px;
-	width: 100%;
-	padding-left: 0px;
-	padding-right: 0px;
-	margin: 0;
-	margin-top: 15px;
-}
-
-.schedTable th { font: bold 13px "Lucida Grande", verdana, arial, helvetica, sans-serif; color: #de272a; text-align: left; padding: 2px 2px 2px 2px; }
-.schedTable th.title { font-size: 14px; background: #ffffff; color: #111; padding-bottom: 8px; }
-.schedTable td { font-size: 13px; background: #fff; padding: 0px 2px 0px 2px; }
-.schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
-.schedTable a:hover { text-decoration: underline; }
-.schedTable a:visited { font-weight: bold; color: #00667c; }
-
-/* Reg table */
-.regTable {
-    font-size: 12px;
-    border-spacing: 0px;
-    width: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin: 0;
-    margin-top: 15px;
-}
-
-.regTable td { padding: 2px; }
-
-#cancellations { padding: 10px 10px 1px 10px; margin-bottom: 12px; color: #fff; background: #de272a url('/media/img/cancel_bg.gif') repeat-x top left; }
-#cancellations a { color: #ffffff; text-decoration: underline; }
-#cancellations a:hover { text-decoration: none; }
-#cancellations a:visited { color: #ffffff; }
 
 #footer {
 	color: #666666;
@@ -256,6 +126,9 @@ h1, h2 {
 
 .clearme {
 	clear:both;
+	width: 0;
+	height: 0;
+	margin: 0;
 }
 
 /*form elements */
