@@ -4,7 +4,7 @@ BlogManager = function() {
 
 BlogManager.prototype.initialize = function() {
     var sub_lis = getElementsByTagAndClassName('li', null, 'rightnav');
-    var dom = getFirstElementByTagAndClassName('div', 'redline', 'subleft');
+    var dom = getFirstElementByTagAndClassName('div', 'redline', 'subright');
     this.cid = dom.id.replace(/current_(\d+)/, "$1");
     for(var i = 0; i < sub_lis.length; i++) {
         if(sub_lis[i].id != 'blog_' + this.cid) {

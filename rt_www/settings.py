@@ -1,6 +1,7 @@
 # Django settings for rt_www project.
 from os.path import abspath, dirname, join
 DEBUG = True
+SITE_ID=2
 TEMPLATE_DEBUG = False
 DEVELOPMENT = True
 PROJECT_DIR = abspath(join(dirname(__file__), '..'))

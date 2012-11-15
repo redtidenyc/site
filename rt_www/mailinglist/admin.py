@@ -12,8 +12,8 @@ admin.site.register(MailingList, MailingListAdmin)
 class ForwardAdmin( admin.ModelAdmin ):
     list_display = ( 'forward', 'swimmer', )
 
-	class Media:
-        js = ('js/MochiKit/MochiKit.js', 'js/autocomplete.js', 'js/admin/SwimmerAutoCompleter.js',)
+class Media:
+    js = ('js/MochiKit/MochiKit.js', 'js/autocomplete.js', 'js/admin/SwimmerAutoCompleter.js',)
 
 admin.site.register(Forward, ForwardAdmin)
 

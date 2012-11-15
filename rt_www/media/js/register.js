@@ -100,7 +100,7 @@ RegistrationManager.prototype.GetPlans = function(plans) {
 }
 
 RegistrationManager.prototype.HoldPlace = function(mid_div, msg) {
-    var placeholderdiv = DIV({'id':'reg_form', 'class':'subleft'}, P({'style':'padding: 50px;' }, msg));
+    var placeholderdiv = DIV({'id':'reg_form', 'class':'subright'}, P({'style':'padding: 50px;' }, msg));
     swapDOM(mid_div, placeholderdiv);
 }
 

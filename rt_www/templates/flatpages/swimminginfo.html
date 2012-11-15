@@ -3,13 +3,13 @@
 {% block content %}
 <div id="main">
     <div class="sub">        
-        <div class="subright">    
+        <div class="subleft">    
             <ul>
                 <li><a href="#eti">Swimming Etiquette</a></li>
                 <li><a href="#lingo">Swimming Lingo</a></li>
             </ul>
         </div>
-        <div class="subleft">
+        <div class="subright">
 	    {% autoescape off %}
             {{ flatpage.content }}      
 	    {% endautoescape %}

@@ -205,3 +205,13 @@ div.displaycontent {
 	font-size: 12px;
 	border: none;
 }
+
+.subleft {
+	float: left;
+	width: 250px;
+}
+
+.subright {
+	float: left;
+	width: 720px;
+}
