@@ -1,0 +1,19 @@
+ {% extends "index/base.html" %}
+{% block title %}About Masters Swimming{% endblock %}
+{% block content %}
+<div id="main">
+    <div class="sub">
+        <div class="subleft">
+            {% include "common/about_subnav.html" %}
+        </div>
+        <div class="subright">
+          <h3>About Masters Swimming</h3>
+          <p>Masters swimming is an organized program of swimming for adults over 18 years of age. United States Masters 
+            Swimming (<a href="http://www.usms.org" target="_new">www.usms.org</a>), is divided into Local Masters Swim Clubs (LMSC).  
+            Red Tide is affiliated with the Metropolitan Masters LMSC (<a href="http://www.metroswim.org" target="_new">www.metroswim.org</a>).</p>
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
+{% endblock %}
