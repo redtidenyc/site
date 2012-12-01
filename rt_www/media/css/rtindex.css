@@ -77,7 +77,7 @@
 
 /* main box */
 #main { margin-top: 50px; }
-#main .left { margin-right: 20px; width: 310px; float: left; }
+#main .left { margin-right: 20px; width: 302px; float: left; }
 #main .right { margin-top: -18px; width: 310px; float: right; }
 #main .left p { margin-top: 10px; }
 #main .grayline { border-bottom: 3px solid #dcddde; }
@@ -151,3 +151,10 @@
 #cancellations a { color: #ffffff; text-decoration: underline; }
 #cancellations a:hover { text-decoration: none; }
 #cancellations a:visited { color: #ffffff; }
+
+#main .announcements {
+	background: url(/media/img/announcements.png) no-repeat;
+	width: 275px;
+	height: 410px;
+	padding: 80px 20px 0 30px;
+}
