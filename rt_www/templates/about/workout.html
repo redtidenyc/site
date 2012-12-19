@@ -1,7 +1,27 @@
-{% extends "flatpages/schedule.html" %}
+{% extends "index/base.html" %}
 {% block title %}Workout Schedule{% endblock %}
-
+{% block add_stylesheets %}
+	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={{ google_key }}"></script>
+	<script type="text/javascript" src="/media/js/MochiKit/MochiKit.js"></script>
+	<script type="text/javascript" src="/media/js/workoutmap.js"></script>
+{% endblock %}
 {% block content %}
+<div id="main">
+    <div id="sub">
+        <div class="sub">
+            <div class="subleft">
+                <ul>
+                    <li><a href="#schedule">Workout Schedule</a></li>
+                    <li><a href="#pools">Pools</a></li>
+                      <ul>
+                        <li><a href="#baruch">Baruch College Pool</a></li>
+                        <li><a href="#chinatown">Chinatown YMCA Pool</a></li>
+                        <li><a href="#john_jay">John Jay College Pool</a></li>
+                      </ul>
+                    <li><a href="/meets/">Swim Meets</a></li>
+                </ul>
+            </div>
+            <div class="subright">
                 <h1>Red Tide Workout Information</h1>
 
                 <div class="redline" id="schedule">
@@ -63,11 +83,15 @@
                 N, Q, R to 57th / 7th Avenue
                 Bus: M11 stops right in front</p>
 
-		            <div class="map" id="jjmap"></div> 
+		<div class="map" id="jjmap"></div> 
  
                 
 
  
             </div>
         </div>
+        <br class="clearme"/>
+    </div>
+    {% include "index/footer.html" %}
+</div>
 {% endblock %}
