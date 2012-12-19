@@ -15,7 +15,7 @@
 	};
     
     function loadFile(obj) { 
-        swapDOM('title', DIV({'id':'title', 'class':'redline'}, H2({}, obj.title))); 
+        swapDOM('title', DIV({'class':'redline'}, H2({'id':'title'}, obj.title))); 
         thisMovie("mpl").loadFile(obj); 
     };
 </script>
@@ -29,7 +29,7 @@
 	<div id="subright" class="subright">
             <h1>Redtide Video Gallery</h1>
             
-            <div id="title" class="redline"><h2>{{ object.title }}</h2></div>
+            <div class="redline"><h2 id="title">{{ object.title }}</h2></div>
             <div id="main" class="highlightbox">
                 <p id="video" style="text-align: center;"><a href="http://www.macromedia.com/go/getflashplayer">
                     Get the Flash Player</a> to see this player.</p>
@@ -44,9 +44,11 @@
             s1.write("video");
         </script>
         <div>
+          <ul>
           {% for video in object_list %}
             <li id="video_{{ video.id }}"><a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">{{ video.title }}</a></li>
-          {% endfor %}                
+          {% endfor %}
+          </ul>             
         </div>
         <br class="clearme"/>
   </div>
