@@ -3,8 +3,9 @@
 {% block title %}Gallery / Photos{% endblock %}
 {% block add_stylesheets %}
         <link rel="stylesheet" href="/media/css/lightbox.css" media="screen" />
+        <script type="text/javascript" src="/media/js/MochiKit/Base.js">
         <script type="text/javascript" src="/media/js/trimpath/template.js"></script>
-	<script type="text/javascript" src="/media/js/photos.js"></script>
+	      <script type="text/javascript" src="/media/js/photos.js"></script>
         <!--[if IE]>
         <style type="text/css">
         #lightbox { line-height: 10px; }
@@ -21,7 +22,7 @@
             <li><a href="#pools">Videos</a></li>
         </ul>
 	    </div>
-      <div class="subphotos">
+      <div id="subright" class="subright">
         <div class="redline"><h1>Gallery / Photos</h1></div><br/>
 	<p>To view each album, click on the first image. Use either the arrow keys or the links in the upper left or right of the image to scroll through the photos. To quit out of the album, hit the "q" key.</p>
         <center id="gallery">   
