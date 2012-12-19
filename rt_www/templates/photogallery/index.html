@@ -1,6 +1,6 @@
 {% extends "index/base.html" %}
 {% load markup %}
-{% block title %}Redtide Photo Galleries{% endblock %}
+{% block title %}Gallery / Photos{% endblock %}
 {% block add_stylesheets %}
         <link rel="stylesheet" href="/media/css/lightbox.css" media="screen" />
         <script type="text/javascript" src="/media/js/trimpath/template.js"></script>
@@ -14,8 +14,15 @@
 {% endblock %}
 {% block content %}
 <div id="main">
-    <div class="subphotos">
-        <div class="redline"><h1>Redtide Photo Galleries</h1></div><br/>
+    <div class="sub">
+      <div id="subleft" class="subleft">
+	      <ul>
+            <li><a href="#schedule">Photos</a></li>
+            <li><a href="#pools">Videos</a></li>
+        </ul>
+	    </div>
+      <div class="subphotos">
+        <div class="redline"><h1>Gallery / Photos</h1></div><br/>
 	<p>To view each album, click on the first image. Use either the arrow keys or the links in the upper left or right of the image to scroll through the photos. To quit out of the album, hit the "q" key.</p>
         <center id="gallery">   
         </center>
