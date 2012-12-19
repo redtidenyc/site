@@ -15,7 +15,7 @@
 	};
     
     function loadFile(obj) { 
-        swapDOM('title', DIV({'id':'title', 'class':'redline'}, obj.title)); 
+        swapDOM('title', MochiKit.DOM.DIV({'id':'title', 'class':'redline'}, obj.title)); 
         thisMovie("mpl").loadFile(obj); 
     };
 </script>
