@@ -1,7 +1,9 @@
 {% extends "index/base.html" %}
 {% block title %}Red Tide Video Gallery{% endblock %}
 {% block add_stylesheets %}
-<script type="text/javascript" src="/media/js/swfobject.js"></script>
+  <script type="text/javascript" src="/media/js/swfobject.js"></script>
+  <script type="text/javascript" src="/media/js/MochiKit/Base.js"></script>
+  <script type="text/javascript" src="/media/js/MochiKit/DOM.js"></script>
 {% endblock %}
 {% block content %}
 <div id="main">
@@ -15,7 +17,7 @@
 	};
     
     function loadFile(obj) { 
-        swapDOM('title', MochiKit.DOM.DIV({'id':'title', 'class':'redline'}, obj.title)); 
+        swapDOM('title', DIV({'id':'title', 'class':'redline'}, obj.title)); 
         thisMovie("mpl").loadFile(obj); 
     };
 </script>
