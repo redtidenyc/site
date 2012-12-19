@@ -21,13 +21,17 @@
 </script>
     <div class="sub">
 	<div id="subleft" class="subleft">
-	    <ul id="rightnav">
-                {% for video in object_list %}
-                <li id="video_{{ video.id }}"><a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">{{ video.title }}</a></li>
-                {% endfor %}                
-            </ul>	
+	    <ul>
+          <li><a href="/photos/videos">Photos</a></li>
+          <li>Videos</li>
+      </ul>
 	</div>
 	<div id="subright" class="subright">
+	  <!--ul id="rightnav">
+              {% for video in object_list %}
+              <li id="video_{{ video.id }}"><a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">{{ video.title }}</a></li>
+              {% endfor %}                
+          </ul-->
             <h1>Redtide Video Gallery</h1>
             
             <div id="title" class="redline"><h2>{{ object.title }}</h2></div>
