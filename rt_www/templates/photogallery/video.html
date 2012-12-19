@@ -19,7 +19,7 @@
         thisMovie("mpl").loadFile(obj); 
     };
 </script>
-    <div class="sub">
+  <div class="sub">
 	<div id="subleft" class="subleft">
 	    <ul>
           <li><a href="/photos/">Photos</a></li>
@@ -27,18 +27,13 @@
       </ul>
 	</div>
 	<div id="subright" class="subright">
-	  <!--ul id="rightnav">
-              {% for video in object_list %}
-              <li id="video_{{ video.id }}"><a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">{{ video.title }}</a></li>
-              {% endfor %}                
-          </ul-->
             <h1>Redtide Video Gallery</h1>
             
             <div id="title" class="redline"><h2>{{ object.title }}</h2></div>
             <div id="main" class="highlightbox">
-                <p id="video" style="text-align: center;"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</p>
-            </div>    
-        </div> 
+                <p id="video" style="text-align: center;"><a href="http://www.macromedia.com/go/getflashplayer">
+                    Get the Flash Player</a> to see this player.</p>
+            </div>     
         <script type="text/javascript">
             var s1 = new SWFObject("/media/flash/flvplayer.swf","mpl","320","240","7");
             s1.addParam("allowfullscreen","true");
@@ -48,8 +43,14 @@
             s1.addVariable("javascriptid", "mpl");
             s1.write("video");
         </script>
+        <div>
+          {% for video in object_list %}
+            <li id="video_{{ video.id }}"><a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">{{ video.title }}</a></li>
+          {% endfor %}                
+        </div>
         <br class="clearme"/>
-    </div>
+  </div>
+  </div>
     {% include "index/footer.html" %}
 </div>
 {% endblock %}
