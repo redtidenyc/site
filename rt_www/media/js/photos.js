@@ -8,7 +8,7 @@ GalleryManager = function() {
 };
 
 GalleryManager.prototype.Errhandler = function(e) {
-	log(e);
+	console.info(e);
 };
 
 GalleryManager.prototype.initialize = function() {
@@ -130,7 +130,7 @@ GalleryManager.prototype.Start = function(gid) {
     arrayPageSize = GetPageSize();
     var arrayPageScroll = GetPageScroll();
     var lightboxTop = arrayPageScroll[1] + (arrayPageSize[3] / 15);
-    log(lightboxTop);
+    console.info(lightboxTop);
     setStyle('lightbox', { 'top':lightboxTop + 'px' });
     showElement('lightbox');
 		
@@ -305,7 +305,7 @@ GalleryManager.prototype.PrevGalleryPage = function(e) {
 
 GalleryManager.prototype.ShowGallery = function(e) {
 	var gid = e.src().id.replace(/gallery(\d+)/, "$1");
-	log(gid);
+	console.info(gid);
         this.Start(gid);
 }
 
