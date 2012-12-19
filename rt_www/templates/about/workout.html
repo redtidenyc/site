@@ -12,9 +12,13 @@
             <div class="subleft">
                 <ul>
                     <li><a href="#schedule">Workout Schedule</a></li>
-                    <li><a href="#john-jay">John Jay College Pool</a></li>
-                    <li><a href="#baruch">Baruch College Pool</a></li>
-		    <li><a href="#chinatowny">Chinatown YMCA Pool</a></li>
+                    <li><a href="#pools">Pools</a></li>
+                      <ul>
+                        <li><a href="#baruch">Baruch College Pool</a></li>
+                        <li><a href="#chinatown">Chinatown YMCA Pool</a></li>
+                        <li><a href="#john_jay">John Jay College Pool</a></li>
+                      </ul>
+                    <li><a href="">Swim Meets</a></li>
                 </ul>
             </div>
             <div class="subright">
@@ -44,6 +48,8 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                <a name="pools"></a>
+                <a name="baruch"></a>
                 <div class="redline" id="baruch">
                     <h2>Baruch College Pool</h2>
                 </div>
@@ -54,6 +60,7 @@
                
                <div class="map" id="barmap"></div> 
                
+               <a name="chinatown"></a>
                <div class="redline" id="chinatowny">
                    <h2>Chinatown YMCA Pool</h2>
                </div>
@@ -66,6 +73,7 @@
               
               <div class="map" id="ymcamap"></div>
  
+              <a name="john_jay"></a>
               <div class="redline" id="john-jay">
                   <h2>John Jay College Pool</h2>
               </div>
