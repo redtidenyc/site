@@ -158,7 +158,7 @@
 .schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
 .schedTable a:hover { text-decoration: underline; }
 .schedTable a:visited { font-weight: bold; color: #00667c; }
-.schedTable tr.day, #cancellations {
+.schedTable tr.day td, #cancellations {
 	background-color: #f7dfdf;
 	text-align: center;
 	text-transform: uppercase;
