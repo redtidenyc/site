@@ -91,19 +91,6 @@
             <h3>Workout Schedule</h3>
             <h4>{{ year }}</h4>
         </div>
-        {% if current_closings %}
-          <div id="cancellations">
-            <p>Practice will be cancelled on: <br/>
-              {% for closing in current_closings %}
-                {% if not forloop.last %}
-                  {{ closing }},&nbsp;
-                {% else %}
-                  {{ closing }}
-                {% endif %}
-              {% endfor %}
-              <p>
-          </div>
-        {% endif %}
         <table class="schedTable">
             <tbody>
               
@@ -124,12 +111,25 @@
         </table>
     </div>
     <div class="right announcements">
-	{% autoescape off %}
+      {% if current_closings %}
+        <div id="cancellations">
+          <p>Practice will be cancelled on: <br/>
+            {% for closing in current_closings %}
+              {% if not forloop.last %}
+                {{ closing }},&nbsp;
+              {% else %}
+                {{ closing }}
+              {% endif %}
+            {% endfor %}
+            <p>
+        </div>
+      {% endif %}
+      {% autoescape off %}
         {% for a in current_announcements %}
         <h3>{{ a.title }}</h3>
         <p>{{ a.fptext }}</p>
         {% endfor %}
-	{% endautoescape %}
+      {% endautoescape %}
     </div>
     <br class="clearme"/>
 </div>
