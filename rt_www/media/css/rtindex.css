@@ -124,6 +124,15 @@
 	text-align: center;
 }
 
+#main h4 {
+	color: #305276;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Comfortaa', sans-serif;
+	font-size: 15px;
+	margin: 10px 0;
+}
+
 #main p {
 	font-size: 12px;
 	line-height: 18px;
@@ -149,6 +158,11 @@
 .schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
 .schedTable a:hover { text-decoration: underline; }
 .schedTable a:visited { font-weight: bold; color: #00667c; }
+.schedTable tr.day, #cancellations {
+	background-color: #f7dfdf;
+	text-align: center;
+	text-transform: uppercase;
+}
 
 /* Reg table */
 .regTable {
