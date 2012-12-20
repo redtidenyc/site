@@ -3,12 +3,14 @@ body {
 	font-size: 13px;
 	font-weight: normal;
 	color: #636466; 
-	line-height: 26px; 
+	line-height: 16px; 
 	margin: 0px; 
 	padding: 0px; 
 	/*background: #0092ba;*/
 	background: #fff url('/media/img/light_wool.png') repeat top left;
 }
+
+p { margin-bottom: 30px; }
 a { text-decoration: underline; color: #de272a; }
 a:hover { text-decoration: none; color: #de272a; }
 a:visited { color: #de272a;	 }
@@ -110,7 +112,7 @@ h1, h2, h3 {
 	font-family: 'Sansita One', sans-serif;
 	font-weight: normal;
 	color: #d33535;
-	margin: 0 0 28px 0;
+	margin: 0 0 20px 0;
 }
 
 #footer {
