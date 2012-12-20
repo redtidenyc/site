@@ -110,13 +110,16 @@
 .schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
 .schedTable a:hover { text-decoration: underline; }
 .schedTable a:visited { font-weight: bold; color: #00667c; }
+.schedTable tr > td {
+	padding-top: 10px;
+}
 
 .schedTable tr.day td {
 	background-color: #f7dfdf;
 	text-align: center;
 	text-transform: uppercase;
 	color: #d33535;
-	margin: 18px 0 10px 0;
+	padding: 18px 2px 0 2px;
 }
 
 /* main */
