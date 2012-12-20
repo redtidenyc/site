@@ -106,11 +106,10 @@
     padding: 2px 2px 2px 2px;
 }
 .schedTable th.title { font-size: 14px; background: #ffffff; color: #111; padding-bottom: 8px; }
-.schedTable td { font-size: 13px; background: #fff; padding: 0px 2px 0px 2px; }
+.schedTable td { font-size: 13px; background: #fff; padding: 10px 2px 18px 2px; }
 .schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
 .schedTable a:hover { text-decoration: underline; }
 .schedTable a:visited { font-weight: bold; color: #00667c; }
-
 
 .schedTable tr.day td {
 	background-color: #f7dfdf;
