@@ -113,6 +113,9 @@
 .schedTable tr > td {
 	padding-top: 10px;
 }
+.schedTable tr.empty td {
+	padding-top: 18px;
+}
 
 .schedTable tr.day td {
 	background-color: #f7dfdf;
