@@ -184,9 +184,6 @@
 	color: #d33535; 
 	background-color: #f7dfdf ; 
 }
-#cancellations a { color: #ffffff; text-decoration: underline; }
-#cancellations a:hover { text-decoration: none; }
-#cancellations a:visited { color: #ffffff; }
 
 #main .announcements {
 	background: url(/media/img/announcements.png) no-repeat;
