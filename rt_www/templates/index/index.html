@@ -96,7 +96,9 @@
               
                 {% for p in practices %}
                   {% ifchanged p.day %}
-                    <tr class="empty"><td></td></tr>
+                    {% if not foorloop.first %}
+                      <tr class="empty"><td></td></tr>
+                    {% endif %}
                     <tr class="day">
                       <td colspan="3">{{ p.day }}</td>
                     </tr>
