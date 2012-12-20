@@ -96,7 +96,7 @@
               
                 {% for p in practices %}
                   {% ifchanged p.day %}
-                    {% if not foorloop.first %}
+                    {% if not forloop.first %}
                       <tr class="empty"><td></td></tr>
                     {% endif %}
                     <tr class="day">
