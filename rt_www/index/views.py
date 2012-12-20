@@ -87,6 +87,7 @@ def index(request):
         { 'current_announcements':current_announcements,
           'current_closings':current_closings,
                   'season':season,
+           'year':get_current_year(),
           'practices':practices }, context_instance=RequestContext(request))
 
 def schedule(request):

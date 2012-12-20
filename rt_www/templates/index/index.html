@@ -80,38 +80,36 @@
 		<div class="left">
 			<div class="grayline">
 				<h3>Visiting the City?</h3>
+				<h4>Join us for a workout</h4>
 			</div>
 			<p>We welcome out-of-town swimmers to join us during any of our practices.  The fee is $5 per session payable to the coach on deck.   		
 			Check out our <a href="/workouts/">Schedule</a> for more information on practice times and pool locations.</p>
 
 		</div>
     <div class="left">
-
-        {% if current_closings %}
-				<div class="grayline">
-        	<h3>Cancellations</h3>
-				</div>
-        <div id="cancellations">
-            
-               <p>Practice will be cancelled on: 
-                {% for closing in current_closings %}
-		     {% if not forloop.last %}
-                     {{ closing }},&nbsp;
-		     {% else %}
-		     {{ closing }}
-		     {% endif %}
-                {% endfor %}
-                <p>
-        </div>
-        {% endif %}
         <div class="grayline">
             <h3>Workout Schedule</h3>
+            <h4>{{ year }}</h4>
         </div>
+        {% if current_closings %}
+          <div id="cancellations">
+            <p>Practice will be cancelled on: 
+              {% for closing in current_closings %}
+                {% if not forloop.last %}
+                  {{ closing }},&nbsp;
+                {% else %}
+                  {{ closing }}
+                {% endif %}
+              {% endfor %}
+              <p>
+          </div>
+        {% endif %}
         <table class="schedTable">
             <tbody>
+              
                 {% for p in practices %}
                   {% ifchanged p.day %}
-                    <tr>
+                    <tr class="day">
                       <td colspan="2">{{ p.day }}</td>
                     </tr>
                   {% endifchanged %}
