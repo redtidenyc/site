@@ -158,10 +158,11 @@
 .schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
 .schedTable a:hover { text-decoration: underline; }
 .schedTable a:visited { font-weight: bold; color: #00667c; }
-.schedTable tr.day td, #cancellations {
+.schedTable tr.day td {
 	background-color: #f7dfdf;
 	text-align: center;
 	text-transform: uppercase;
+	color: #d33535;
 }
 
 /* Reg table */
@@ -177,7 +178,12 @@
 
 .regTable td { padding: 2px; }
 
-#cancellations { padding: 10px 10px 1px 10px; margin-bottom: 12px; color: #fff; background: #de272a url('/media/img/cancel_bg.gif') repeat-x top left; }
+#cancellations { 
+	padding: 10px 10px 1px 10px; 
+	margin-bottom: 12px; 
+	color: #d33535; 
+	background-color: #f7dfdf ; 
+}
 #cancellations a { color: #ffffff; text-decoration: underline; }
 #cancellations a:hover { text-decoration: none; }
 #cancellations a:visited { color: #ffffff; }
