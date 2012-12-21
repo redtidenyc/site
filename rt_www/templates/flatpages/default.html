@@ -1,12 +1,11 @@
 {% extends "index/base.html" %}
 {% block title %}{{ flatpage.title }}{% endblock %}
 {% block content %}
-{% url request.path as path %}
 <div id="main">
     <div class="sub">
         <div class="subleft">
           <ul>
-            <li><a href="{{ path }}">{{flatpage.title}}</a></li>
+            <li><a href="{{ current_path }}">{{flatpage.title}}</a></li>
           </ul>
         </div>
         <div class="subright">

@@ -62,6 +62,11 @@ def get_current_year():
 
     return '%s' %( year )
 
+def get_current_path():
+    return {
+        'current_path': request.path()
+    }
+    
 def index(request):
     announcements = Announcement.objects.filter(expiration_date__gte=datetime.now())
     current_announcements = []
