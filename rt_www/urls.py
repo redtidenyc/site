@@ -11,11 +11,6 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-about_info_dict = {
-    'queryset':Coach.objects.filter(is_active__exact=True).order_by('-title'),
-    'template_name':'about/index.html'
-}
-
 meets_info_dict = {
     'queryset':Meet.objects.filter(date_start__gte=datetime.now(), entry_link__isnull=False,
         date_start__year=get_current_year()).order_by('date_start'),
@@ -81,11 +76,6 @@ urlpatterns += patterns('',
     (r'^blog/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', blog_info_dict),
     (r'^blogs/$', 'rt_www.index.views.blogs', blogs_info_dict),
     (r'^meets/$', 'django.views.generic.list_detail.object_list', meets_info_dict),
-    (r'^about/$', 'django.views.generic.list_detail.object_list', about_info_dict),
-    (r'^coaches/$', 'django.views.generic.simple.direct_to_template', {'template': 'about/coaches.html'}),
-    (r'^masters_swimming/$', 'django.views.generic.simple.direct_to_template', {'template': 'about/masters.html'}),
-    (r'^new_swimmers/$', 'django.views.generic.simple.direct_to_template', {'template': 'about/new_swimmers.html'}),
-    (r'^members/$', 'django.views.generic.simple.direct_to_template', {'template': 'about/members.html'}),
     #(r'^cgi-bin/', include('rt_www.registration.urls')),
     #(r'^payments/(\d+)/', 'rt_www.registration.views.payments_process'),
     (r'^$', 'rt_www.index.views.index'),
