@@ -30,4 +30,4 @@ RedTide.slideshow = (function () {
 	};
 })();
 
-$(window).load(RedTide.slideshow.init);
+$(document).ready(RedTide.slideshow.init);
