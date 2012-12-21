@@ -21,10 +21,12 @@
     top:0;
     left:0;
     z-index:8;
+	display: none;
 }
 
 #homeslides img.active {
     z-index:10;
+	display: block;
 }
 
 #homeslides img.last-active {
@@ -165,7 +167,7 @@
 .regTable td { padding: 2px; }
 
 #cancellations { 
-	padding: 10px 10px 1px 10px; 
+	padding: 10px 10px 1px 15px; 
 	margin-bottom: 12px; 
 	color: #d33535; 
 	background-color: #f7dfdf ; 
@@ -173,22 +175,11 @@
 
 #main .announcements {
 	background: url(/media/img/announcements.png) no-repeat;
-	width: 275px;
+	width: 311px;
 	height: 370px;
-	padding: 80px 20px 0 30px;
+	padding: 80px 2px 0 12px;
 }
 
 .announcements ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-
-.announcements ul li:before {
-	content: "█";
-	color: #d33535;
-}
-
-.announcements ul li {
-	padding-left: 1em;
+	list-style-image: url('/media/img/announce_bullet.png');
 }
