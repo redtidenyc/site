@@ -1,13 +1,6 @@
-{% extends "index/base.html" %}
+{% extends "flatpages/about.html" %}
 {% block title %}About Red Tide{% endblock %}
 {% block content %}
-<div id="main" section="about">
-    <div class="sub">
-        <div class="subleft">
-            {% include "common/about_subnav.html" %}
-        </div>
-        <div class="subright">
-           <img src="/media/img/headers/about.jpg"/>
            <h1><span>About Red Tide</span></h1>
            <p class="pull">Red Tide New York City masters swim team is a community of athletes with a passion for the pool. We swim for fun, fitness and competition.</p>
            <div class="column_wrapper">
@@ -30,9 +23,4 @@
                <p>Click <a href="/join/">here</a> to join in the fun!</p>
               </div>
            </div>
-        </div>
-        <br class="clearme"/>
-    </div>
-    {% include "common/footer.html" %}
-</div>
 {% endblock %}
