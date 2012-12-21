@@ -192,12 +192,12 @@
 	margin: 0 15px 20px 15px;	
 }
 
-.announcements ul li p {
+#main .announcements ul li p {
 	border-bottom: 1px solid #636466;
 	padding-bottom: 20px;
 }
 
-.announcements ul li:last-child p {
+#main .announcements ul li:last-child p {
 	border-bottom: none;
 	margin-bottom: none;
 }
