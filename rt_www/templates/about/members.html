@@ -1,13 +1,13 @@
  {% extends "index/base.html" %}
 {% block title %}Members{% endblock %}
 {% block content %}
-<div id="main">
+<div id="main" section="about">
     <div class="sub">
         <div class="subleft">
             {% include "common/about_subnav.html" %}
         </div>
         <div class="subright">
-          <h3>Members</h3>
+          <h1><span>Members</span></h1>
           <div class="login_form">
             <!-- club assistant login -->
             <form action="https://www.clubassistant.com/club/login_do.cfm" method="post">

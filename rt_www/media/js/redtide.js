@@ -7,9 +7,14 @@ var RedTide = (function () {
 	
 	// set the correct tab as active
 	function setActiveNavTab() {	
-		var i = 0;
-		if($("#tabnav")) {
-			$("#tabnav a").each(function() {
+		
+		var section = $("#main").attr("section").toUpperCase();
+		console.info("section: " + section);
+		$("#tabnav a:contains('" + section + "')").addClass("active");
+		
+		
+		if($(".subleft")) {
+			$(".subleft ul li a").each(function() {
 				if($(this).attr("href") == location.pathname) {
 					$(this).addClass("active");
 				}
