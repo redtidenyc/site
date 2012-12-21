@@ -180,5 +180,12 @@
 
 .announcements ul {
 	list-style-type: square;
-	color: red;
+	color: #d33535;
+	font-size: 33px;
+	margin-left: -15px;
+}
+
+.announcements ul li {
+	color: #636466;
+	font-size: 13px;
 }
