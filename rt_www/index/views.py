@@ -63,9 +63,7 @@ def get_current_year():
     return '%s' %( year )
 
 def get_current_path():
-    return {
-        'current_path': request.path()
-    }
+    return '%s' %(request.path())
     
 def index(request):
     announcements = Announcement.objects.filter(expiration_date__gte=datetime.now())
@@ -93,6 +91,7 @@ def index(request):
           'current_closings':current_closings,
                   'season':season,
            'year':get_current_year(),
+           'current_path': get_current_path(),
           'practices':practices }, context_instance=RequestContext(request))
 
 def schedule(request):
