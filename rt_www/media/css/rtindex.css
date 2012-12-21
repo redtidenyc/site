@@ -182,4 +182,9 @@
 
 .announcements ul {
 	list-style-image: url('/media/img/announce_bullet.png');
+	padding-left: 34px;
+}
+
+.announcements ul li {
+	padding-left: 15px;
 }
