@@ -21,9 +21,11 @@ isDevServer = True
 if isDevServer:
     thePath = PROJECT_DIR
     OUTGOING_MAIL_HOST = '127.0.0.1'
+    GWORKOUTMAPKEY = 'ABQIAAAAYqa6s-bNkRjmADkuRu7JbBQxLqNj2hAR5Oqh9rxhcVklPUuKdhQx0Ct8xcE_mRKFNVS-dtxppBxHqA'
 else:
     thePath = '/home/redtide-mods'
     OUTGOING_MAIL_HOST = '127.0.0.1'
+    GWORKOUTMAPKEY = 'ABQIAAAAYqa6s-bNkRjmADkuRu7JbBQxLqNj2hAR5Oqh9rxhcVklPUuKdhQx0Ct8xcE_mRKFNVS-dtxppBxHqA'
     ACCOUNT='redtide-paypal'
 
 DATABASE_ENGINE = 'sqlite3' # 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.

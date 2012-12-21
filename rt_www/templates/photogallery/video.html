@@ -6,7 +6,7 @@
   <script type="text/javascript" src="/media/js/MochiKit/DOM.js"></script>
 {% endblock %}
 {% block content %}
-<div id="main">
+<div id="main" section="gallery">
 <script type="text/javascript">
     function thisMovie(movieName) {
 	    if(navigator.appName.indexOf("Microsoft") != -1) {
@@ -29,7 +29,7 @@
       </ul>
 	</div>
 	<div id="subright" class="subright">
-            <h1>Redtide Video Gallery</h1>
+            <h1><span>Redtide Video Gallery</span></h1>
             
             <div id="title" class="redline">{{ object.title }}</div>
             <div id="main" class="highlightbox">

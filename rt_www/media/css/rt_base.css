@@ -10,7 +10,7 @@ body {
 	background: #fff url('/media/img/light_wool.png') repeat top left;
 }
 
-p { margin-bottom: 30px; }
+p { margin-bottom: 20px; }
 a { text-decoration: underline; color: #de272a; }
 a:hover { text-decoration: none; color: #de272a; }
 a:visited { color: #de272a;	 }
@@ -111,7 +111,7 @@ h1, h2, h3 {
 	font-size: 27px;
 	font-family: 'Sansita One', sans-serif;
 	font-weight: normal;
-	color: #d33535;
+	color: #305276;
 	margin: 0 0 20px 0;
 }
 
@@ -209,13 +209,83 @@ div.displaycontent {
 
 .subleft {
 	float: left;
-	width: 250px;
+	width: 260px;
+}
+
+.subleft ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+
+.subleft ul li {
+	text-transform: uppercase;
+	font-size: 17px;
+	line-height: 20px;
+	margin-top: 25px;
+}
+
+.subleft ul li:first-child {
+	margin-top: 0px;
+}
+
+.subleft ul ul li {
+	margin-top: 0px;
+	text-transform: none;
+}
+
+.subleft ul li a {
+	color: #636466;
+	text-decoration: none;
+}
+
+.subleft ul li a:hover, .subleft ul li a.active {
+	color: #DE272A;
 }
 
 .subright {
 	float: left;
-	width: 720px;
+	width: 710px;
 }
+
+.subright p.pull {
+	font-size: 23px;
+	line-height: 27px;
+	font-style: italic;
+}
+
+.subright .column {
+	width: 340px;
+	float: left;
+}
+
+.subright .column:first-child {
+	margin-right: 30px;
+}
+
+.subright h1 {
+	margin-top: 22px;
+	position: relative;
+	
+}
+
+.subright h1 span {
+	background: #fff;
+	position: relative;  
+	z-index: 5; 
+	padding: 0 5px 0 0;
+}
+
+.subright h1:before {  
+    content: "";  
+    display: block;  
+    border-top: solid 1px #305276;  
+    width: 100%;  
+    height: 1px;  
+    position: absolute;  
+    top: 90%;  
+    z-index: 1;  
+}  
 
 #main {
 	margin-top: 28px;

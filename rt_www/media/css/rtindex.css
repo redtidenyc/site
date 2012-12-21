@@ -46,10 +46,12 @@
 #home_tease .right a { color: #de272a; text-decoration: none; }
 #home_tease .right a:hover { color: #0092ba; }
 #home_tease h2 {
+	color: #d33535;
 	text-align: center;
 	margin-bottom: 10px;
 }
 #home_tease h3 {
+	color: #d33535;
 	font-family: 'Comfortaa', sans-serif;
 	font-size: 17px;
 	text-transform: uppercase;
@@ -141,7 +143,6 @@
 
 /* main */
 #main h3 {
-	color: #305276;
 	margin-bottom: 10px;
 	text-align: center;
 }
