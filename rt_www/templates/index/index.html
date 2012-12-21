@@ -127,10 +127,14 @@
         </div>
       {% endif %}
       {% autoescape off %}
+        <ul>
         {% for a in current_announcements %}
-        <h3>{{ a.title }}</h3>
-        <p>{{ a.fptext }}</p>
+        <li>
+          <strong>{{a.title}}</strong><br/>
+          {{ a.fptext }}
+        </li>
         {% endfor %}
+        </ul>
       {% endautoescape %}
     </div>
     <br class="clearme"/>
