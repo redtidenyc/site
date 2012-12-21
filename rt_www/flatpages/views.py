@@ -43,6 +43,7 @@ def flatpage(request, url):
 
     c = RequestContext(request, {
         'flatpage': f,
+        'current_path': request.path(),
     })
     response = HttpResponse(t.render(c))
     populate_xheaders(request, response, FlatPage, f.id)
