@@ -184,7 +184,7 @@
 	margin: 0;
 }
 
-.announcements ul li.before {
+.announcements ul li:before {
 	content: "&#9608;";
 	color: #d33535;
 }
