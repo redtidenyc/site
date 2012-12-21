@@ -16,7 +16,13 @@
     height:395px;
 }
 
-#homeslides img {
+#homeslides img.loading {
+	position: absolute;
+	top: 125px;
+	left: 300px;
+}
+
+#homeslides img.slide {
     position:absolute;
     top:0;
     left:0;
@@ -64,11 +70,12 @@
 #slide_controls ul {
 	margin: 0;
 	padding: 0;
+	display: inline-block;
 }
 
-#slide_controls li a {
+#slide_controls a {
 	text-decoration: none;
-	color: #76777a;
+	color: #f5dddd;
 	font-size: 35px;
 	position: relative;
 	top: -10px;
@@ -84,10 +91,15 @@
 	line-height: 35px;
 }
 
-#slide_controls li a.normal {
+#slide_controls ul li.active a.circle, #slide_controls a.on {
+	color: #d33535;
+}
+
+#slide_controls a.normal {
 	font-size: 13px;
 	color: #d33535;
 	top: -18px;
+	margin-left: 15px;
 }
 
 /* END HOME PAGE TEASER */
