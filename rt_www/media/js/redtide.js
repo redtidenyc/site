@@ -9,8 +9,8 @@ var RedTide = (function () {
 	function setActiveNavTab() {	
 		
 		var section = $("#main").attr("section").toUpperCase();
-		console.info("section: " + section);
-		$("#tabnav a:contains('" + section + "')").addClass("active");
+		if (section)
+			$("#tabnav a:contains('" + section + "')").addClass("active");
 		
 		
 		if($(".subleft")) {
