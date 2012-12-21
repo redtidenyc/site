@@ -185,7 +185,7 @@
 }
 
 .announcements ul li:before {
-	content: "&#9608;";
+	content: "█";
 	color: #d33535;
 }
 
