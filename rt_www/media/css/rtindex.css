@@ -175,19 +175,18 @@
 
 #main .announcements {
 	background: url(/media/img/announcements.png) no-repeat;
-	width: 311px;
+	width: 312px;
 	height: 370px;
-	padding: 80px 2px 0 12px;
+	padding: 80px 2px 0 11px;
 }
 
 .announcements ul {
-	list-style-image: url('/media/img/announce_bullet.png');
-	padding-left: 34px;
-	margin-right: 15px;
+	list-style: none;
 }
 
 .announcements ul li {
-	padding-left: 15px;
+	background-image: url('/media/img/announce_bullet.png') no-repeat 0 0;
+	padding-left: 33px;
 	padding-bottom: 20px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #636466;
