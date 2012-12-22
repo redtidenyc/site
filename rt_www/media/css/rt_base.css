@@ -323,3 +323,8 @@ div.displaycontent {
 	display: block;
 }
 
+.subright .login_form a, .subright .login_form a:hover, .subright .login_form a:visited {
+	color: #fff;
+	font-size: 10px;
+}
+
