@@ -311,6 +311,11 @@ div.displaycontent {
 /* member page */
 .subright .login_form {
 	background: #d33535;
-	display: block;
+	float: none;
+	padding: 12px 30px;
+}
+
+.subright .login_form p {
+	color: #233C61;
 }
 
