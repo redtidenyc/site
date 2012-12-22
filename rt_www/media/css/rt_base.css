@@ -269,9 +269,17 @@ div.displaycontent {
 
 .subright h1 {
 	margin-top: 22px;
-	position: relative;
-	
+	position: relative;	
 }
+
+/* section head */
+.subright h2 {
+	text-transform: uppercase;
+	font-family: 'Comfortaa', sans-serif;
+	font-size: 16px;
+	border-bottom: 1px solid #305276;
+}
+
 
 .subright h1 span {
 	background: #fff;
