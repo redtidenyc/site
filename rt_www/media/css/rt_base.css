@@ -312,10 +312,14 @@ div.displaycontent {
 .subright .login_form {
 	background: #d33535;
 	float: none;
-	padding: 12px 30px;
+	padding: 0 30px;
 }
 
 .subright .login_form p {
 	color: #233C61;
+}
+
+.subright .login_form .field {
+	display: block;
 }
 
