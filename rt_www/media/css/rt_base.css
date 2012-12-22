@@ -304,6 +304,12 @@ div.displaycontent {
 	color: #DE272A;
 }
 
+.subright .bullet {
+	color: #DE272A;
+	font-size: 25px;
+	vertical-align: top;
+}
+
 #main {
 	margin-top: 28px;
 }
@@ -335,5 +341,6 @@ div.displaycontent {
 
 .subright .login_form .field button {
 	margin-right: 135px;
+	cursor: pointer;
 }
 
