@@ -299,6 +299,10 @@ div.displaycontent {
     z-index: 1;  
 }  
 
+.subright .faq {
+	color: #DE272A;
+}
+
 #main {
 	margin-top: 28px;
 }
