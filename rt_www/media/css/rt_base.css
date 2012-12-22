@@ -308,3 +308,9 @@ div.displaycontent {
 	margin-top: 28px;
 }
 
+/* member page */
+.subright .login_form {
+	background: #d33535;
+	display: block;
+}
+
