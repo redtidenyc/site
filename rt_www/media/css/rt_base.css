@@ -351,6 +351,15 @@ div.displaycontent {
 /* coaches */
 .subright .left {
 	float: left;
+	margin-right: 15px;
+}
+
+.subright .picture {
+	width: 160px;
+}
+
+.subright .text {
+	width: 535px;
 }
 
 .subright .right {
