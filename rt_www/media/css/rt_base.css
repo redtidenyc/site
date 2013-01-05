@@ -348,3 +348,11 @@ div.displaycontent {
 	cursor: pointer;
 }
 
+/* coaches */
+.subright .left {
+	float: left;
+}
+
+.subright .right {
+	float: right;
+}
