@@ -281,6 +281,10 @@ div.displaycontent {
 	margin-top: 50px;
 }
 
+.subright h2 .nocaps {
+	text-transform: lowercase;
+}
+
 
 .subright h1 span {
 	background: #fff;
