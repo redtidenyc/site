@@ -376,3 +376,7 @@ div.displaycontent {
 .subright .extra_indent strong {
 	color: #d33535;
 }
+
+.subright .extra_indent em {
+	margin-left: 35px;
+}
