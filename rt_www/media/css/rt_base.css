@@ -389,3 +389,12 @@ div.displaycontent {
 .subright .extra_indent strong {
 	color: #d33535;
 }
+
+.subright .extra_indent h3 {
+	font-size: 30px;
+	font-family: 'Comfortaa', sans-serif;
+	border-bottom: 1px solid #d33535;
+}
+.subright .extra_indent h3 strong {
+	font-size: 50px;
+}
