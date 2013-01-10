@@ -383,6 +383,7 @@ div.displaycontent {
 	font-size: 22px;
 	color: #305276;
 	padding-top: 33px;
+	float: left;
 }
 
 .subright .extra_indent strong {
