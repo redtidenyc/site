@@ -106,7 +106,7 @@ def schedule(request):
 
         season = '%s - %s' %( current_schedule.date_start.strftime('%B %d, %Y'),
                         current_schedule.date_end.strftime('%B %d, %Y') )
-    return render_to_response('about/workout.html', { 'google_key':settings.GWORKOUTMAPKEY, 'season':season,
+    return render_to_response('index/workout.html', { 'google_key':settings.GWORKOUTMAPKEY, 'season':season,
         'practices':practices }, context_instance=RequestContext(request))
 
 def rt_login(request):
