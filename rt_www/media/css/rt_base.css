@@ -367,3 +367,8 @@ div.displaycontent {
 .subright .right {
 	float: right;
 }
+
+/* join */
+.subright .extra_indent {
+	margin-left: 55px;
+}
