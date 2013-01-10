@@ -393,6 +393,7 @@ div.displaycontent {
 .subright .extra_indent h3 {
 	font-size: 30px;
 	font-family: 'Comfortaa', sans-serif;
+	font-style: italic;
 	border-bottom: 1px solid #d33535;
 	line-height: 30px;
 	margin-top: 10px;
