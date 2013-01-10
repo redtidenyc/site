@@ -373,6 +373,16 @@ div.displaycontent {
 	margin-left: 55px;
 }
 
+.subright .extra_indent .left {
+	width: 500px;
+}
+
+.subright .extra_indent .right {
+	text-transform: uppercase;
+	font-size: 22px;
+	color: #234062;
+}
+
 .subright .extra_indent strong {
 	color: #d33535;
 }
