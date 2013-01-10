@@ -394,6 +394,8 @@ div.displaycontent {
 	font-size: 30px;
 	font-family: 'Comfortaa', sans-serif;
 	border-bottom: 1px solid #d33535;
+	line-height: 30px;
+	margin-top: 10px;
 }
 .subright .extra_indent h3 strong {
 	font-family: 'Sansita One', sans-serif;
