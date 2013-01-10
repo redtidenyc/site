@@ -248,7 +248,7 @@ div.displaycontent {
 	width: 710px;
 }
 
-.subright a { color: #305276; }
+.subright a { color: #305276; font-weight: bold; text-decoration: none;}
 .subright a:hover { color: #305276; }
 .subright a:visited { color: #305276;	 }
 
