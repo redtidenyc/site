@@ -3,6 +3,61 @@
 RedTide.MapManager = (function() {
 	function init() {
 		console.info("init map manager");
+		
+		var jjLatLng = new google.maps.LatLng(40.769865, -73.988024);
+		var jjMapOptions = {
+			center: jjLatLng,
+			zoom: 15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var jjmap = new google.maps.Map(document.getElementById("jjmap"),
+			jjMapOptions);
+			
+		var jjmarker = new google.maps.Marker({
+			    position: jjLatLng,
+			    title:"John Jay"
+			});
+
+		// To add the marker to the map, call setMap();
+		jjmarker.setMap(jjmap);
+			
+		var barLatLng = new google.maps.LatLng(40.740577, -73.983957);
+		var barMapOptions = {
+				center: barLatLng,
+				zoom: 15,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+		var barmap = new google.maps.Map(document.getElementById("barmap"),
+				barMapOptions);
+				
+		var barmarker = new google.maps.Marker({
+		    position: barLatLng,
+		    title:"Baruch"
+		});
+		
+		barmarker.setMap(barmap);
+		
+		var ymcaLatLng = new google.maps.LatLng(40.723724, -73.992669)
+		var ymcaMapOptions = {
+				center: ymcaLatLng,
+				zoom: 15,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+		var ymcamap = new google.maps.Map(document.getElementById("ymcamap"),
+				ymcaMapOptions);
+				
+		var ymcamarker = new google.maps.Marker({
+		    position: ymcaLatLng,
+		    title:"Baruch"
+		});
+
+		ymcamarker.setMap(ymcamap);
+		/*
+			var rooseveltpoint = new GLatLng(40.75699374459088, -73.95562648773193);
+			this.rooseveltmap = new GMap2($('rooseveltmap'), { 'size': msize}) ;
+			this.rooseveltmap.setCenter(rooseveltpoint, 15) ;
+			this.rooseveltmap.addOverlay(new GMarker(this.rooseveltmap.getCenter()));
+		*/
 	}
 	
 	return {
