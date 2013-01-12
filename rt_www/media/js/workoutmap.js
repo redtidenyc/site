@@ -1,4 +1,4 @@
-use 'strict';
+"use strict";
 
 Redtide.MapManager = (function() {
 	function init() {
