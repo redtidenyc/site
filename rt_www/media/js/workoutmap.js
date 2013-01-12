@@ -1,9 +1,14 @@
+use 'strict';
 
-Redtide.MapManager = {
+Redtide.MapManager = (function() {
 	function init() {
 		console.info("init map manager");
 	}
-}
+	
+	return {
+		init: init
+	}
+})();
 
 
 $(document).ready(function() {
