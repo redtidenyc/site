@@ -1,4 +1,16 @@
-MapManager = function() {
+
+Redtide.MapManager = {
+	function init() {
+		console.info("init map manager");
+	}
+}
+
+
+$(document).ready(function() {
+	Redtide.MapManager.init();
+});
+
+/*MapManager = function() {
 	bindMethods(this);
 }
 
@@ -30,3 +42,4 @@ MapManager.prototype.initialize = function() {
 
 mapManager = new MapManager();
 addLoadEvent(mapManager.initialize);
+*/
