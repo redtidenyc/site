@@ -12,7 +12,7 @@ RedTide.MapManager = (function() {
 
 
 $(document).ready(function() {
-	Redtide.MapManager.init();
+	RedTide.MapManager.init();
 });
 
 /*MapManager = function() {
