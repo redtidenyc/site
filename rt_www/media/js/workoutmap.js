@@ -1,6 +1,6 @@
 "use strict";
 
-Redtide.MapManager = (function() {
+RedTide.MapManager = (function() {
 	function init() {
 		console.info("init map manager");
 	}
