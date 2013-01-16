@@ -33,8 +33,8 @@
         </ul>
 	    </div>
       <div id="subright" class="subright">
-        <div class="redline"><h1><span>Gallery / Photos</span></h1></div><br/>
-	<p>To view each album, click on the first image. Use either the arrow keys or the links in the upper left or right of the image to scroll through the photos. To quit out of the album, hit the "q" key.</p>
+        <h1><span>Red Tide Photo Galleries</span></h1>
+        <p>To view each album, click on the first image. Use either the arrow keys or the links in the upper left or right of the image to scroll through the photos. To quit out of the album, hit the "q" key.</p>
         <center id="gallery">   
         </center>
     </div>
@@ -47,7 +47,7 @@
     {for row in rows}
     <tr>
         {for im in row}
-        <td><div class="photocell"><h3>${im.title}</h3></div>
+        <td><div class="photocell"><h2>${im.title}</h2></div>
         {if im.gid != ""}
         <a id="gallery${im.gid}" href="javascript:void(0);"><img src="${im.loc}" width="80" height="60" border="0"/></a></td>
         {/if}
