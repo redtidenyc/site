@@ -47,7 +47,7 @@
     {for row in rows}
     <tr>
         {for im in row}
-        <td><div class="photocell"><h2>${im.title}</h2></div>
+        <td><div class="photocell">${im.title}</div>
         {if im.gid != ""}
         <a id="gallery${im.gid}" href="javascript:void(0);"><img src="${im.loc}" width="80" height="60" border="0"/></a></td>
         {/if}
