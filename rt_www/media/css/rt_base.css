@@ -452,4 +452,10 @@ div.displaycontent {
 	font-size: 14px;
 	text-transform: uppercase;
 	color: #305276;
+	display: inline-block;
+	margin-right: 90px;
+}
+
+.row:last-child {
+	margin-right: 0px;
 }
