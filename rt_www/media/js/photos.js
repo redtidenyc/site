@@ -215,7 +215,6 @@ GalleryManager.prototype.BuildImageHtml = function() {
     var objBody = getFirstElementByTagAndClassName('body');
     var res = TrimPath.processDOMTemplate("lightbox_template", {});
     var objOverlay = DIV({'id':'overlay', 'style':'display: none;'});
-    //insertSiblingNodesBefore('container', objOverlay);
     connect('overlay', 'onclick', this, 'End');
 
     objBody.innerHTML = res + objBody.innerHTML;
