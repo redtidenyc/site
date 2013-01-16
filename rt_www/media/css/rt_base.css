@@ -441,6 +441,12 @@ div.displaycontent {
 }
 
 /* Galleries */
+.gallery_thumb {
+	background: #fff url('/media/img/gallery_background.png') no-repeat 0 0;
+	width: 165px;
+	height: 125px;
+	padding: 5px;
+}
 .photocell {
 	font-size: 14px;
 	text-transform: uppercase;
