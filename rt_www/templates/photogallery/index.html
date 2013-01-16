@@ -42,7 +42,7 @@
     {% include "common/footer.html" %} 
 </div>
 <div id="overlay" style="display:none;"></div>
-<textarea id="photo_table" style="display:none;"></textarea>
+<textarea id="photo_table" style="display:none;">
 <div class="photoTable">
     {for row in rows}
       <div class="row">
@@ -57,6 +57,6 @@
     {/for}
     <div class="alt" colspan="4"><p>{if prev}<a href="javascript:void(0);" id="prev_galleries">&lt;&lt;prev</a>{/if} Page ${pageno} of ${total} {if next}<a href="javascript:void(0);" id="next_galleries">next&gt;&gt;</a>{/if}</p></div>
 </div>
-
+</textarea>
 {% include "index/lightbox_overlay.html" %}
 {% endblock %}
