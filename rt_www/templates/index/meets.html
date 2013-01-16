@@ -21,14 +21,14 @@
             <table class="meetTable">
               <tbody>
                 {% for meet in object_list %}
-                  {% ifchanged meet.date_start|date:"M"}
+                  {% ifchanged meet.date_start|date:"M" %}
                     {% if not forloop.first %}
                       <tr class="empty"><td></td></tr>
                     {% endif %}
                     <tr class="month">
                       <td>{{ meet.date_start|date:"M"}}</td>
                     </tr>
-                  {% endifchanged %}
+                  {% endif %}
                   <tr>
                     <td><p>{{ meet.get_display_date }}</p>
                         <p>{{ meet.name }}</p>
