@@ -2,7 +2,8 @@
 
 var RedTide = (function () {
 	function init() {
-		setActiveNavTab();
+		if (typeof MochiKit === 'undefined')
+			setActiveNavTab();
 	}
 	
 	// set the correct tab as active
