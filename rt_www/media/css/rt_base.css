@@ -441,7 +441,7 @@ div.displaycontent {
 }
 
 /* Galleries */
-.gallery_thumb {
+a.gallery_thumb {
 	background: #fff url('/media/img/gallery_border.png') no-repeat 0 0;
 	width: 165px;
 	height: 125px;
@@ -453,9 +453,9 @@ div.displaycontent {
 	text-transform: uppercase;
 	color: #305276;
 	display: inline-block;
-	margin-right: 90px;
+	margin-right: 85px;
 }
 
-.row:last-child {
+.photocell:last-child{
 	margin-right: 0px;
 }
