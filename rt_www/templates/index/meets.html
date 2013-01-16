@@ -11,14 +11,27 @@
 	      {% include "common/schedule_subnav.html" %}
 	    </div>
       <div id="subright" class="subright">
+        <img src="/media/img/headers/schedule.jpg"/>
             <h1><span>Swim Meets</span></h1>
-            
+            <p>Red Tide participates several meets each season.  Meets are a great way to put the skills and techniques developed 
+              during practice to a test.  They are also a good way to get to know teammates outside the pool.  Whether you are a 
+              seasoned meet veteran or new to the sport, we encourage you to give them a try. </p>
+              
             <div class="redline"><h2>{{ year }} Meet Schedule</h2></div>
             <table class="meetTable">
-            {% for meet in object_list %}
-                <tr>
-                    <td class="date">{{ meet.get_display_date }}</td>
-                    <td><h3>{{ meet.name }}</h3>
+              <tbody>
+                {% for meet in object_list %}
+                  {% ifchanged meet.date_start|date:"M"}
+                    {% if not forloop.first %}
+                      <tr class="empty"><td></td></tr>
+                    {% endif %}
+                    <tr class="month">
+                      <td>{{ meet.date_start|date:"M"}}</td>
+                    </tr>
+                  {% endifchanged %}
+                  <tr>
+                    <td><p>{{ meet.get_display_date }}</p>
+                        <p>{{ meet.name }}</p>
                         {% ifequal meet.country "United States" %}
                         <p>{{ meet.meet_pool }}, {{ meet.city }}, {{ meet.state }}. <br/>
                         {% else %}
@@ -30,8 +43,9 @@
                         {% endif %}
                         </p>
                     </td>
-                </tr>
-            {% endfor %}
+                  </tr>
+                {% endfor %}
+              </tbody>
             </table>
             
             <p>Additional meets will be added to the schedule as they are sanctioned and posted.</p>
