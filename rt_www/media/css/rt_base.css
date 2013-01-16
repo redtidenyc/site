@@ -453,7 +453,8 @@ a.gallery_thumb {
 	text-transform: uppercase;
 	color: #305276;
 	display: inline-block;
-	margin-right: 85px;
+	margin-right: 92px;
+	width: 175px;
 }
 
 .photocell:last-child{
