@@ -439,3 +439,10 @@ div.displaycontent {
 .meetTable td strong {
 	color: #de272a;
 }
+
+/* Galleries */
+.photocell {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #305276;
+}
