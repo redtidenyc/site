@@ -212,16 +212,16 @@ GalleryManager.prototype.End = function(e) {
 }
 
 GalleryManager.prototype.BuildImageHtml = function() {
-    /*var objBody = getFirstElementByTagAndClassName('body');
+    var objBody = getFirstElementByTagAndClassName('body');
     var res = TrimPath.processDOMTemplate("lightbox_template", {});
     var objOverlay = DIV({'id':'overlay', 'style':'display: none;'});
-    insertSiblingNodesBefore('container', objOverlay);
+    //insertSiblingNodesBefore('container', objOverlay);
     connect('overlay', 'onclick', this, 'End');
 
     objBody.innerHTML = res + objBody.innerHTML;
 	
     connect('loadingLink', 'onclick', this, 'End');
-    connect('bottomNavClose', 'onclick', this, 'End');*/
+    connect('bottomNavClose', 'onclick', this, 'End');
 }
 
 GalleryManager.prototype.CacheBuild = function(req) {
