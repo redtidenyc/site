@@ -113,34 +113,6 @@
 #main .left p { margin-top: 10px; }
 #main .grayline { border-bottom: 3px solid #dcddde; }
 
-/* Schedule Table */
-.schedTable { border-spacing: 0px; width: 100%; padding-left: 0px; padding-right: 0px; margin: 0; margin-top: 15px; }
-.schedTable th {
-    font: bold 13px "Lucida Grande", verdana, arial, helvetica, sans-serif;
-    color: #de272a;
-    text-align: left;
-    padding: 2px 2px 2px 2px;
-}
-.schedTable th.title { font-size: 14px; background: #ffffff; color: #111; padding-bottom: 8px; }
-.schedTable td { font-size: 13px; background: #fff; padding: 0 2px 0 2px; }
-.schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
-.schedTable a:hover { text-decoration: underline; }
-.schedTable a:visited { font-weight: bold; color: #00667c; }
-.schedTable tr > td {
-	padding-top: 10px;
-}
-.schedTable tr.empty td {
-	padding-top: 18px;
-}
-
-.schedTable tr.day td {
-	background-color: #f7dfdf;
-	text-align: center;
-	text-transform: uppercase;
-	color: #d33535;
-	padding: 0 2px 0 2px;
-}
-
 /* main */
 #main h3 {
 	margin-bottom: 10px;
