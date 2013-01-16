@@ -43,21 +43,20 @@
 </div>
 <div id="overlay" style="display:none;"></div>
 <textarea id="photo_table" style="display:none;">
-<table class="photoTable">
+<div class="photoTable">
     {for row in rows}
-    <tr>
+    <div class="row">
         {for im in row}
-        <td><div class="photocell">${im.title}</div>
-        {if im.gid != ""}
-        <a id="gallery${im.gid}" href="javascript:void(0);" class="gallery_thumb"><img src="${im.loc}" width="165" height="125" border="0"/></a></td>
-        {/if}
+          <div class="photocell">${im.title}<br/>
+          {if im.gid != ""}
+            <a id="gallery${im.gid}" href="javascript:void(0);" class="gallery_thumb"><img src="${im.loc}" width="165" height="125" border="0"/></a>
+          {/if}
+          </div>
         {/for}
-    </tr>
     {/for}
-    <tr>
-        <td class="alt" colspan="4"><p>{if prev}<a href="javascript:void(0);" id="prev_galleries">&lt;&lt;prev</a>{/if} Page ${pageno} of ${total} {if next}<a href="javascript:void(0);" id="next_galleries">next&gt;&gt;</a>{/if}</p></td>
-    </tr>
-</table>
+    <div>
+    <div class="alt" colspan="4"><p>{if prev}<a href="javascript:void(0);" id="prev_galleries">&lt;&lt;prev</a>{/if} Page ${pageno} of ${total} {if next}<a href="javascript:void(0);" id="next_galleries">next&gt;&gt;</a>{/if}</p></div>
+</div>
 </textarea>
 {% include "index/lightbox_overlay.html" %}
 {% endblock %}
