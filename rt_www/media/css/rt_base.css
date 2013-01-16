@@ -409,7 +409,7 @@ div.displaycontent {
 }
 
 /* Schedule Table */
-.schedTable { border-spacing: 0px; width: 100%; padding-left: 0px; padding-right: 0px; margin: 0; margin-top: 15px; }
+.schedTable { border-spacing: 0px; width: 302px; padding-left: 0px; padding-right: 0px; margin: 0; margin-top: 15px; }
 .schedTable th {
     font: bold 13px "Lucida Grande", verdana, arial, helvetica, sans-serif;
     color: #de272a;
