@@ -3,14 +3,32 @@
 {% block title %}Gallery / Photos{% endblock %}
 {% block add_stylesheets %}
         <link rel="stylesheet" href="/media/css/lightbox.css" media="screen" />
-        
+        <script type="text/javascript" src="/media/js/MochiKit/Base.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/DOM.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Logging.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Async.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/JsonRpc.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Style.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Signal.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Position.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Color.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Visual.js"></script>
+        <script type="text/javascript" src="/media/js/MochiKit/Redtide_ext.js"></script>
+        <script type="text/javascript" src="/media/js/trimpath/template.js"></script>
+	      <script type="text/javascript" src="/media/js/photos.js"></script>
+        <!--[if IE]>
+        <style type="text/css">
+        #lightbox { line-height: 10px; }
+        #topCaption #tcaption { padding-top: 5px; }
+        </style>
+        <![endif]-->
 {% endblock %}
 {% block content %}
 <div id="main" section="gallery">
     <div class="sub">
       <div id="subleft" class="subleft">
 	      <ul>
-            <li>Photos</li>
+            <li><a href="/photos/">Photos</a></li>
             <li><a href="/photos/videos">Videos</a></li>
         </ul>
 	    </div>

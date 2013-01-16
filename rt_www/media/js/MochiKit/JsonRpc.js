@@ -205,7 +205,7 @@ MochiKit.Base.update(MochiKit.JsonRpc.JsonRpcProxy.prototype, {
         var req = MochiKit.Async.getXMLHttpRequest();
         req.open("POST",this.url,true);
         req.setRequestHeader("Content-Type","text/plain");
-        req.setRequestHeader("Content-Length",callstr.length);
+        //req.setRequestHeader("Content-Length",callstr.length);
         var d = MochiKit.Async.sendXMLHttpRequest(req,callstr);
         d.addCallback(MochiKit.Async.evalJSONRequest);
         d.addCallback(this._extractResult);
