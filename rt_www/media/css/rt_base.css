@@ -446,6 +446,7 @@ div.displaycontent {
 	width: 165px;
 	height: 125px;
 	padding: 5px;
+	display: inline-block;
 }
 .photocell {
 	font-size: 14px;
