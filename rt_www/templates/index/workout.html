@@ -13,29 +13,24 @@
             </div>
             <div class="subright">
               <img src="/media/img/headers/schedule.jpg"/>
-                <h1><span>Red Tide Workout Information</span></h1>
-
-                <div class="redline" id="schedule">
-                    <h2>Workout Schedule</h2>
-                </div>
+                <h1><span>Workout Schedule</span></h1>
                 <table class="schedTable">
-                    <thead>
-                        <tr>
-                            <th class="title" colspan="3">{{ season }}</th>
-                        </tr>
-                        <tr>
-                            <th>Workout</th>
-                            <th>Time</th>
-                            <th>Pool</th>
-                        </tr>
-                    </thead>
                     <tbody>
+
                         {% for p in practices %}
-                            <tr>
-                                <td>{{ p.day }} {{ p.period }}</td>
-                                <td>{{ p.start }}-{{ p.end }}</td>
-                                <td><a href="#{{ p.pool|slugify }}">{{ p.pool }}</a></td> 
+                          {% ifchanged p.day %}
+                            {% if not forloop.first %}
+                              <tr class="empty"><td></td></tr>
+                            {% endif %}
+                            <tr class="day">
+                              <td colspan="3">{{ p.day }}</td>
                             </tr>
+                          {% endifchanged %}
+                          <tr>
+                            <td width="20%">{{ p.period }}</td>
+                            <td width="35%">{{ p.start }}-{{ p.end }}</td>
+                            <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a></td>
+                          </tr>
                         {% endfor %}
                     </tbody>
                 </table>
