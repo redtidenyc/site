@@ -435,3 +435,7 @@ div.displaycontent {
 	color: #d33535;
 	padding: 0 2px 0 2px;
 }
+
+.meetTable td strong {
+	color: #de272a;
+}

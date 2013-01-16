@@ -26,16 +26,16 @@
                       <tr class="empty"><td></td></tr>
                     {% endif %}
                     <tr class="month">
-                      <td>{{ meet.date_start|date:"M"}}</td>
+                      <td>{{ meet.date_start|date:"MM"}}</td>
                     </tr>
                   {% endifchanged %}
                   <tr>
-                    <td><p>{{ meet.get_display_date }}</p>
-                        <p>{{ meet.name }}</p>
+                    <td><p><strong>{{ meet.get_display_date }}</strong><br/>
+                        {{ meet.name }}<br/>
                         {% ifequal meet.country "United States" %}
-                        <p>{{ meet.meet_pool }}, {{ meet.city }}, {{ meet.state }}. <br/>
+                        {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.state }}. <br/>
                         {% else %}
-                        <p>{{ meet.meet_pool }}, {{ meet.city }}, {{ meet.country }}.<br/>
+                        {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.country }}.<br/>
                         {% endifequal %}
                         <a href="{{ meet.entry_link }}" target="_blank">Entry Form</a>
                         {% if meet.date_close %}<br />
