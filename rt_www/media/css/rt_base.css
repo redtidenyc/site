@@ -424,11 +424,11 @@ div.displaycontent {
 .schedTable tr > td, .meetTable tr > td {
 	padding-top: 10px;
 }
-.schedTable tr.empty td, .meetTable tr.empty td {
+.schedTable tr.empty td, .meetTable tr.empty td, .meetTable div empty {
 	padding-top: 18px;
 }
 
-.schedTable tr.day td, .meetTable tr.month td {
+.schedTable tr.day td, .meetTable tr.month td, .meetTable div.month {
 	background-color: #f7dfdf;
 	text-align: center;
 	text-transform: uppercase;
@@ -436,7 +436,7 @@ div.displaycontent {
 	padding: 0 2px 0 2px;
 }
 
-.meetTable td strong {
+.meetTable td strong, .meetTable div strong {
 	color: #de272a;
 }
 
