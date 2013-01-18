@@ -258,6 +258,9 @@ div.displaycontent {
 	font-style: italic;
 }
 
+.subright .column_wrapper {
+	overflow: auto
+}
 .subright .column {
 	width: 340px;
 	float: left;
