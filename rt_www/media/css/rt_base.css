@@ -276,6 +276,10 @@ div.displaycontent {
 	position: relative;	
 }
 
+.subright.no_image h1 {
+	margin-top: 0px;
+}
+
 /* section head */
 .subright h2 {
 	text-transform: uppercase;
