@@ -2,23 +2,22 @@
 
 var RedTide = (function () {
 	function init() {
-		if (typeof MochiKit === 'undefined')
-			setActiveNavTab();
+		setActiveNavTab();
 	}
 	
 	// set the correct tab as active
 	function setActiveNavTab() {	
 		
-		var section = $("#main").attr("section");
+		var section = jQuery("#main").attr("section");
 		
 		if (section)
-			$("#tabnav a:contains('" + section.toUpperCase() + "')").addClass("active");
+			jQuery("#tabnav a:contains('" + section.toUpperCase() + "')").addClass("active");
 		
 		
-		if($(".subleft")) {
-			$(".subleft ul li a").each(function() {
-				if($(this).attr("href") == location.pathname) {
-					$(this).addClass("active");
+		if(jQuery(".subleft")) {
+			jQuery(".subleft ul li a").each(function() {
+				if(jQuery(this).attr("href") == location.pathname) {
+					jQuery(this).addClass("active");
 				}
 			});
 		}
@@ -29,4 +28,4 @@ var RedTide = (function () {
 	};
 })();
 
-$(document).ready(RedTide.init);
+jQuery(document).ready(RedTide.init);
