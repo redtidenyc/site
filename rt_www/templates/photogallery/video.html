@@ -1,27 +1,15 @@
 {% extends "index/base.html" %}
 {% block title %}Red Tide Video Gallery{% endblock %}
 {% block add_stylesheets %}
+  <link rel="stylesheet" href="/media/css/prettyPhoto.css" media="screen" />
   <script type="text/javascript" src="/media/js/swfobject.js"></script>
   <script type="text/javascript" src="/media/js/MochiKit/Base.js"></script>
   <script type="text/javascript" src="/media/js/MochiKit/DOM.js"></script>
-  <script type="text/javascript" src="/media/js/video.js"></script>
+  <script type="text/javascript" src="/media/js/jquery.prettyPhoto.js"></script>
+  <script type="text/javascript" src="/media/js/videos.js"></script>
 {% endblock %}
 {% block content %}
 <div id="main" section="gallery">
-<script type="text/javascript">
-    function thisMovie(movieName) {
-	    if(navigator.appName.indexOf("Microsoft") != -1) {
-			return window[movieName];
-		} else {
-			return document[movieName];
-		}
-	};
-    
-    function loadFile(obj) { 
-        swapDOM('title', DIV({'id':'title', 'class':'redline'}, obj.title)); 
-        thisMovie("mpl").loadFile(obj); 
-    };
-</script>
   <div class="sub">
 	<div id="subleft" class="subleft">
 	    <ul>
@@ -32,15 +20,15 @@
 	<div id="subright" class="subright no_image">
             <h1><span>RedTide Video Gallery</span></h1>
             <p>To view each video, click on the image.</p>
-            <div id="gallery">   
+            <div id="gallery">
               {% for video in videos.object_list %}
                 {% if forloop.counter0|divisibleby:3 %}
                   <div class="row">
                 {% endif %}
                 <div class="videocell" id="video_{{ video.id }}">
                   {{ video.title }}<br/>
-                  <a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">
-                    <img src="{{ video.get_thumb }}" width="165" height="125">
+                  <a href="/media/flash/flvplayer.swf?width=320&height=240&file={{ video.get_video }}&image={{ video.get_thumb }}" class="gallery_thumb" title='{{ video.title }}'>
+                    <img src="{{ video.get_thumb }}" width="165" height="125"/>
                   </a>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
@@ -63,21 +51,6 @@
                     {% endif %}
                 </span>
             </div>
-            <div id="title" class="redline">{{ object.title }}</div>
-            <div id="main" class="highlightbox">
-                <p id="video" style="text-align: center;"><a href="http://www.macromedia.com/go/getflashplayer">
-                    Get the Flash Player</a> to see this player.</p>
-            </div>     
-        <script type="text/javascript">
-            var s1 = new SWFObject("/media/flash/flvplayer.swf","mpl","320","240","7");
-            s1.addParam("allowfullscreen","true");
-            s1.addVariable("file","{{ object.get_video }}");
-            s1.addVariable("image", "{{ object.get_thumb }}");
-            s1.addVariable("enablejs", "true");
-            s1.addVariable("javascriptid", "mpl");
-            s1.write("video");
-        </script>
-        <br class="clearme"/>
   </div>
   </div>
     {% include "common/footer.html" %}
