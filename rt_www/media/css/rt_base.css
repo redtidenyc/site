@@ -175,6 +175,7 @@ div.displaycontent {
 .login_form {
 	line-height: 12px ;
 	float: right;
+	margin-top: -2px;
 }
 
 #head strong {
