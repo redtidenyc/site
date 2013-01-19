@@ -4,7 +4,7 @@
   <script type="text/javascript" src="/media/js/swfobject.js"></script>
   <script type="text/javascript" src="/media/js/MochiKit/Base.js"></script>
   <script type="text/javascript" src="/media/js/MochiKit/DOM.js"></script>
-  <script type="text/javascript" src="/media/js/videos.js"></script>
+  <script type="text/javascript" src="/media/js/video.js"></script>
 {% endblock %}
 {% block content %}
 <div id="main" section="gallery">
@@ -33,7 +33,20 @@
             <h1><span>RedTide Video Gallery</span></h1>
             <p>To view each video, click on the image.</p>
             <div id="gallery">   
-
+              {% for video in object_list %}
+                {% if forloop.counter0 % 3 == 0 %}
+                  <div class="row">
+                {% endif %}
+                <div class="videocell" id="video_{{ video.id }}">
+                  {{ video.title }}<br/>
+                  <a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">
+                    <img src="{{ video.get_thumb }}" width="165" height="125">
+                  </a>
+                </div>
+                {% if forloop.counter % 3 == 0 %}
+                  </div>
+                {% endif %}
+              {% endfor %}
             </div>
             <div id="title" class="redline">{{ object.title }}</div>
             <div id="main" class="highlightbox">
@@ -51,27 +64,7 @@
         </script>
         <br class="clearme"/>
   </div>
-  
+  </div>
     {% include "common/footer.html" %}
 </div>
-
-<!-- template -- >
-<textarea id="video_table" style="display:none;">
-<div class="videoTable">
-    {for row in rows}
-      <div class="row">
-        {for vid in row}
-          <div class="videocell" id="video_{{ vid.id }}">${vid.title}<br/>
-          {if vid.id != ""}
-            <a href="javascript:loadFile({file:'{{ vid.get_video }}', title:'{{ vid.title }}', image:'{{ vid.get_thumb }}'})">
-              <img src="${vid.get_thumb}" width="165" height="125" border="0"/>
-            </a>
-          {/if}
-          </div>
-        {/for}
-      </div>
-    {/for}
-    <div class="alt" colspan="4"><p>{if prev}<a href="javascript:void(0);" id="prev_galleries">&lt;&lt;prev</a>{/if} Page ${pageno} of ${total} {if next}<a href="javascript:void(0);" id="next_galleries">next&gt;&gt;</a>{/if}</p></div>
-</div>
-</textarea>
 {% endblock %}
