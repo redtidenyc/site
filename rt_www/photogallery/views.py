@@ -13,9 +13,9 @@ def videos( request ):
     video_list = Video.objects.all() # object_list(*args, **kwargs)
     paginator = Paginator(video_list, 12) # Show 12 videos per page
 
-    pageArg = request.GET.get('page',1)
+    page = request.GET.get('page',1)
     try:
-        videos = paginator.page(pageArg)
+        videos = paginator.page(page)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         videos = paginator.page(1)

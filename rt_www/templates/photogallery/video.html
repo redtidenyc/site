@@ -33,7 +33,7 @@
             <h1><span>RedTide Video Gallery</span></h1>
             <p>To view each video, click on the image.</p>
             <div id="gallery">   
-              {% for video in videos %}
+              {% for video in videos.object_list %}
                 {% if forloop.counter0|divisibleby:3 %}
                   <div class="row">
                 {% endif %}
