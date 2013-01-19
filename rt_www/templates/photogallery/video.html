@@ -29,8 +29,17 @@
       </ul>
 	</div>
 	<div id="subright" class="subright no_image">
-            <h1><span>Redtide Video Gallery</span></h1>
-            
+            <h1><span>RedTide Video Gallery</span></h1>
+            <p>To view each video, click on the image.</p>
+            <div id="gallery">   
+              {% for video in object_list %}
+                <div class="videocell" id="video_{{ video.id }}">
+                  {{ video.title }}<br/>
+                  <a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">
+                    <img src="{{ video.get_thumb }}">
+                  </a></li>
+              {% endfor %}
+            </div>
             <div id="title" class="redline">{{ object.title }}</div>
             <div id="main" class="highlightbox">
                 <p id="video" style="text-align: center;"><a href="http://www.macromedia.com/go/getflashplayer">
@@ -45,13 +54,6 @@
             s1.addVariable("javascriptid", "mpl");
             s1.write("video");
         </script>
-        <div>
-          <ul>
-          {% for video in object_list %}
-            <li id="video_{{ video.id }}"><a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">{{ video.title }}</a></li>
-          {% endfor %}
-          </ul>             
-        </div>
         <br class="clearme"/>
   </div>
   </div>
