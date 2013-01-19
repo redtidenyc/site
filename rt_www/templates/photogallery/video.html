@@ -34,18 +34,14 @@
             <p>To view each video, click on the image.</p>
             <div id="gallery">   
               {% for video in object_list %}
-                {% if forloop.counter0 == 0 %}
-                  <div class="row">
-                {% endif %}
+                
                 <div class="videocell" id="video_{{ video.id }}">
                   {{ video.title }}<br/>
                   <a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">
                     <img src="{{ video.get_thumb }}" width="165" height="125">
                   </a>
                 </div>
-                {% if forloop.counter == 3 %}
-                  </div>
-                {% endif %}
+                
               {% endfor %}
             </div>
             <div id="title" class="redline">{{ object.title }}</div>
