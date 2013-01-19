@@ -9,20 +9,9 @@ except ImportError:
     import cElementTree as ET
 import cStringIO as String
 
-#videos_info_dict = { 
-#    'queryset':Video.objects.all(),
-#    'template_name':'photogallery/video.html'
-#}
-
 def videos( request ): 
-# *args, **kwargs):
-    # try:
-    #    kwargs['extra_context'] = { 'object':Video.objects.latest('date_uploaded') }
-    #except:
-    #    pass
-    
     video_list = Video.objects.all() # object_list(*args, **kwargs)
-    paginator = Paginator(video_list, 12) # Show 12 contacts per page
+    paginator = Paginator(video_list, 12) # Show 12 videos per page
 
     page = request.GET.get('page',1)
     try:
