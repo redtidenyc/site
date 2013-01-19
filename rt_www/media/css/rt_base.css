@@ -40,7 +40,6 @@ a:visited { color: #de272a;	 }
 #searchwrapper {
 	width: 227px; 
 	height: 32px;
-	background: url('/media/img/search_box.png') no-repeat;
 	padding: 0px;
 	margin-left: 20px;
 	position: relative; /*important*/
@@ -74,6 +73,8 @@ a.facebook {
 	text-decoration: none;
 	border-right: 3px solid #8a8a8c;
 	display: inline-block;
+	position: relative;
+	top: -10px;
 }
 
 .search form {
