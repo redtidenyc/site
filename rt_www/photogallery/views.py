@@ -24,7 +24,7 @@ def videos( request ):
     video_list = Video.objects.all() # object_list(*args, **kwargs)
     paginator = Paginator(video_list, 12) # Show 12 contacts per page
 
-    page = request.GET.get('page')
+    page = request.GET.get('page',1)
     try:
         videos = paginator.page(page)
     except PageNotAnInteger:
