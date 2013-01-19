@@ -461,7 +461,7 @@ a.gallery_thumb {
 	padding: 5px;
 	display: inline-block;
 }
-.photocell {
+.photocell, .videocell {
 	font-size: 14px;
 	text-transform: uppercase;
 	color: #305276;
@@ -470,6 +470,6 @@ a.gallery_thumb {
 	width: 175px;
 }
 
-.photocell:last-child{
+.photocell:last-child, .videocell:last-child {
 	margin-right: 0px;
 }
