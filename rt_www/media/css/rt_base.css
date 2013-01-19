@@ -473,3 +473,11 @@ a.gallery_thumb {
 .photocell:last-child, .videocell:last-child {
 	margin-right: 0px;
 }
+
+.pagination .step-links .previous {
+	margin-right: 10px;
+}
+
+.pagination .step-links .next {
+	margin-left: 10px;
+}
