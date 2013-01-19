@@ -36,7 +36,7 @@
                 <div class="videocell" id="video_{{ video.id }}">
                   {{ video.title }}<br/>
                   <a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">
-                    <img src="{{ video.get_thumb }}">
+                    <img src="{{ video.get_thumb }}" width="165" height="125">
                   </a></li>
               {% endfor %}
             </div>
