@@ -51,7 +51,7 @@
             <div class="pagination">
                 <span class="step-links">
                     {% if videos.has_previous %}
-                        <a href="?page={{ videos.previous_page_number }}" class="previous">%lt; previous</a>
+                        <a href="?page={{ videos.previous_page_number }}" class="previous">&lt; previous</a>
                     {% endif %}
 
                     <span class="current">
@@ -59,7 +59,7 @@
                     </span>
 
                     {% if videos.has_next %}
-                        <a href="?page={{ videos.next_page_number }}" class="next">next %gt;</a>
+                        <a href="?page={{ videos.next_page_number }}" class="next">next &gt;</a>
                     {% endif %}
                 </span>
             </div>
