@@ -1,4 +1,6 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render_to_response
 from rt_www.photogallery.models import Video
 from django.views.generic.list_detail import object_list
 try:
@@ -7,12 +9,33 @@ except ImportError:
     import cElementTree as ET
 import cStringIO as String
 
-def videos(*args, **kwargs):
+#videos_info_dict = { 
+#    'queryset':Video.objects.all(),
+#    'template_name':'photogallery/video.html'
+#}
+
+def videos( request ): 
+# *args, **kwargs):
+    # try:
+    #    kwargs['extra_context'] = { 'object':Video.objects.latest('date_uploaded') }
+    #except:
+    #    pass
+    
+    video_list = Video.objects.all() # object_list(*args, **kwargs)
+    paginator = Paginator(video_list, 12) # Show 12 contacts per page
+
+    page = request.GET.get('page')
     try:
-        kwargs['extra_context'] = { 'object':Video.objects.latest('date_uploaded') }
-    except:
-        pass
-    return object_list(*args, **kwargs)
+        videos = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        videos = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        videos = paginator.page(paginator.num_pages)
+    
+    return render_to_response('photogallery/video.html', {"videos": videos})
+    # return video_list
 
 def playlist(request):
     root = ET.Element('playlist') 
