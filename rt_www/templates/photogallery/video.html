@@ -33,13 +33,7 @@
             <h1><span>RedTide Video Gallery</span></h1>
             <p>To view each video, click on the image.</p>
             <div id="gallery">   
-              {% for video in object_list %}
-                <div class="videocell" id="video_{{ video.id }}">
-                  {{ video.title }}<br/>
-                  <a href="javascript:loadFile({file:'{{ video.get_video }}', title:'{{ video.title }}', image:'{{ video.get_thumb }}'})">
-                    <img src="{{ video.get_thumb }}" width="165" height="125">
-                  </a></li>
-              {% endfor %}
+
             </div>
             <div id="title" class="redline">{{ object.title }}</div>
             <div id="main" class="highlightbox">
