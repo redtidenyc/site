@@ -34,8 +34,8 @@
             <p>To view each video, click on the image.</p>
             <div id="gallery">   
               {% for video in object_list %}
-                {% if forloop.counter|divisibleby:3 %}
-                  <div class="row"></div>
+                {% if forloop.counter0|divisibleby:3 %}
+                  <div class="row">
                 {% endif %}
                 <div class="videocell" id="video_{{ video.id }}">
                   {{ video.title }}<br/>
@@ -43,7 +43,9 @@
                     <img src="{{ video.get_thumb }}" width="165" height="125">
                   </a>
                 </div>
-                
+                {% if forloop.counter|divisibleby:3 %}
+                  </div>
+                {% endif %}
               {% endfor %}
             </div>
             <div id="title" class="redline">{{ object.title }}</div>
