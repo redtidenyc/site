@@ -26,18 +26,18 @@ def videos( request ):
     return render_to_response('photogallery/video.html', {"videos": videos})
     # return video_list
 
-def playlist(request):
-    root = ET.Element('playlist') 
-    resp = ET.ElementTree(root)
-    tlist = ET.SubElement(root, 'trackList')
-    for v in Video.objects.all():
-        track = ET.SubElement(tlist, 'track')
-        title = ET.SubElement(track, 'title')
-        location = ET.SubElement(track, 'location')
-        image = ET.SubElement(track, 'image')
-        location.text = v.get_video()
-        image.text = v.get_thumb()
-        title = str(v)
-    respobj = HttpResponse('', mimetype='text/xml')
-    resp.write(respobj, encoding='utf-8')
-    return respobj
+# def playlist(request):
+#    root = ET.Element('playlist') 
+#    resp = ET.ElementTree(root)
+#    tlist = ET.SubElement(root, 'trackList')
+#    for v in Video.objects.all():
+#        track = ET.SubElement(tlist, 'track')
+#        title = ET.SubElement(track, 'title')
+#        location = ET.SubElement(track, 'location')
+#        image = ET.SubElement(track, 'image')
+#        location.text = v.get_video()
+#        image.text = v.get_thumb()
+#        title = str(v)
+#    respobj = HttpResponse('', mimetype='text/xml')
+#    resp.write(respobj, encoding='utf-8')
+#    return respobj
