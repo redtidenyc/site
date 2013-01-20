@@ -24,8 +24,24 @@ form.gsc-search-box {
 .gsc-search-button {
 	border: 0px !important;
 	background-color: transparent !important;
+	color: transparent !important;
 	top:4px;
 	left:193px;
 	width:32px;
 	height:28px;
+}
+
+div.gsc-clear-button {
+	margin-right: 0 !important;
+	background-position: center right !important;
+}
+
+.gsc-results-wrapper-visible {
+	background-color: #fff;
+	border: 1px solid #8a8a8c;
+	margin-left: 2px;
+}
+
+.gsc-result .gs-title {
+	height: auto !important;
 }
