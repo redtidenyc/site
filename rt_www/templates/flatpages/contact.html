@@ -3,12 +3,12 @@
 {% block content %}
 <div id="main" section="{{ flatpage.title }}">
     <div class="sub">
-        <div class="subleft no_image">
+        <div class="subleft">
           <ul>
             <li><a href="{{ flatpage.url }}">{{flatpage.title}}</a></li>
           </ul>
         </div>
-        <div class="subright">
+        <div class="subright no_image">
 	    {% autoescape off %}
             {{ flatpage.content }}
 	    {% endautoescape %}
