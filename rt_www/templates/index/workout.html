@@ -29,7 +29,11 @@
                           <tr>
                             <td width="20%">{{ p.period }}</td>
                             <td width="35%">{{ p.start }}-{{ p.end }}</td>
-                            <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a></td>
+                            <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a>
+                              {% ifequal forloop.counter 9 %}
+                                (dryland) 
+                              {% endifequal %}
+                            </td>
                           </tr>
                         {% endfor %}
                     </tbody>
