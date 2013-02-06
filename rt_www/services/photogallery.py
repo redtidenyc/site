@@ -1,4 +1,5 @@
-from rt_www.photogallery.models import Photo, Gallery, PhotoPlace
+from photologue.models import Photo, Gallery
+# from rt_www.photogallery.models import Photo, Gallery, PhotoPlace
 
 class Service:
     def get_thumb(self, pid):
@@ -28,7 +29,7 @@ class Service:
 
         for g in gallerys[start:stop]:
             try:
-                ordering = PhotoPlace.objects.filter(gallery__id__exact=g.id).order_by('place')
+                ordering = PhotoPlace.objects.filter(gallery__id__exact=g.id) #.order_by('place')
                 ret_val[str(g.id)] = [ { 'url':o.photo.url(), 'title':o.photo.title } for o in ordering ]
             except PhotoPlace.DoesNotExist:
                 continue
