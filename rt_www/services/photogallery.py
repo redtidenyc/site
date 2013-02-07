@@ -6,14 +6,15 @@ class Service:
         return Photo.objects.get(pk=pid).get_thumb()
     def gallery_view(self, offset, limit):
         ret_val, offset, limit = {'count':Gallery.objects.count(), 'list':[]}, int(offset), int(limit)
-        gallerys = Gallery.objects.all().order_by('-date')
+        gallerys = Gallery.objects.all().order_by('-date_added')
         start, stop = offset, offset+limit
         if ret_val['count'] < stop:
             stop = ret_val['count']
-        ret_val['list'] = [ { 'gid':g.id, 'thumburl':g.photo_set.all()[0].get_thumb(),
-                'ratio':'%0.2lf' %(float(g.photo_set.all()[0].thumbdim()[0])/float(g.photo_set.all()[0].thumbdim()[1])),
-                'title':g.title, 'fullurl':g.photo_set.all()[0].url() }
-                for g in gallerys if g.photo_set.count() > 0 ]
+        ret_val['list'] = [ { 'gid':g.id, 'thumburl':g.public()[0].get_thumbnail_url(),
+                # 'ratio':'%0.2lf' %(float(g.photos().all()[0].thumbdim()[0])/float(g.photos().all()[0].thumbdim()[1])),
+                'title':g.title, 'fullurl':g.public()[0].image.url 
+                }
+                for g in gallerys if g.photo_count(True) > 0 ]
         if stop < len(ret_val['list']):
             ret_val['list'] = ret_val['list'][start:stop]
         else:
@@ -29,9 +30,10 @@ class Service:
 
         for g in gallerys[start:stop]:
             try:
-                ordering = PhotoPlace.objects.filter(gallery__id__exact=g.id) #.order_by('place')
-                ret_val[str(g.id)] = [ { 'url':o.photo.url(), 'title':o.photo.title } for o in ordering ]
-            except PhotoPlace.DoesNotExist:
+                # ordering = PhotoPlace.objects.filter(gallery__id__exact=g.id).order_by('place')
+                # ordering = Photo.objects.filter(public_galleries__id__exact=g.id)
+                ret_val[str(g.id)] = [ { 'url': photo.image.url, 'title': photo.title } for photo in g.public() ]
+            except Photo.DoesNotExist:
                 continue
         return ret_val
 
