@@ -6,7 +6,7 @@
 {% block content %}
 <div id="main">
     <div class="sub">
-	<div id="subright" class="subright">
+	<div id="subleft" class="subleft">
 	    <ul id="rightnav">
             {% for blog in object_list %}
                 {% ifnotequal blog.id object.id %}
@@ -17,7 +17,7 @@
             {% endfor %}                
             </ul>	
 	</div>
-	<div id="subleft" class="subleft">
+	<div id="subright" class="subright">
             <h1>Redtide Guest Blog</h1>
             
             <div id="current_{{ object.id }}" class="redline"><h2>{{ object.title }}</h2></div>
@@ -26,6 +26,6 @@
         </div> 
         <br class="clearme"/>
     </div>
-    {% include "index/footer.html" %}
+    {% include "common/footer.html" %}
 </div>
 {% endblock %}

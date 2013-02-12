@@ -8,7 +8,7 @@ GalleryManager = function() {
 };
 
 GalleryManager.prototype.Errhandler = function(e) {
-	log(e);
+	console.info(e);
 };
 
 GalleryManager.prototype.initialize = function() {
@@ -130,7 +130,7 @@ GalleryManager.prototype.Start = function(gid) {
     arrayPageSize = GetPageSize();
     var arrayPageScroll = GetPageScroll();
     var lightboxTop = arrayPageScroll[1] + (arrayPageSize[3] / 15);
-    log(lightboxTop);
+    console.info(lightboxTop);
     setStyle('lightbox', { 'top':lightboxTop + 'px' });
     showElement('lightbox');
 		
@@ -215,7 +215,6 @@ GalleryManager.prototype.BuildImageHtml = function() {
     var objBody = getFirstElementByTagAndClassName('body');
     var res = TrimPath.processDOMTemplate("lightbox_template", {});
     var objOverlay = DIV({'id':'overlay', 'style':'display: none;'});
-    insertSiblingNodesBefore('container', objOverlay);
     connect('overlay', 'onclick', this, 'End');
 
     objBody.innerHTML = res + objBody.innerHTML;
@@ -231,14 +230,14 @@ GalleryManager.prototype.CacheBuild = function(req) {
 }
 
 /*
-	Four galleries per row
+	Three galleries per row
  */
 
 GalleryManager.prototype.PageBuild = function(req) {
     this.total = req.count;
-    this.total_gallery_pages = Math.floor(this.total / 16);
+    this.total_gallery_pages = Math.floor(this.total / 12);
     this.current_page += 1;
-    if(this.total%16 > 0) 
+    if(this.total%12 > 0) 
         this.total_gallery_pages += 1;
         
     var rows = new Array();
@@ -249,14 +248,14 @@ GalleryManager.prototype.PageBuild = function(req) {
     for(; i < req.list.length; i++ ) {
         var gallery = req.list[i];
 	this.gallery_title_cache[gallery.gid] = gallery.title;
-        if( i > 0 && i % 4 == 0) { rows[rcount] = row; rcount++; row = new Array(); }
+        if( i > 0 && i % 3 == 0) { rows[rcount] = row; rcount++; row = new Array(); }
 
         row[i%4] = { title : gallery.title, loc : gallery.thumburl, gid : gallery.gid };
         ids[i] = gallery.gid;
     }
 
 
-    if(i%4>0) { while(i%4 > 0) { row[i%4] = { title : '', loc : '', gid : '' }; i++; } }
+    if(i%3>0) { while(i%3 > 0) { row[i%4] = { title : '', loc : '', gid : '' }; i++; } }
     rows[rcount] = row;
         
     var data = { rows : rows, next : false, prev : false, total : this.total_gallery_pages, pageno : this.current_page };
@@ -305,7 +304,7 @@ GalleryManager.prototype.PrevGalleryPage = function(e) {
 
 GalleryManager.prototype.ShowGallery = function(e) {
 	var gid = e.src().id.replace(/gallery(\d+)/, "$1");
-	log(gid);
+	console.info(gid);
         this.Start(gid);
 }
 

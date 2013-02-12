@@ -14,6 +14,7 @@ class Announcement(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateField('Date Published', default=datetime.now)
     expiration_date = models.DateField('Date to Expire', default=datetime.now)
+
     class Meta:
         ordering = [ '-pub_date' ]
 

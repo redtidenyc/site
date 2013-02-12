@@ -171,9 +171,9 @@ class Photo(models.Model):
                 pass
         newim.save(self.image, format)
 
-        thumbsize = 80, 80
-        maxwidth = 80
-        maxheight = 80
+        thumbsize = 165, 125
+        maxwidth = 165
+        maxheight = 125
         outpath = '%s/photos/thumb_%s.jpg' %( settings.MEDIA_ROOT, m.hexdigest())
         try:
             im = Image.open(self.image)

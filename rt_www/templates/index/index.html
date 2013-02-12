@@ -4,89 +4,138 @@
 	<!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="/media/css/ie7hacks.css"/>
 	<![endif]-->
-        <script type="text/javascript" src="/media/js/swfobject.js"></script>
+{% endblock %}
+{% block add_javascript %}
+  <script type="text/javascript" src="/media/js/slideshow.js"></script>
 {% endblock %}
 {% block content %}
 <div id="home_tease">
-    <div class="left">
-        <div id="homeslides"><img class="homesnap" src="/media/img/home_snap.gif" width="362" height="268" /></div>
-       <script type="text/javascript">
-        // <![CDATA[
-    
-        var so = new SWFObject("/media/flash/Sliders.swf", "homeslides", "430", "323", "8", "#ffffff");
-        so.addParam("wmode", "transparent");
-        so.write("homeslides");
- 
-        // ]]>
-        </script>
-    </div>
+	<div class="left">
+		<div id="homeslides">
+		    <img src="/media/img/ajax_loader.gif" width="50px" height="50px" class="loading">
+				<img src="/media/img/slideshow/homepage_slider1.png" class="slide"/>
+				<img src="/media/img/slideshow/homepage_slider2.png" class="slide"/>
+				<img src="/media/img/slideshow/homepage_slider3.png" class="slide"/>
+				<img src="/media/img/slideshow/homepage_slider4.png" class="slide"/>
+				<img src="/media/img/slideshow/homepage_slider9.png" class="slide"/>
+				<img src="/media/img/slideshow/homepage_slider6.png" class="slide"/>
+				<img src="/media/img/slideshow/homepage_slider10.png" class="slide"/>
+				<img src="/media/img/slideshow/homepage_slider11.png" class="slide"/>
+		</div>
+		<div id="slide_controls">
+		  <a href="#" class="back">&lt;</a>
+			<ul>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(1);" class="circle">.</a>
+				</li>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(2);" class="circle">.</a>
+				</li>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(3);" class="circle">.</a>
+				</li>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(4);" class="circle">.</a>
+				</li>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(5);" class="circle">.</a>
+				</li>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(6);" class="circle">.</a>
+				</li>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(7);" class="circle">.</a>
+				</li>
+				<li>
+					<a href="javascript:RedTide.slideshow.slideSwitch(8);" class="circle">.</a>
+				</li>
+				
+			</ul>
+			<a href="#" class="forward">&gt;</a>
+	    <a href="/photos/" class="normal">VIEW GALLERY</a>
+			
+		</div>
+	</div>
+	<div class="right">
+		<div class="content">
+			<h2>Welcome To Red Tide</h2>
+      <h3>Master's Swimming NYC</h3>
+			<p>Red Tide masters swim team is a community of athletes with a passion for the water. We swim for fun, fitness and competition.</p>
+			<p>A New York City masters team for over twenty years, Red Tide prides itself on the many walks of life that comprise our membership -- from novice swimmers to USMS national and world titleholders as well as runners, cyclists and triathletes.  Our members are locally based to globetrotting professionals who enjoy the camaraderie and competition that are part of Red Tide.</p>
+			<a href="/join/" id="join_button"><img src="/media/img/join_button.png" alt="Join Now!"/></a>
+		</div>
+	</div>
+	<br class="clearme"/>
 </div>
-<div id="main">
-    <div class="left">
+<div id="main" section="home">
+    <!--div class="left">
     	<iframe width="425" height="349" src="http://www.youtube.com/embed/KsHDfvNkU94" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="right">
-        <div class="content">
-            <h2>Welcome to Red Tide Masters Swimming, NYC</h2>
-            <p>Red Tide is a competitive masters swim team in New York City and has been in existence for over 20 years. It is a cooperatively run organization of over 100 swimmers from novices to national champions. Red Tide welcomes swimmers over 18 of all abilities, goals, and experience. We swim for fun, fitness, and competition.</p>
-            <p class="link"><a href="/about/">READ MORE</a> | <a href="/howtojoin/">JOIN NOW</a></p>
-        </div>
-    </div>
-    <br class="clearme"/>
-    <div class="left">
+    </div-->
+	
+		<div class="left">
+			<div class="grayline">
+				<h3>Visiting the City?</h3>
+				<h4>Join us for a workout</h4>
+			</div>
+			<p>We welcome out-of-town swimmers to join us during any of our practices.  The fee is $5 per session payable to the coach on deck.   		
+			Check out our <a href="/workouts/">Schedule</a> for more information on practice times and pool locations.</p>
 
-        {% if current_closings %}
-        <h2>Cancellations</h2>
-        <div id="cancellations">
-            
-               <p>Practice will be cancelled on: 
-                {% for closing in current_closings %}
-		     {% if not forloop.last %}
-                     {{ closing }},&nbsp;
-		     {% else %}
-		     {{ closing }}
-		     {% endif %}
-                {% endfor %}
-                <p>
-        </div>
-        {% endif %}
-        <div class="redline">
-            <h2>Workout Schedule</h2>
+		</div>
+    <div class="left">
+        <div class="grayline">
+            <h3>Workout Schedule</h3>
+            <h4>{{ year }}</h4>
         </div>
         <table class="schedTable">
-            <thead>
-                <tr>
-                    <th class="title" colspan="3">{{ season }}</th>
-                </tr>
-                <tr>
-                    <th>Workout</th>
-                    <th>Time</th>
-                    <th>Pool</th>
-                </tr>
-            </thead>
             <tbody>
+              
                 {% for p in practices %}
-                <tr>
-                    <td>{{ p.day }} {{ p.period }}</td>
-                    <td>{{ p.start }}-{{ p.end }}</td>
-                    <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a></td>
-                </tr>
+                  {% ifchanged p.day %}
+                    {% if not forloop.first %}
+                      <tr class="empty"><td></td></tr>
+                    {% endif %}
+                    <tr class="day">
+                      <td colspan="3">{{ p.day }}</td>
+                    </tr>
+                  {% endifchanged %}
+                  <tr>
+                    <td width="20%">{{ p.period }}</td>
+                    <td width="35%">{{ p.start }}-{{ p.end }}</td>
+                    <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a>
+                  {% ifequal forloop.counter 9 %}
+                    (dryland) 
+                  {% endifequal %}
+                    </td>
+                  </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    <div class="right">
-        <div class="redline">
-            <h2>Announcements</h2>
+    <div class="right announcements">
+      {% if current_closings %}
+        <div id="cancellations">
+          <p>Practice will be cancelled on: <br/>
+            {% for closing in current_closings %}
+              {% if not forloop.last %}
+                {{ closing }},&nbsp;
+              {% else %}
+                {{ closing }}
+              {% endif %}
+            {% endfor %}
+            <p>
         </div>
-	{% autoescape off %}
+      {% endif %}
+      {% autoescape off %}
+        <ul>
         {% for a in current_announcements %}
-        <h3>{{ a.title }}</h3>
-        <p>{{ a.fptext }}</p>
+        <li>
+          <p>{{ a.fptext }}</p>
+        </li>
         {% endfor %}
-	{% endautoescape %}
+        </ul>
+      {% endautoescape %}
     </div>
     <br class="clearme"/>
 </div>
-{% include "index/footer.html" %}
+{% include "common/footer.html" %}
 {% endblock %}

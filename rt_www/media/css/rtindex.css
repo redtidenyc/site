@@ -1,35 +1,188 @@
 /* HOME PAGE TEASER */
-#home_tease { height: 323px; background: #eeecdb url('/media/img/tiles_bg.gif') repeat-x bottom left; }
-#home_tease .left { width: 430px; height: 323px; background: url('/media/img/pic_bg.gif') no-repeat 38px 14px; float: left; }
+#home_tease { 
+	margin-top: 35px;
+}
+
+#home_tease .left { 
+	width: 650px; 
+	height: 440px; 
+	float: left; 
+}
+
 .homesnap { padding-left: 49px; padding-top: 24px; }
-#home_tease .right { width: 480px; height: 287px; float: right; }
-#home_tease .right .content { padding: 25px 30px 0px 30px; }
-#home_tease .right h2 { font-size: 24px; letter-spacing: -1px; margin-bottom: 10px; }
-#home_tease .right p { font-size: 14px; margin-top: -10px; padding-top: 0px; }
+
+#homeslides {
+    position:relative;
+    height:395px;
+}
+
+#homeslides img.loading {
+	position: absolute;
+	top: 125px;
+	left: 300px;
+}
+
+#homeslides img.slide {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:8;
+	display: none;
+}
+
+#homeslides img.active {
+    z-index:10;
+	display: block;
+}
+
+#homeslides img.last-active {
+    z-index:9;
+}
+
+#home_tease .right { width: 320px; float: right; }
+#home_tease .right .content { padding: 20px 0 0px 30px; }
+#home_tease .right p { margin-top: -10px; padding-top: 0px; }
 #home_tease .right .link { font-size: 16px; font-weight: bold; text-align: right; }
 #home_tease .right a { color: #de272a; text-decoration: none; }
+#home_tease .right a:hover { color: #0092ba; }
+#home_tease h2 {
+	color: #d33535;
+	text-align: center;
+	margin-bottom: 10px;
+}
+#home_tease h3 {
+	color: #d33535;
+	font-family: 'Comfortaa', sans-serif;
+	font-size: 17px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#join_button {
+	display: block;
+	text-align: center;
+}
+
+#slide_controls {
+	height: 35px;
+	margin-top: 10px;
+	text-align: center;
+} 
+
+#slide_controls ul {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+#slide_controls a {
+	text-decoration: none;
+	color: #f5dddd;
+	font-size: 35px;
+	position: relative;
+	top: -10px;
+}
+
+#slide_controls li { margin: 0 15px; padding: 0; display: inline; list-style-type: none; }
+
+#slide_controls li a.circle {
+	color: #f5dddd;
+	position: relative;
+	top: -20px;
+	font-size: 70px;
+	line-height: 35px;
+}
+
+#slide_controls ul li.active a.circle, #slide_controls a.on {
+	color: #d33535;
+}
+
+#slide_controls a.normal {
+	font-size: 13px;
+	color: #d33535;
+	top: -18px;
+	margin-left: 15px;
+}
+
+/* END HOME PAGE TEASER */
 
 /* main box */
-#main .left { padding:  10px 20px 10px 30px; background: #ffffff; width: 405px; float: left; }
-#main .right { padding:  10px 30px 10px 20px; background: #fffffff; width: 405px; float: right; }
+#main { margin: 50px 0; }
+#main .left { margin-right: 20px; width: 302px; float: left; }
+#main .right { margin-top: -18px; width: 310px; float: right; }
+#main .left p { margin-top: 10px; }
+#main .grayline { border-bottom: 3px solid #dcddde; }
 
-/* cancellations */
-#cancellations { padding: 10px 10px 1px 10px; margin-bottom: 12px; color: #fff; background: #de272a url('/media/img/cancel_bg.gif') repeat-x top left; }
-#cancellations a { color: #ffffff; text-decoration: underline; }
-#cancellations a:hover { text-decoration: none; }
-#cancellations a:visited { color: #ffffff; }
-
-/* Schedule Table */
-.schedTable { border-spacing: 0px; width: 100%; padding-left: 0px; padding-right: 0px; margin: 0; margin-top: 15px; }
-.schedTable th {
-    font: bold 13px "Lucida Grande", verdana, arial, helvetica, sans-serif;
-    color: #de272a;
-    text-align: left;
-    padding: 2px 2px 2px 2px;
+/* main */
+#main h3 {
+	margin-bottom: 10px;
+	text-align: center;
 }
-.schedTable th.title { font-size: 14px; background: #ffffff; color: #111; padding-bottom: 8px; }
-.schedTable td { font-size: 13px; background: #fff; padding: 0px 2px 0px 2px; }
-.schedTable a { font-weight: bold; color: #00667c; text-decoration: none; }
-.schedTable a:hover { text-decoration: underline; }
-.schedTable a:visited { font-weight: bold; color: #00667c; }
 
+#main h4 {
+	color: #305276;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Comfortaa', sans-serif;
+	font-size: 15px;
+	margin: 10px 0;
+}
+
+#main p {
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+
+
+/* Reg table */
+.regTable {
+    font-size: 12px;
+    border-spacing: 0px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.regTable td { padding: 2px; }
+
+#cancellations { 
+	padding: 10px 10px 1px 15px; 
+	margin-bottom: 12px; 
+	color: #d33535; 
+	background-color: #f7dfdf ; 
+}
+
+#main .announcements {
+	background: url(/media/img/announcements.png) no-repeat;
+	width: 312px;
+	height: 370px;
+	padding: 80px 2px 0 11px;
+}
+
+.announcements ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.announcements ul li {
+	background: url('/media/img/announce_bullet.png') no-repeat 0 0;
+	padding-left: 33px;
+	margin: 0 15px 20px 15px;	
+}
+
+#main .announcements ul li p {
+	border-bottom: 1px solid #636466;
+	padding-bottom: 20px;
+}
+
+#main .announcements ul li:last-child p {
+	border-bottom: none;
+	margin-bottom: none;
+}

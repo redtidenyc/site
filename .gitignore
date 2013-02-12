@@ -1,0 +1,3 @@
+*.pyc
+*.db
+rt_www/settings.py
