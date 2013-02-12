@@ -1,0 +1,28 @@
+{% extends "index/base.html" %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block content %}
+<div id="main" section="resources">
+    <div class="sub">
+        <div class="subleft">
+            <ul>
+              <li><a href="/resources/">Resources</a></li>
+              <ul>
+                <li><a href="#governing">Governing Bodies</a></li>
+                <li><a href="#tools">Tools &amp; Resources</a></li>
+                <li><a href="#gear">Gear</a></li>
+                <li><a href="#health">Health</a></li>
+                <li><a href="#tri">NY Swim / Tri</a></li>
+              </ul>
+            </ul>
+        </div>
+        <div class="subright">
+          <img src="/media/img/headers/resources.jpg"/>
+            {% autoescape off %}
+                  {{ flatpage.content }}
+            {% endautoescape %}
+        </div>
+        <br class="clearme"/>
+    </div>
+    {% include "common/footer.html" %}
+</div>
+{% endblock %}

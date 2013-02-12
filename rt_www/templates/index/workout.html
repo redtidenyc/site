@@ -1,81 +1,92 @@
 {% extends "index/base.html" %}
 {% block title %}Workout Schedule{% endblock %}
 {% block add_stylesheets %}
-	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={{ google_key }}"></script>
-	<script type="text/javascript" src="/media/js/MochiKit/MochiKit.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ google_key }}&sensor=false"></script>
 	<script type="text/javascript" src="/media/js/workoutmap.js"></script>
 {% endblock %}
 {% block content %}
-<div id="main">
+<div id="main" section="schedule">
     <div id="sub">
         <div class="sub">
-            <div class="subright">
-                <ul>
-                    <li><a href="#schedule">Workout Schedule</a></li>
-                    <li><a href="#john-jay">John Jay College Pool</a></li>
-                    <li><a href="#baruch">Baruch College Pool</a></li>
-		    <li><a href="#chinatowny">Chinatown YMCA Pool</a></li>
-                </ul>
-            </div>
             <div class="subleft">
-                <h1>Red Tide Workout Information</h1>
-
-                <div class="redline" id="schedule">
-                    <h2>Workout Schedule</h2>
-                </div>
+                {% include "common/schedule_subnav.html" %}
+            </div>
+            <div class="subright">
+              <img src="/media/img/headers/schedule.jpg"/>
+                <h1><span>Workout Schedule</span></h1>
                 <table class="schedTable">
-                    <thead>
-                        <tr>
-                            <th class="title" colspan="3">{{ season }}</th>
-                        </tr>
-                        <tr>
-                            <th>Workout</th>
-                            <th>Time</th>
-                            <th>Pool</th>
-                        </tr>
-                    </thead>
                     <tbody>
+
                         {% for p in practices %}
-                            <tr>
-                                <td>{{ p.day }} {{ p.period }}</td>
-                                <td>{{ p.start }}-{{ p.end }}</td>
-                                <td><a href="#{{ p.pool|slugify }}">{{ p.pool }}</a></td> 
+                          {% ifchanged p.day %}
+                            {% if not forloop.first %}
+                              <tr class="empty"><td></td></tr>
+                            {% endif %}
+                            <tr class="day">
+                              <td colspan="3">{{ p.day }}</td>
                             </tr>
+                          {% endifchanged %}
+                          <tr>
+                            <td width="20%">{{ p.period }}</td>
+                            <td width="35%">{{ p.start }}-{{ p.end }}</td>
+                            <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a>
+                              {% ifequal forloop.counter 9 %}
+                                (dryland) 
+                              {% endifequal %}
+                            </td>
+                          </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+                <a name="pools"></a>
+                <a name="baruch"></a>
                 <div class="redline" id="baruch">
                     <h2>Baruch College Pool</h2>
                 </div>
 
-                <p class="intro">Baruch College is located at 55 Lexington Avenue &amp; 24th Street.<br/>
-                It is accessible by subway (#1, #6, F, N, or R trains to 23rd Street station) or by bus (M1, 2, 3, 5, 6, 7, 15, 18, 101, or 102 to 23rd Street)</p>
+                <p class="intro">55 Lexington Avenue &amp; 24th Street<br/>
+                Subway: 1, 6, F, N, or R trains to 23rd Street<br/>
+                Bus: M1, 2, 3, 5, 6, 7, 15, 18, 101, or 102 to 23rd Street<br/>
+                Sign in at the security desk and take the elevator or stairs to the 3rd basement level
+                </p>
                
                <div class="map" id="barmap"></div> 
- 
-                <div class="redline" id="john-jay">
-                    <h2>John Jay College Pool</h2>
-                </div>
+               
+               <a name="chinatown"></a>
+               <div class="redline" id="chinatowny">
+                   <h2>Chinatown YMCA Pool</h2>
+               </div>
 
-                <p class="intro">John Jay College is located at 899 10th Avenue (Amersterdam) &amp; 58th Street.<br/> Take a subway (#1, A, B, C or D) to 59th Street (Columbus Circle) and walk over to 10th Avenue.  Or take the Q, W, N, or R to 57th &amp; 7th Avenue.  The M11 bus also stops right in front.</p>
+               <p class="intro">273 Bowery, at the corner of Houston and Bowery, in the same building as Wholefoods<br/>
+               Subway: B, D, M to Broadway-Lafayette<br/>
+                       F to 2nd Ave<br/>
+                       6 to Bleecker<br/>
+                       You will be asked to show your Red Tide membership card or your USMS card.</p>
+              
+              <div class="map" id="ymcamap"></div>
+ 
+              <a name="john_jay"></a>
+              <div class="redline" id="john-jay">
+                  <h2>John Jay College Pool</h2>
+              </div>
+
+              <p class="intro">899 10th Avenue (Amsterdam) &amp; 58th Street<br/> 
+                Subway: 1, A, B, C or D to 59th Street / Columbus Circle<br/>
+                N, Q, R to 57th / 7th Avenue<br/>
+                Bus: M11 stops right in front<br/>
+                Show your Red Tide membership card or sign in at the security desk, proceed down the escalators 
+                and take the elevator bank to your LEFT to “C” level.  The pool is to the left.
+                </p>
 
 		<div class="map" id="jjmap"></div> 
  
-                <div class="redline" id="chinatowny">
-                    <h2>Chinatown YMCA Pool</h2>
-                </div>
-
-                <p class="intro">The Chinatown YMCA is located at 273 Bowery, at the corner of Houston and Bowery, in the same building as Wholefoods.<br/>
-		
-		Take the B,D,6,F,V,J,M or Z trains.  You will be asked to show your Red Tide membership card or you USMS card.</p>
-               
-               <div class="map" id="ymcamap"></div> 
+                
 
  
             </div>
         </div>
         <br class="clearme"/>
     </div>
-    {% include "index/footer.html" %}
+    {% include "common/footer.html" %}
 </div>
 {% endblock %}

@@ -6,111 +6,105 @@
 		<meta name="Authors" content="Anna Armentrout Kevin Lahoda Frederick Grim" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
 		<meta http-equiv="keywords" content="sports, swim, swimming, swimmer, swimmers,team, teams, athletics, athletes, organization, organizations, New York, Masters, US Masters, triathlete, triathalon"/>
-                <meta name="description" content="Red Tide of NYC, Inc. is a cooperatively-run non-profit Masters swim club in Manhattan with over 100 members competing on all levels. Site includes practice info, results, links and more."/>
+    <meta name="description" content="Red Tide of NYC, Inc. is a cooperatively-run non-profit Masters swim club in Manhattan with over 100 members competing on all levels. Site includes practice info, results, links and more."/>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Comfortaa">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Sansita+One">
 		<link rel="stylesheet" type="text/css" href="/media/css/rt_base.css" />
-                <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-                <script type="text/javascript" src="/media/js/MochiKit/MochiKit.js"></script>
-                <script type="text/javascript" src="/media/js/RTBaseSiteFormat.js"></script> 
-                {% block add_stylesheets %}{% endblock %}
+		<link rel="stylesheet" type="text/css" href="/media/css/google_search.css" />
+		
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/media/js/redtide.js"></script>
+    {% block add_stylesheets %}{% endblock %}
+		{% block add_javascript %}{% endblock %}
 	</head>
 
-        <body>
-            <div id="container">
-                <div id="head">
-                    <div class="left">
-                        <a href="/"><img width="200" height="77" border="0" src="/media/img/rt_logo.gif"/></a>
-                    </div>
-                    <div class="right">
-		    <div class="login_form">
-		    <!-- club assistant login -->
-		    <form action="https://www.clubassistant.com/club/login_do.cfm" method="post">
-		    <strong>Member Login</strong><br/>
-		    <div class="left">  
-		    Username: <br/>
-		    <input type="text" name="txtLoginName" maxlength="50"/>
-		    <input type="hidden" name="txtLoginName_required" value="Please enter a Login Name."/>
+	<body>
+		<div id="container">
+			<div id="head">
+			  <strong>MEMBERS</strong>
+  			<a href="https://www.clubassistant.com/club/password.cfm?c=1376">
+  				Forgot username/password? Set up username/password?
+  			</a>
+  			<div class="login_form">
+					<!-- club assistant login -->
+						<form action="https://www.clubassistant.com/club/login_do.cfm" method="post">
+							<div class="field">  
+								<label for="txtLoginName">USERNAME</label> 
+								<input type="text" name="txtLoginName" maxlength="50"/>
+								<input type="hidden" name="txtLoginName_required" value="Please enter a Login Name."/>
+							</div>
+							<div class="field">
+								<label for="pasPassword">PASSWORD</label> 
+								<input type="password" name="pasPassword" maxlength="50"/>
+								<input type="hidden" name="pasPassword_required" value="Please enter a Password."/>
+							</div>
+		    			<div class="field">
+		    				<input type="hidden" name="hidClubID" value="1376">
+		    				<button type="submit" value="Login">LOGIN</button>
+		    			</div>
+		    		</form>
 		    </div>
-		    <div class="left">
-		    Password: <br/>
-		    <input type="password" name="pasPassword" maxlength="50"/>
-		    <input type="hidden" name="pasPassword_required" value="Please enter a Password."/>
-		    </div>
-		    <div class="left">
-		    <br/>
-		    <input type="hidden" name="hidClubID" value="1376">
-		    <input type="submit" value="Login"><br/>
-		    </div>
-		    <div class="clearme"></div>
-		    <a href="https://www.clubassistant.com/club/password.cfm?c=1376" style="font-size:smaller">Forgot your Username/Password?</a>
-		    </form>
-		    </div>
-		    <!--Welcome to Red Tide Masters Swimming, NYC-->
-
-	 	 	</div>
-		    <div class="clearme"></div>
+			</div>
+			<div class="logo">
+				<a href="/"><img width="169" height="112" border="0" src="/media/img/rt_logo_112.png"/></a>
+				<div class="search">
+					<a href="http://www.facebook.com/redtidenyc" class="facebook">FACEBOOK</a>
+					<div id="searchwrapper">
+            <!--script>
+            (function() {
+              var cx = '003271229151040756210:ka1nrkbnwnu';
+              var gcse = document.createElement('script'); gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                  '//www.google.com/cse/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+            </script>
+            <gcse:search></gcse:search-->
+						<!--form>
+							<input type="text" class="searchbox" placeholder=" [SEARCH]">
+							<input type="image" src="/media/img/search_button.png" class="searchbox_submit"/>
+						</form>
+					</form-->
+					</div>
+				
+				</div>
+			</div>
+			<div id="topnav">
+				<ul id="tabnav">
+					<li>
+						<a href="/">HOME</a>
+					</li>
+					<li>
+						<a href="/about/">ABOUT</a>
+					</li>
+					<li>
+						<a href="/join/">JOIN</a>
+					</li>
+					<li>
+						<a href="/workouts/">SCHEDULE</a>
+					</li>
+					<li>
+						<a href="/photos/">GALLERY</a>
+					</li>
+					<li>
+						<a href="/training_trip/">EXTRAS</a>
+					</li>
+					<li>
+						<a href="/resources/">RESOURCES</a>
+					</li>
+					<li>
+						<a href="/contact/">CONTACT US</a>
+					</li>
+				</ul>
+			</div>
+			{% block content %}
+			{% endblock %}
 		</div>
-                <div id="topnav">
-                    <ul id="tabnav">
-                        <li>
-                            <a href="/">HOME</a>
-                        </li>
-                       <li>
-                            <a href="/about/">ABOUT</a>
-                        </li>
-                        <li>
-                            <a href="/howtojoin/">JOIN</a>
-                        </li>
-                        <li>
-                            <a href="/workouts/">WORKOUTS</a>
-                        </li>
-                        <li>
-                            <a href="/coaches/">COACHES</a>
-                        </li>
-			<li>
-			  <a href="/board/">BOARD</a>
-			</li>
-                        <li>
-                            <a href="/meets/">SWIM MEETS</a>
-                        </li>
-                        <li>
-                            <a href="/photos/">PHOTOS</a>
-                        </li>
-                        <!--<li>
-                            <a href="/blog/">BLOG</a>
-                            </li>-->
-                        <li>
-                            <a href="/tri/">TRIATHLETES</a>
-                        </li>
-                        <li>
-                            <a href="/links/">LINKS</a>
-                        </li>
-                        <li>
-                            <a href="/contact/">CONTACT US</a>
-                        </li>
-                        {% if user.is_authenticated %}
-                        <li>
-                            <a href="/admin/">ADMINISTRATION</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                    <script type="text/javascript">
-                        var i = 0;
-	                var ml = $('tabnav');
-                        if( ml != null) {
-	                    var ids = ml.getElementsByTagName('a');
-	                    for(i=0; i < ids.length; i++) {
-	    	                var link = ids[i];
-		                if(link.href == location.href) {
-			            setElementClass(link, 'active');
-		                }
-	                    }
-                        }  
-                    </script>
-                </div>
-                {% block content %}
-                {% endblock %}
-            </div>
-            {% block bodyappend %}{% endblock %}
-            <script type="text/javascript">if(_uacct == '') { _uacct = "UA-1705610-1"; urchinTracker();}</script>
-        </body>
+		{% block bodyappend %}{% endblock %}
+		<script type="text/javascript">if(_uacct == '') { _uacct = "UA-1705610-1"; urchinTracker();}</script>
+	</body>
 </html>

@@ -19,6 +19,7 @@ def flatpage(request, url):
         flatpage
             `flatpages.flatpages` object
     """
+    print >>sys.stderr, 'Goodbye, cruel world!'
     if not url.endswith('/') and settings.APPEND_SLASH:
         return HttpResponseRedirect("%s/" % request.path)
     if not url.startswith('/'):
@@ -42,6 +43,7 @@ def flatpage(request, url):
 
     c = RequestContext(request, {
         'flatpage': f,
+        'current_path': request.path(),
     })
     response = HttpResponse(t.render(c))
     populate_xheaders(request, response, FlatPage, f.id)

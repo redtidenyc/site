@@ -5,17 +5,17 @@
 {% block content %}
 <div id="main">
     <div class="sub">
-	<div class="subright">
+	<div class="subleft">
             <ul>
                 <li><strong>Registration</strong></li>
                 <li><a href="/static/pdfs/redtide08usms.pdf">USMS Membership Form</a></li>
 	        <li><a href="javascript:void(0);" id="faq_link">Frequently Asked Questions</a></li>
 	        <li><a href="mailto:help@redtidenyc.org?Subject=Qn: Red Tide Online Registration" >Help With Registration</a></li>
 	        <li><a href="mailto:info@redtidenyc.org?Subject=Qn: Joining Red Tide" >Questions About Joining</a></li>
-	        <li><a href="/howtojoin/">Payment Options</a></li>
+	        <li><a href="/join/">Payment Options</a></li>
             </ul>
         </div>
-        <div class="subleft">
+        <div class="subright">
                 <div class="redline"><h2>Confirmed</h2></div>
 		<p>{{message}}</p>
                 
@@ -74,7 +74,7 @@
 	</div>
         <br class="clearme"/>
     </div>
-    {% include "index/footer.html" %}
+    {% include "common/footer.html" %}
 </div>
 {% endblock %}
 

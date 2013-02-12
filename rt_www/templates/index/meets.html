@@ -1,30 +1,37 @@
 {% extends "index/base.html" %}
 {% block title %}Red Tide Meet Schedule and Past Meet Results{% endblock %}
-{% block add_stylesheets %}
-<script type="text/javascript" src="/media/js/trimpath/template.js"></script>
-<script type="text/javascript" src="/media/js/meets.js"></script>
-{% endblock %}
 {% block content %}
-<div id="main">
+<div id="main" section="schedule">
     <div class="sub">
-	<div id="subright" class="subright">
-	    <ul id="rightnav">
-            </ul>	
-	</div>
-	<div id="subleft" class="subleft">
-            <h1>Swim Meets</h1>
-            
+      <div id="subleft" class="subleft">
+	      {% include "common/schedule_subnav.html" %}
+	    </div>
+      <div id="subright" class="subright">
+        <img src="/media/img/headers/schedule.jpg"/>
+            <h1><span>Swim Meets</span></h1>
+            <p>Red Tide participates several meets each season.  Meets are a great way to put the skills and techniques developed 
+              during practice to a test.  They are also a good way to get to know teammates outside the pool.  Whether you are a 
+              seasoned meet veteran or new to the sport, we encourage you to give them a try. </p>
+              
             <div class="redline"><h2>{{ year }} Meet Schedule</h2></div>
-	    <a href="http://maps.google.com/maps/ms?ie=UTF8&hl=en&msa=0&msid=117914017709384985197.000487f7ba4cab3608944&ll=40.823682,-73.938675&spn=0.16861,0.276718&z=12">Open Water Map</a>
             <table class="meetTable">
-            {% for meet in object_list %}
-                <tr>
-                    <td class="date">{{ meet.get_display_date }}</td>
-                    <td><h3>{{ meet.name }}</h3>
+              <tbody>
+                {% for meet in object_list %}
+                  {% ifchanged meet.date_start|date:"M" %}
+                    {% if not forloop.first %}
+                      <tr class="empty"><td></td></tr>
+                    {% endif %}
+                    <tr class="month">
+                      <td>{{ meet.date_start|date:"F"}}</td>
+                    </tr>
+                  {% endifchanged %}
+                  <tr>
+                    <td><p><strong>{{ meet.get_display_date }}</strong><br/>
+                        {{ meet.name }}<br/>
                         {% ifequal meet.country "United States" %}
-                        <p>{{ meet.meet_pool }}, {{ meet.city }}, {{ meet.state }}. <br/>
+                        {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.state }}. <br/>
                         {% else %}
-                        <p>{{ meet.meet_pool }}, {{ meet.city }}, {{ meet.country }}.<br/>
+                        {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.country }}.<br/>
                         {% endifequal %}
                         <a href="{{ meet.entry_link }}" target="_blank">Entry Form</a>
                         {% if meet.date_close %}<br />
@@ -32,11 +39,14 @@
                         {% endif %}
                         </p>
                     </td>
-                </tr>
-            {% endfor %}
+                  </tr>
+                {% endfor %}
+              </tbody>
             </table>
             
-            <div class="redline"><h2>Past Meet Results</h2></div>
+            <p>Additional meets will be added to the schedule as they are sanctioned and posted.</p>
+            
+            <!--<div class="redline"><h2>Past Meet Results</h2></div>
             <table class="meetTable">
             {% for meet in results %}
                <tr>
@@ -52,29 +62,10 @@
                 </tr>
             {% endfor %}
             </table>
+            -->
 	</div>
         <br class="clearme"/>
-        <textarea id="results" style="display:none;">
-            <h1>Swim Meets</h1>
-            
-                <div class="redline"><h2>${year} Meet Results</h2></div>
-                <table class="meetTable">
-                {for meet in meets}
-                    <tr>
-                        <td class="date">${meet.date}</td>
-                        <td><h3>${meet.name}</h3>
-                            {if meet.country == "United States"}
-                            <p>${meet.meet_pool}, ${meet.city}, ${meet.state}. <br/>
-                            {else}
-                            <p>${meet.meet_pool}, ${meet.city}, ${meet.country}.<br/>
-                            {/if}
-                            <a href="${meet.results_link}" target="_blank">Results</a></p>
-                        </td>
-                    </tr>
-                {/for}
-                </table>
-        </textarea>
     </div>
-    {% include "index/footer.html" %}
+    {% include "common/footer.html" %}
 </div>
 {% endblock %}

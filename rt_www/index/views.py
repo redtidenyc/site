@@ -61,7 +61,7 @@ def get_current_year():
         year = year + 1
 
     return '%s' %( year )
-
+    
 def index(request):
     announcements = Announcement.objects.filter(expiration_date__gte=datetime.now())
     current_announcements = []
@@ -87,6 +87,7 @@ def index(request):
         { 'current_announcements':current_announcements,
           'current_closings':current_closings,
                   'season':season,
+           'year':get_current_year(),
           'practices':practices }, context_instance=RequestContext(request))
 
 def schedule(request):
