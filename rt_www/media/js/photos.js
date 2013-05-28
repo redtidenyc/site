@@ -50,7 +50,7 @@ GalleryManager.prototype.ChangeImage = function(imageNum) {
 	var _this = this;
 	imgPreloader = new Image();
 	imgPreloader.onload = function(){ 
-		setNodeAttribute('lightboxImage', 'src', _this.imageArray[_this.activeImage].url); 
+		setNodeAttribute('lightboxImage', 'src', _this.imageArray[_this.activeImage].fullurl); 
 		galleryManager.ResizeImageContainer(imgPreloader.width, imgPreloader.height);
 	}
 	imgPreloader.src = this.imageArray[this.activeImage].url;	
@@ -250,7 +250,7 @@ GalleryManager.prototype.PageBuild = function(req) {
 	this.gallery_title_cache[gallery.gid] = gallery.title;
         if( i > 0 && i % 3 == 0) { rows[rcount] = row; rcount++; row = new Array(); }
 
-        row[i%4] = { title : gallery.title, loc : gallery.thumburl, gid : gallery.gid };
+        row[i%4] = { title : gallery.title, loc : gallery.thumburl, gid : gallery.gid, fullurl: gallery.fullurl };
         ids[i] = gallery.gid;
     }
 
