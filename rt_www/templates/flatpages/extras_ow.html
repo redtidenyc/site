@@ -3,11 +3,8 @@
 {% block content %}
 <div id="main" section="extras">
     <div class="sub">
-        <div class="subleft">
-            <ul>
-              <li><a href="/training_trip/">Training Trip</a></li>
-              <li><a href="/open_water/">Open Water</a></li>
-            </ul>
+         <div id="subleft" class="subleft">
+          {% include "common/competition_subnav.html" %}
         </div>
         <div class="subright">
           <img src="/media/img/headers/openwater.jpg"/>
