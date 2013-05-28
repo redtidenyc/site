@@ -12,7 +12,7 @@ class Service:
             stop = ret_val['count']
         ret_val['list'] = [ { 'gid':g.id, 'thumburl':g.public()[0].get_thumbnail_url(),
                 # 'ratio':'%0.2lf' %(float(g.photos().all()[0].thumbdim()[0])/float(g.photos().all()[0].thumbdim()[1])),
-                'title':g.title, 'fullurl':g.public()[0].get_absolute_url()
+                'title':g.title, 'fullurl':g.public()[0].get_display_url()
                 }
                 for g in gallerys if g.photo_count(True) > 0 ]
         if stop < len(ret_val['list']):
