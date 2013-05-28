@@ -51,7 +51,7 @@ GalleryManager.prototype.ChangeImage = function(imageNum) {
 	imgPreloader = new Image();
 	imgPreloader.onload = function(){ 
         console.info(_this.imageArray[_this.activeImage]);
-		setNodeAttribute('lightboxImage', 'src', _this.imageArray[_this.activeImage].fullurl); 
+		setNodeAttribute('lightboxImage', 'src', _this.imageArray[_this.activeImage].url); 
 		galleryManager.ResizeImageContainer(imgPreloader.width, imgPreloader.height);
 	}
 	imgPreloader.src = this.imageArray[this.activeImage].url;	

@@ -12,8 +12,7 @@ class Service:
             stop = ret_val['count']
         ret_val['list'] = [ { 'gid':g.id, 'thumburl':g.public()[0].get_thumbnail_url(),
                 # 'ratio':'%0.2lf' %(float(g.photos().all()[0].thumbdim()[0])/float(g.photos().all()[0].thumbdim()[1])),
-                'title':g.title, 'fullurl':g.public()[0].get_display_url()
-                }
+                'title':g.title }
                 for g in gallerys if g.photo_count(True) > 0 ]
         if stop < len(ret_val['list']):
             ret_val['list'] = ret_val['list'][start:stop]
@@ -32,7 +31,7 @@ class Service:
             try:
                 # ordering = PhotoPlace.objects.filter(gallery__id__exact=g.id).order_by('place')
                 # ordering = Photo.objects.filter(public_galleries__id__exact=g.id)
-                ret_val[str(g.id)] = [ { 'url': photo.image.url, 'title': photo.title } for photo in g.public() ]
+                ret_val[str(g.id)] = [ { 'url': photo.get_display_url(), 'title': photo.title } for photo in g.public() ]
             except Photo.DoesNotExist:
                 continue
         return ret_val
