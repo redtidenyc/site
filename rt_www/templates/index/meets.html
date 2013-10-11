@@ -36,7 +36,7 @@
                       <td><p><strong>{{ meet.get_display_date }}</strong><br/>
                           {{ meet.name }}<br/>
                           {% ifequal meet.country "United States" %}
-                          {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.state }}. <br/>
+                          {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.us_state }}. <br/>
                           {% else %}
                           {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.country }}.<br/>
                           {% endifequal %}
