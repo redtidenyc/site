@@ -20,7 +20,7 @@
                         {% for p in practices %}
                           {% ifchanged p.day %}
                             {% if not forloop.first %}
-                              <tr class="empty"><td></td></tr>
+                              <tr class="empty"><td colspan="3"></td></tr>
                             {% endif %}
                             <tr class="day">
                               <td colspan="3">{{ p.day }}</td>
