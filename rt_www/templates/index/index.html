@@ -102,7 +102,7 @@
                     <td width="20%">{{ p.period }}</td>
                     <td width="35%">{{ p.start }}-{{ p.end }}</td>
                     <td><a href="/workouts/#{{ p.pool|slugify }}">{{ p.pool }}</a>
-                  {% ifequal forloop.counter 9 %}
+                  {% ifequal forloop.counter 10 %}
                     (dryland) 
                   {% endifequal %}
                     </td>
