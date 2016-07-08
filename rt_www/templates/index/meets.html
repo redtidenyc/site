@@ -1,10 +1,10 @@
 {% extends "index/base.html" %}
 {% block title %}Red Tide Meet Schedule and Past Meet Results{% endblock %}
 {% block content %}
-<div id="main" section="schedule">
+<div id="main" section="competition">
     <div class="sub">
       <div id="subleft" class="subleft">
-	      {% include "common/schedule_subnav.html" %}
+	      {% include "common/competition_subnav.html" %}
 	    </div>
       <div id="subright" class="subright">
         <img src="/media/img/headers/schedule.jpg"/>
@@ -12,37 +12,44 @@
             <p>Red Tide participates several meets each season.  Meets are a great way to put the skills and techniques developed 
               during practice to a test.  They are also a good way to get to know teammates outside the pool.  Whether you are a 
               seasoned meet veteran or new to the sport, we encourage you to give them a try. </p>
-              
-            <div class="redline"><h2>{{ year }} Meet Schedule</h2></div>
-            <table class="meetTable">
-              <tbody>
-                {% for meet in object_list %}
-                  {% ifchanged meet.date_start|date:"M" %}
-                    {% if not forloop.first %}
-                      <tr class="empty"><td></td></tr>
-                    {% endif %}
-                    <tr class="month">
-                      <td>{{ meet.date_start|date:"F"}}</td>
+            
+            {% for meet in object_list %}  
+              {% ifchanged meet.date_start|date:"Y" %}
+                {% if not forloop.first %}
+                  </tbody>
+              </table>
+                {% endif %}
+              <div class="redline"><h2>{{ meet.date_start|date:"Y" }} Meet Schedule</h2></div>
+              <table class="meetTable">
+                <tbody>
+              {% endifchanged %}
+                  
+                    {% ifchanged meet.date_start|date:"M" %}
+                      {% if not forloop.first %}
+                        <tr class="empty"><td></td></tr>
+                      {% endif %}
+                      <tr class="month">
+                        <td>{{ meet.date_start|date:"F"}}</td>
+                      </tr>
+                    {% endifchanged %}
+                    <tr>
+                      <td><p><strong>{{ meet.get_display_date }}</strong><br/>
+                          {{ meet.name }}<br/>
+                          {% ifequal meet.country "United States" %}
+                          {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.us_state }}. <br/>
+                          {% else %}
+                          {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.country }}.<br/>
+                          {% endifequal %}
+                          <a href="{{ meet.entry_link }}" target="_blank">Entry Form</a>
+                          {% if meet.date_close %}<br />
+                          This meet closes on {{ meet.date_close|date:"M d" }}
+                          {% endif %}
+                          </p>
+                      </td>
                     </tr>
-                  {% endifchanged %}
-                  <tr>
-                    <td><p><strong>{{ meet.get_display_date }}</strong><br/>
-                        {{ meet.name }}<br/>
-                        {% ifequal meet.country "United States" %}
-                        {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.state }}. <br/>
-                        {% else %}
-                        {{ meet.meet_pool }}, {{ meet.city }}, {{ meet.country }}.<br/>
-                        {% endifequal %}
-                        <a href="{{ meet.entry_link }}" target="_blank">Entry Form</a>
-                        {% if meet.date_close %}<br />
-                        This meet closes on {{ meet.date_close|date:"M d" }}
-                        {% endif %}
-                        </p>
-                    </td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
+            {% endfor %}
+                </tbody>
+              </table>
             
             <p>Additional meets will be added to the schedule as they are sanctioned and posted.</p>
             

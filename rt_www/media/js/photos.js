@@ -50,6 +50,7 @@ GalleryManager.prototype.ChangeImage = function(imageNum) {
 	var _this = this;
 	imgPreloader = new Image();
 	imgPreloader.onload = function(){ 
+        console.info(_this.imageArray[_this.activeImage]);
 		setNodeAttribute('lightboxImage', 'src', _this.imageArray[_this.activeImage].url); 
 		galleryManager.ResizeImageContainer(imgPreloader.width, imgPreloader.height);
 	}
@@ -130,7 +131,6 @@ GalleryManager.prototype.Start = function(gid) {
     arrayPageSize = GetPageSize();
     var arrayPageScroll = GetPageScroll();
     var lightboxTop = arrayPageScroll[1] + (arrayPageSize[3] / 15);
-    console.info(lightboxTop);
     setStyle('lightbox', { 'top':lightboxTop + 'px' });
     showElement('lightbox');
 		
@@ -249,7 +249,6 @@ GalleryManager.prototype.PageBuild = function(req) {
         var gallery = req.list[i];
 	this.gallery_title_cache[gallery.gid] = gallery.title;
         if( i > 0 && i % 3 == 0) { rows[rcount] = row; rcount++; row = new Array(); }
-
         row[i%4] = { title : gallery.title, loc : gallery.thumburl, gid : gallery.gid };
         ids[i] = gallery.gid;
     }

@@ -13,7 +13,7 @@ admin.autodiscover()
 
 meets_info_dict = {
     'queryset':Meet.objects.filter(date_start__gte=datetime.now(), entry_link__isnull=False,
-        date_start__year=get_current_year()).order_by('date_start'),
+        date_start__gte=datetime.now()).order_by('date_start'),
     'template_name':'index/meets.html',
     'extra_context':{ 'results':Meet.objects.filter(date_start__lte=datetime.now(),
         results_link__isnull=False).exclude(results_link__exact='').order_by('-date_start')[:5], 'year':get_current_year() }
