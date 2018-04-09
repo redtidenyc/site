@@ -58,6 +58,22 @@ RedTide.MapManager = (function() {
 			this.rooseveltmap.setCenter(rooseveltpoint, 15) ;
 			this.rooseveltmap.addOverlay(new GMarker(this.rooseveltmap.getCenter()));
 		*/
+		var sacredLatLng = new google.maps.LatLng(40.782952,-73.9579644);
+		var sacredMapOptions = {
+			center: sacredLatLng,
+			zoom: 15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var sacredmap = new google.maps.Map(document.getElementById("sacredmap"),
+			sacredMapOptions);
+			
+		var sacredmarker = new google.maps.Marker({
+			    position: sacredLatLng,
+			    title:"Convent of the Sacred Heart School"
+			});
+
+		// To add the marker to the map, call setMap();
+		sacredmarker.setMap(sacredmap);
 	}
 	
 	return {
