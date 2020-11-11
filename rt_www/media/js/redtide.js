@@ -7,10 +7,10 @@ var RedTide = (function () {
 		setActiveNavTab();
 		
 		// Create a custom search element
-	 	var customSearchControl = new google.search.CustomSearchControl('003271229151040756210:ka1nrkbnwnu');
+	 	//var customSearchControl = new google.search.CustomSearchControl('003271229151040756210:ka1nrkbnwnu');
 
 		// Draw the control in example-div
-		customSearchControl.draw('searchwrapper');
+		//customSearchControl.draw('searchwrapper');
 	}
 	
 	// set the correct tab as active
