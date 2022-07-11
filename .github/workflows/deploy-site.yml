@@ -2,7 +2,7 @@ name: deploy-redtide-website
 on:
   push:
     branches:
-      - 'workflow-action-for-deploy'
+      - master
 jobs:
   deploy:
     name: Deploy
