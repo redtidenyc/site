@@ -16,4 +16,4 @@ jobs:
         password: ${{ secrets.SSH_KEY }}
         script: |
           # git update to latest codebase on main branch
-          cd rt_www && git pull
+          cd /home/redtide-mods-prod/site/rt_www && git pull
