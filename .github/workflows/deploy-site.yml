@@ -1,0 +1,19 @@
+name: deploy-redtide-website
+on: [push]
+  branches: 
+    - master
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy via ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          # git update to latest codebase on main branch
+          cd rt_www && git pull
+          
