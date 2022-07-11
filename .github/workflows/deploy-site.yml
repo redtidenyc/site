@@ -1,7 +1,8 @@
 name: deploy-redtide-website
-on: push
-  branches: 
-    - 'workflow-action-for-deploy'
+on:
+  push:
+    branches:
+      - 'workflow-action-for-deploy'
 jobs:
   deploy:
     name: Deploy
