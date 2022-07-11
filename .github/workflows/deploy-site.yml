@@ -14,6 +14,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_KEY }}
+        use_insecure_cipher: true
         script: |
           # git update to latest codebase on main branch
           cd /home/redtide-mods-prod/site/rt_www && git pull
