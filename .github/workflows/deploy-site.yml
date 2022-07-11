@@ -1,5 +1,5 @@
 name: deploy-redtide-website
-on: [push]
+on: push
   branches: 
     - master
 jobs:
@@ -16,4 +16,3 @@ jobs:
         script: |
           # git update to latest codebase on main branch
           cd rt_www && git pull
-          
